@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Detail – Student Tech Agency</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ======================== NAV ======================== -->
+  <nav class="nav">
+    <div class="nav__logo">agency.</div>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="project-detail.html" class="active">Detail</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav__cta">Run App</a>
+  </nav>
+
+  <main class="page-content">
+
+    <!-- ======================== BACK LINK ======================== -->
+    <a href="work.html" class="back-link">← Back to Work</a>
+
+    <!-- ======================== TITLE BLOCK ======================== -->
+    <div class="detail-title">
+      <div class="line-xl">CASE STUDY:</div>
+      <div class="line-xl">AERO-TWIN</div>
+      <div class="line-md">A complete state-synchronization engine built for autonomous UAV swarms.</div>
+    </div>
+
+    <!-- ======================== HERO IMAGE ======================== -->
+    <div class="img-box detail-hero-img"></div>
+
+    <!-- ======================== FACTS ROW ======================== -->
+    <div class="facts-row">
+
+      <div class="fact-cell">
+        <div class="line-sm">PLATFORM</div>
+        <div class="line-lg">AWS Cloud</div>
+      </div>
+
+      <div class="fact-cell">
+        <div class="line-sm">TIMELINE</div>
+        <div class="line-lg">4 Weeks</div>
+      </div>
+
+      <div class="fact-cell">
+        <div class="line-sm">ROLE</div>
+        <div class="line-lg">Architect</div>
+      </div>
+
+      <div class="fact-cell">
+        <div class="line-sm">LANGUAGE</div>
+        <div class="line-lg">Rust</div>
+      </div>
+
+    </div>
+
+    <!-- ======================== BODY PARAGRAPHS ======================== -->
+    <div class="detail-body">
+
+      <div class="para-block">
+        <p class="line-md">We set out to build a fully synchronized edge agent model that could handle thousands of concurrent queries without bottlenecking the parent process. Our final pipeline benchmarked at sub-50ms execution times.</p>
+      </div>
+
+      <div class="para-block">
+        <p class="line-md">To achieve this performance, we designed a lightweight consensus engine using CRDTs (Conflict-Free Replicated Data Types) written in Rust, allowing each UAV node to resume peer-to-peer synchronization immediately after suffering wireless packet loss.</p>
+      </div>
+
+      <div class="para-block">
+        <p class="line-md">Field testing proved that 99.9% state synchronization was achieved in under 50ms, enabling robust collision avoidance algorithms and unified navigation swarms even when entirely cut off from ground control stations.</p>
+      </div>
+
+    </div>
+
+    <!-- ======================== SCREENSHOT ROW ======================== -->
+    <div class="screenshot-row">
+      <div class="img-box" style="flex:0 0 300px;height:200px;"></div>
+      <div class="img-box" style="flex:0 0 300px;height:200px;"></div>
+      <div class="img-box" style="flex:0 0 300px;height:200px;"></div>
+      <div class="img-box" style="flex:0 0 300px;height:200px;"></div>
+    </div>
+
+    <!-- ======================== NEXT PROJECT TEASER ======================== -->
+    <a href="work.html" class="next-project">
+      <div class="next-project__label">
+        <div class="line-sm">UP NEXT</div>
+        <div class="line-lg">MuleNet Engine</div>
+      </div>
+      <div class="next-project__arrow">➔</div>
+    </a>
+
+  </main>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="footer">
+    <div class="footer__col">
+      <div class="line-md">AGENCY.</div>
+      <div class="line-sm">© 2026 Student Tech Agency</div>
+      <div class="line-sm">Built under intense pressure</div>
+      <div class="line-sm">No suits. No fluff.</div>
+    </div>
+    <div class="footer__col">
+      <div class="line-md">NAVIGATION</div>
+      <div class="line-sm"><a href="index.html">Home</a></div>
+      <div class="line-sm"><a href="work.html">Work</a></div>
+      <div class="line-sm"><a href="team.html">Team</a></div>
+    </div>
+    <div class="footer__col">
+      <div class="line-md">SAY HELLO</div>
+      <div class="line-sm">hello@agency.dev</div>
+      <div class="line-sm">SF / NYC / Remote</div>
+    </div>
+    <div class="footer__bottom"></div>
+  </footer>
+
+  <!-- ======================== SCROLL REVEAL & STICKERS ======================== -->
+  <script>
+    (function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const targets = document.querySelectorAll(
+        '.project-row,.services-grid,.team-strip,.logos-row,' +
+        '.page-header,.filter-row,.project-grid,.detail-title,' +
+        '.detail-hero-img,.facts-row,.detail-body,.screenshot-row,' +
+        '.next-project,.team-intro,.team-grid,.timeline,' +
+        '.contact-headline,.contact-form,.social-row'
+      );
+
+      if (!('IntersectionObserver' in window) || prefersReduced) {
+        return; // stays visible by default
+      }
+
+      targets.forEach(el => el.classList.add('reveal-init'));
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      targets.forEach(el => io.observe(el));
+    })();
+  </script>
+</body>
+</html>

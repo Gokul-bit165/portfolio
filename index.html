@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>agency. — AI & Software Student Agency</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ======================== NAV ======================== -->
+  <nav class="nav">
+    <div class="nav__logo">agency.</div>
+    <ul class="nav__links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="project-detail.html">Detail</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav__cta">Run App</a>
+  </nav>
+
+  <main class="page-content">
+
+    <!-- ======================== HERO ======================== -->
+    <!-- ======================== HERO ======================== -->
+    <section class="hero">
+      <!-- Background grain/noise SVG filter (invisible, for texture) -->
+      <svg style="position: absolute; width: 0; height: 0;" width="0" height="0">
+        <filter id="noiseFilter">
+          <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch" />
+          <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.04 0" />
+        </filter>
+      </svg>
+
+      <!-- Asymmetric Badges & Chips -->
+      <div class="hero-badge badge--mission">5 DEVS, 1 MISSION</div>
+      <div class="hero-badge badge--status">STATUS: SHIPPING</div>
+      <div class="hero-badge badge--est">EST. 2024</div>
+
+      <!-- Mascot & Composition Balance -->
+      <div class="hero__mascot-wrapper">
+        <div class="hero__mascot">
+          <svg viewBox="0 0 150 150" width="100%" height="100%">
+            <!-- Body -->
+            <rect x="25" y="25" width="100" height="85" rx="16" fill="var(--accent-green)" stroke="var(--color-black)" stroke-width="3" />
+            <!-- Screen -->
+            <rect x="35" y="35" width="80" height="50" rx="8" fill="#111111" />
+            <!-- Eyes (Blinking glow) -->
+            <circle class="mascot-eye mascot-eye-left" cx="60" cy="55" r="7" fill="var(--accent-orange)" />
+            <circle class="mascot-eye mascot-eye-right" cx="90" cy="55" r="7" fill="var(--accent-orange)" />
+            <!-- Smile -->
+            <path d="M 67 71 Q 75 78 83 71" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" />
+            <!-- Feet -->
+            <path d="M 50 110 L 45 135 M 100 110 L 105 135" stroke="var(--color-black)" stroke-width="3" stroke-linecap="round" />
+            <rect x="35" y="132" width="25" height="6" rx="3" fill="var(--color-black)" />
+            <rect x="90" y="132" width="25" height="6" rx="3" fill="var(--color-black)" />
+            <!-- Antenna -->
+            <path d="M 75 25 L 75 12" stroke="var(--color-black)" stroke-width="3" />
+            <circle cx="75" cy="8" r="6" fill="var(--accent-orange)" stroke="var(--color-black)" stroke-width="2" />
+          </svg>
+          <!-- Mascot expression bubble -->
+          <div class="mascot-bubble">
+            <span class="font-mono">BUILD_OK</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Headline Layout -->
+      <div class="hero__headline">
+        
+        <div class="hero__line hero__line--1">
+          <span class="word-small">we</span>
+          <span class="word-display accent-orange position-relative">
+            BUILD
+            <!-- Hand drawn underline SVG -->
+            <svg class="doodle doodle--underline" viewBox="0 0 100 10" preserveAspectRatio="none">
+              <path d="M 1 7 C 30 9, 70 8, 99 3 C 60 5, 20 8, 2 6" fill="none" stroke="var(--accent-orange)" stroke-width="4" stroke-linecap="round" />
+            </svg>
+          </span>
+          <!-- Seriously margin script -->
+          <span class="word-script label-seriously">(seriously)</span>
+          
+          <!-- Squiggly arrow doodle -->
+          <svg class="doodle doodle--arrow" viewBox="0 0 100 100">
+            <path d="M 15 80 Q 45 60 75 25 M 75 25 L 55 32 M 75 25 L 68 45" fill="none" stroke="var(--color-black)" stroke-width="4" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <div class="hero__line hero__line--2">
+          <span class="word-display">PRODUCTION</span>
+          <span class="word-mono">v1.0.4</span>
+        </div>
+
+        <div class="hero__line hero__line--3">
+          <span class="word-display position-relative" style="display: inline-block;">
+            <span class="highlight-bg"></span>
+            <span class="z-index-2 position-relative">SOFTWARE</span>
+          </span>
+        </div>
+
+      </div>
+
+      <div class="hero__sub">
+        <div class="line-md">A crew of 5 software builders. No suits. No fluff.</div>
+        <div class="line-md">Just production-grade artificial intelligence and real software engineering.</div>
+      </div>
+
+      <div class="hero__actions">
+        <a href="work.html" class="btn-block btn-block--primary">See Work</a>
+        <a href="contact.html" class="btn-block btn-block--secondary">Say Hi</a>
+      </div>
+    </section>
+
+    <!-- ======================== SECTION LABEL ======================== -->
+    <div class="section-label">Featured Projects ~</div>
+
+    <!-- ======================== PROJECT SCROLL ROW ======================== -->
+    <div class="project-row">
+
+      <div class="project-row__card">
+        <div class="img-box"></div>
+        <div class="line-lg">AeroTwin</div>
+        <div class="line-md">Autonomous state-sync engine built for UAV swarms.</div>
+        <div class="line-md">Rust / ROS2 / AWS</div>
+      </div>
+
+      <div class="project-row__card">
+        <div class="img-box"></div>
+        <div class="line-lg">MuleNet</div>
+        <div class="line-md">Decentralized BLE messaging protocol for off-grid edge devices.</div>
+        <div class="line-md">Go / BLE / Protobuf</div>
+      </div>
+
+      <div class="project-row__card">
+        <div class="img-box"></div>
+        <div class="line-lg">AgentOS</div>
+        <div class="line-md">Multi-agent orchestration workspace powered by LangGraph.</div>
+        <div class="line-md">Python / FastGPT / LangGraph</div>
+      </div>
+
+      <div class="project-row__card">
+        <div class="img-box"></div>
+        <div class="line-lg">VisionPipe</div>
+        <div class="line-md">Industrial defect detection via high-speed camera streams and CUDA.</div>
+        <div class="line-md">C++ / CUDA / PyTorch</div>
+      </div>
+
+      <div class="project-row__card">
+        <div class="img-box"></div>
+        <div class="line-lg">GridForecast</div>
+        <div class="line-md">Smart grid load forecasting with edge neural networks.</div>
+        <div class="line-md">Rust / WASM / ONNX</div>
+      </div>
+
+    </div>
+
+    <!-- ======================== SECTION LABEL ======================== -->
+    <div class="section-label">Our Expertise ~</div>
+
+    <!-- ======================== SERVICES / SKILLS GRID ======================== -->
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-card__icon">✦</div>
+        <div class="line-lg">AI Agents</div>
+        <div class="line-md">Fully custom multi-agent logic built with LangGraph and Python.</div>
+        <div class="line-md">LangGraph / CrewAI / LangChain</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">👁</div>
+        <div class="line-lg">Edge Vision</div>
+        <div class="line-md">Embedded YOLO & custom CNN pipelines for real-time edge inference.</div>
+        <div class="line-md">TensorRT / CUDA / C++</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">⚙</div>
+        <div class="line-lg">Embedded IoT</div>
+        <div class="line-md">Low-latency robotics firmware, custom protocols, and ROS2 navigation.</div>
+        <div class="line-md">ROS2 / Rust / C++ / ESP32</div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-card__icon">⚡</div>
+        <div class="line-lg">Web Systems</div>
+        <div class="line-md">Production-grade full-stack apps built with high scalability.</div>
+        <div class="line-md">Next.js / Go / Docker / AWS</div>
+      </div>
+
+    </div>
+
+    <!-- ======================== SECTION LABEL ======================== -->
+    <div class="section-label">The Builders ~</div>
+
+    <!-- ======================== TEAM STRIP ======================== -->
+    <div class="team-strip">
+
+      <div class="team-strip__photo">
+        <div class="line-sm">Gokul / Dev Lead</div>
+      </div>
+
+      <div class="team-strip__photo">
+        <div class="line-sm">Aria / AI Lead</div>
+      </div>
+
+      <div class="team-strip__photo">
+        <div class="line-sm">Sam / Robotics</div>
+      </div>
+
+      <div class="team-strip__photo">
+        <div class="line-sm">Lina / Full Stack</div>
+      </div>
+
+      <div class="team-strip__photo">
+        <div class="line-sm">Devon / Embedded</div>
+      </div>
+
+    </div>
+
+    <!-- ======================== SECTION LABEL ======================== -->
+    <div class="section-label">Trusted By ~</div>
+
+    <!-- ======================== LOGOS ROW ======================== -->
+    <div class="logos-row">
+      <div class="logo-block">MIT HACK WIN</div>
+      <div class="logo-block">Y COMBINATOR</div>
+      <div class="logo-block">TECHCRUNCH</div>
+      <div class="logo-block">ETH GLOBAL</div>
+      <div class="logo-block">AI GRAND PRIZE</div>
+      <div class="logo-block">ROBOCUP 1ST</div>
+    </div>
+
+  </main>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="footer">
+    <div class="footer__col">
+      <div class="line-md">AGENCY.</div>
+      <div class="line-sm">© 2026 Student Tech Agency</div>
+      <div class="line-sm">Built under intense pressure</div>
+      <div class="line-sm">No suits. No fluff.</div>
+    </div>
+    <div class="footer__col">
+      <div class="line-md">NAVIGATION</div>
+      <div class="line-sm"><a href="index.html">Home</a></div>
+      <div class="line-sm"><a href="work.html">Work</a></div>
+      <div class="line-sm"><a href="team.html">Team</a></div>
+    </div>
+    <div class="footer__col">
+      <div class="line-md">SAY HELLO</div>
+      <div class="line-sm">hello@agency.dev</div>
+      <div class="line-sm">SF / NYC / Remote</div>
+    </div>
+    <div class="footer__bottom"></div>
+  </footer>
+
+  <!-- ======================== SCROLL REVEAL & STICKERS ======================== -->
+  <script>
+    (function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Custom Spotlight tracking cursor
+      if (!prefersReduced) {
+        const spotlight = document.createElement('div');
+        spotlight.className = 'cursor-spotlight';
+        document.body.appendChild(spotlight);
+        window.addEventListener('mousemove', (e) => {
+          spotlight.style.left = e.clientX + 'px';
+          spotlight.style.top = e.clientY + 'px';
+        }, { passive: true });
+      }
+
+      const line1 = document.querySelector('.hero__line--1');
+      const line2 = document.querySelector('.hero__line--3');
+      const heroSub = document.querySelector('.hero__sub');
+      const heroActions = document.querySelector('.hero__actions');
+      const heroSection = document.querySelector('.hero');
+
+      if (line1 && line2 && heroSection && !prefersReduced) {
+        const stickersData = [
+          { type: 'arrow', left: '10%', top: '15%', rot: '-10deg' },
+          { type: 'sparkle', left: '85%', top: '25%', rot: '12deg' },
+          { type: 'heart', left: '75%', top: '70%', rot: '8deg' },
+          { type: 'badge', left: '5%', top: '75%', rot: '-8deg' }
+        ];
+
+        const activeStickers = stickersData.map(data => {
+          const s = document.createElement('div');
+          s.className = `sticker sticker--${data.type}`;
+          s.style.left = data.left;
+          s.style.top = data.top;
+          s.style.setProperty('--rot', data.rot);
+          heroSection.appendChild(s);
+          return s;
+        });
+
+        // maxScroll derives from the hero's real height
+        let maxScroll = heroSection.offsetHeight * 0.6;
+        window.addEventListener('resize', () => {
+          maxScroll = heroSection.offsetHeight * 0.6;
+        }, { passive: true });
+
+        let ticking = false;
+
+        function updateHero() {
+          const scrolled = window.pageYOffset;
+          const scrollPct = Math.min(scrolled / maxScroll, 1);
+
+          // Larger, viewport-relative offset so lines start off-screen/shifted
+          // Limit this layout motion dynamically
+          if (window.innerWidth >= 768) {
+            const trans1 = -40 + (scrollPct * 40); // starting position shifted left (bleeding off)
+            const trans2 = 40 - (scrollPct * 40);  // starting position shifted right (bleeding off)
+            line1.style.transform = `translateX(${trans1}vw)`;
+            line2.style.transform = `translateX(${trans2}vw)`;
+          } else {
+            // Simplified fallback on mobile
+            line1.style.transform = 'none';
+            line2.style.transform = 'none';
+          }
+
+          const settled = scrollPct > 0.7 || window.innerWidth < 768;
+          activeStickers.forEach(s => s.classList.toggle('show', settled));
+          if (heroSub) heroSub.classList.toggle('show', settled);
+          if (heroActions) heroActions.classList.toggle('show', settled);
+
+          ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+          if (!ticking) {
+            requestAnimationFrame(updateHero);
+            ticking = true;
+          }
+        }, { passive: true });
+
+        updateHero();
+      } else {
+        // Fallback for prefersReduced or no lines
+        if (heroSub) heroSub.classList.add('show');
+        if (heroActions) heroActions.classList.add('show');
+      }
+
+      // Reveal-on-scroll: visible by default in CSS, only animated if JS handles it.
+      const targets = document.querySelectorAll(
+        '.project-row,.services-grid,.team-strip,.logos-row,' +
+        '.page-header,.filter-row,.project-grid,.detail-title,' +
+        '.detail-hero-img,.facts-row,.detail-body,.screenshot-row,' +
+        '.next-project,.team-intro,.team-grid,.timeline,' +
+        '.contact-headline,.contact-form,.social-row'
+      );
+
+      if (!('IntersectionObserver' in window) || prefersReduced) {
+        return; // sections stay visible, no animation attempted
+      }
+
+      targets.forEach(el => el.classList.add('reveal-init'));
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      targets.forEach(el => io.observe(el));
+    })();
+  </script>
+</body>
+</html>

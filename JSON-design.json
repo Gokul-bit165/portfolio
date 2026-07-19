@@ -1,0 +1,112 @@
+{
+  "project": "Student AI/Software Agency Portfolio",
+  "design_philosophy": "Not a corporate agency site. A living, breathing HQ for 5 people who build real AI/software under deadline pressure. Feels alive, reactive, slightly experimental — like the site itself is a piece of software, not a brochure.",
+
+  "avoid": [
+    "Cream background + serif + terracotta accent (generic AI-site default)",
+    "Pure black + single neon-green accent (generic AI-site default)",
+    "Static, lifeless cards with no interaction feedback",
+    "Overused glass panels with no purpose (glass should reveal depth/context, not just look pretty)",
+    "Generic Bootstrap/Tailwind-default spacing and shadows"
+  ],
+
+  "color_system": {
+    "base_dark": "#0B0E14",
+    "base_dark_alt": "#12151F",
+    "surface_glass": "rgba(255,255,255,0.06)",
+    "surface_glass_border": "rgba(255,255,255,0.12)",
+    "signal_primary": "#7C5CFF",
+    "signal_secondary": "#00E5A0",
+    "signal_gradient": "linear-gradient(135deg, #7C5CFF 0%, #00E5A0 100%)",
+    "text_primary": "#F4F5F7",
+    "text_muted": "#8A8F9C",
+    "accent_warning": "#FF6B4A",
+    "notes": "Deep ink-blue/near-black base, not pure black. One violet + one mint-green signal color forming the brand gradient, used sparingly as glow/accent, never as full backgrounds."
+  },
+
+  "typography": {
+    "display_font": "Space Grotesk or Clash Display — geometric, slightly futuristic, used only for headlines",
+    "body_font": "Inter or General Sans — clean, highly legible at small sizes",
+    "mono_font": "JetBrains Mono — used for tags, stack labels, code-style metadata (e.g. project tech stack chips, timestamps)",
+    "scale": "Fluid type scale using clamp() so headlines scale smoothly between mobile and desktop",
+    "treatment": "Headlines use tight letter-spacing and slightly oversized weight jumps (300 body, 600 display) for contrast"
+  },
+
+  "glassmorphism": {
+    "usage": "Project cards, nav bar, modal overlays, team cards on hover",
+    "implementation": {
+      "background": "rgba(255,255,255,0.05)",
+      "backdrop_filter": "blur(20px) saturate(150%)",
+      "border": "1px solid rgba(255,255,255,0.1)",
+      "border_radius": "16px",
+      "shadow": "0 8px 32px rgba(0,0,0,0.35)"
+    },
+    "depth_rule": "Glass panels sit above an animated gradient mesh background so blur actually reveals moving color underneath — glass with nothing behind it to blur is pointless, always give it a living background layer"
+  },
+
+  "background_effects": {
+    "type": "Animated mesh gradient / aurora blobs",
+    "description": "2-3 large soft-blurred gradient blobs (violet + mint) slowly drifting behind the glass layer using CSS @keyframes transform + blur, or a lightweight canvas/WebGL shader for smoother motion",
+    "performance_note": "Use CSS transform/opacity only for the cheap version; use a simple GLSL shader via a small library like OGL or vanilla WebGL only if performance budget allows on mobile",
+    "alt_option": "Subtle animated noise/grain overlay at 3-5% opacity for texture, prevents flat digital look"
+  },
+
+  "cursor_effects": {
+    "default": "Custom cursor replacing native pointer — small circle with a soft glow, color-matched to signal_primary",
+    "hover_states": {
+      "on_links_buttons": "Cursor expands into a larger ring and text label appears inside it (e.g. 'view', 'open', 'drag') — magnetic pull effect where cursor and element attract slightly toward each other",
+      "on_project_cards": "Cursor morphs into a small preview thumbnail or 'view project' pill that follows the mouse",
+      "on_drag_carousel": "Cursor shows a horizontal drag icon with grab/grabbing states"
+    },
+    "trail_effect": "Optional: faint particle trail or blur-trail following cursor movement, decaying over ~300ms, using requestAnimationFrame — kept subtle, disabled on touch devices",
+    "implementation_note": "Build with vanilla JS mousemove + CSS transform (translate3d for GPU acceleration), never top/left positioning"
+  },
+
+  "micro_interactions": {
+    "buttons": "Magnetic hover (button shifts slightly toward cursor within a radius), gradient border that animates on hover",
+    "cards": "3D tilt on mouse move (perspective transform based on cursor position within card bounds) + glass shine sweep on hover",
+    "text_reveal": "Headlines split into words/characters and animate in with staggered fade+slide on scroll (SplitType + GSAP or a lightweight custom implementation)",
+    "images": "Subtle parallax scroll on project thumbnails (image moves slower than container)",
+    "loading": "Custom loading sequence on first visit — animated logo mark or terminal-style boot text before revealing hero"
+  },
+
+  "scroll_effects": {
+    "library_suggestion": "Lenis for smooth inertia scrolling + GSAP ScrollTrigger for scroll-linked animations",
+    "hero": "Pinned hero section with layered parallax as user scrolls into first project section",
+    "project_carousel": "Native drag-to-scroll with scroll-snap, inertia/momentum on release, cards scale slightly as they center in viewport",
+    "reveal_pattern": "Sections fade/slide up as they enter viewport via IntersectionObserver, staggered children (card grids animate in sequence, not all at once)"
+  },
+
+  "signature_element": {
+    "concept": "A live 'build status' strip in the nav or hero — styled like a CI/CD pipeline indicator (e.g. small animated dots/ticks that pulse like a terminal build log), reinforcing 'we ship real software' identity. This becomes the one bold, memorable motif tying the whole site together.",
+    "placement": "Persistent in nav or floating corner widget, subtle idle animation, could show something like rotating text of tech stack or recent commit-style status"
+  },
+
+  "layout_principles": {
+    "grid": "12-column responsive grid, generous whitespace, asymmetric project grid (not uniform cards) for visual energy",
+    "corners": "Consistent 16px radius on cards, 999px pill radius only on tags/badges",
+    "spacing_scale": "8px base unit, spacing scale: 8/16/24/32/48/64/96",
+    "responsiveness": "Mobile-first, cursor effects and heavy blur disabled below 768px width for performance, replaced with simple tap-state animations"
+  },
+
+  "accessibility": {
+    "reduced_motion": "All animations wrapped in @media (prefers-reduced-motion: no-preference); reduced version keeps only opacity fades",
+    "focus_states": "Visible focus rings on all interactive elements, custom-styled to match brand rather than removed",
+    "contrast": "Ensure text over glass/gradient backgrounds passes WCAG AA — add a subtle dark scrim behind text if needed"
+  },
+
+  "tech_stack_recommendation": {
+    "core": "Plain HTML/CSS/vanilla JS (no framework, keep it fast and simple to split across team)",
+    "animation_libraries": ["GSAP (core + ScrollTrigger)", "Lenis (smooth scroll)"],
+    "optional_advanced": ["OGL or three.js — only if adding a WebGL shader background", "SplitType — for word/character text splitting"],
+    "avoid": "Heavy frameworks (React/Vue) unless team already committed — adds build complexity for a 5-person static site"
+  },
+
+  "assets_needed_later": {
+    "images": "Team headshots, project screenshots/gifs, hackathon logos (SVG preferred, transparent bg)",
+    "fonts": "Self-hosted woff2 files for chosen display + body fonts (avoid pure Google Fonts CDN dependency for speed)",
+    "icons": "Consistent icon set (Phosphor or Tabler icons) for stack tags, socials, nav",
+    "favicon_og": "Favicon + 1200x630 social share image",
+    "video": "Optional short project demo clips (mp4, under 5MB each, muted autoplay loop) for hero/project cards"
+  }
+}

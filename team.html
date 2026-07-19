@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Team – Student Tech Agency</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ======================== NAV ======================== -->
+  <nav class="nav">
+    <div class="nav__logo">agency.</div>
+    <ul class="nav__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Work</a></li>
+      <li><a href="project-detail.html">Detail</a></li>
+      <li><a href="team.html" class="active">Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav__cta">Run App</a>
+  </nav>
+
+  <main class="page-content">
+
+    <!-- ======================== INTRO BLOCK ======================== -->
+    <div class="team-intro">
+      <div class="line-xl">MEET THE TEAM</div>
+      <div class="line-md">Five friends coding, building, and launching products under pressure.</div>
+    </div>
+
+    <!-- ======================== TEAM CARD GRID ======================== -->
+    <div class="team-grid">
+
+      <div class="team-card">
+        <div class="team-card__photo img-box"></div>
+        <div class="team-card__info">
+          <div class="line-lg">Gokul</div>
+          <div class="line-sm">Dev Lead</div>
+          <div class="line-sm">Compilers & Systems</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card__photo img-box"></div>
+        <div class="team-card__info">
+          <div class="line-lg">Aria</div>
+          <div class="line-sm">AI Architect</div>
+          <div class="line-sm">LangGraph & Tuning</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card__photo img-box"></div>
+        <div class="team-card__info">
+          <div class="line-lg">Sam</div>
+          <div class="line-sm">Robotics Lead</div>
+          <div class="line-sm">ROS2 & Control Systems</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card__photo img-box"></div>
+        <div class="team-card__info">
+          <div class="line-lg">Lina</div>
+          <div class="line-sm">Full Stack Dev</div>
+          <div class="line-sm">Next.js & Cloud Ops</div>
+        </div>
+      </div>
+
+      <div class="team-card">
+        <div class="team-card__photo img-box"></div>
+        <div class="team-card__info">
+          <div class="line-lg">Devon</div>
+          <div class="line-sm">Embedded Eng</div>
+          <div class="line-sm">Firmware & IoT Sensors</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ======================== TIMELINE ======================== -->
+    <div class="timeline">
+
+      <div class="section-label">Our Journey ~</div>
+
+      <div class="timeline__track">
+
+        <div class="timeline__line"></div>
+
+        <div class="timeline__node">
+          <div class="timeline__dot"></div>
+          <div class="line-sm">Bootcamp</div>
+          <div class="line-xs">Summer 2024</div>
+        </div>
+
+        <div class="timeline__node">
+          <div class="timeline__dot"></div>
+          <div class="line-sm">First Win</div>
+          <div class="line-xs">Fall 2024</div>
+        </div>
+
+        <div class="timeline__node">
+          <div class="timeline__dot"></div>
+          <div class="line-sm">Client #1</div>
+          <div class="line-xs">Winter 2024</div>
+        </div>
+
+        <div class="timeline__node">
+          <div class="timeline__dot"></div>
+          <div class="line-sm">SaaS Launch</div>
+          <div class="line-xs">Spring 2025</div>
+        </div>
+
+        <div class="timeline__node">
+          <div class="timeline__dot"></div>
+          <div class="line-sm">Scaling</div>
+          <div class="line-xs">Present</div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="footer">
+    <div class="footer__col">
+      <div class="line-md">AGENCY.</div>
+      <div class="line-sm">© 2026 Student Tech Agency</div>
+      <div class="line-sm">Built under intense pressure</div>
+      <div class="line-sm">No suits. No fluff.</div>
+    </div>
+    <div class="footer__col">
+      <div class="line-md">NAVIGATION</div>
+      <div class="line-sm"><a href="index.html">Home</a></div>
+      <div class="line-sm"><a href="work.html">Work</a></div>
+      <div class="line-sm"><a href="team.html">Team</a></div>
+    </div>
+    <div class="footer__col">
+      <div class="line-md">SAY HELLO</div>
+      <div class="line-sm">hello@agency.dev</div>
+      <div class="line-sm">SF / NYC / Remote</div>
+    </div>
+    <div class="footer__bottom"></div>
+  </footer>
+
+  <!-- ======================== SCROLL REVEAL & STICKERS ======================== -->
+  <script>
+    (function () {
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const targets = document.querySelectorAll(
+        '.project-row,.services-grid,.team-strip,.logos-row,' +
+        '.page-header,.filter-row,.project-grid,.detail-title,' +
+        '.detail-hero-img,.facts-row,.detail-body,.screenshot-row,' +
+        '.next-project,.team-intro,.team-grid,.timeline,' +
+        '.contact-headline,.contact-form,.social-row'
+      );
+
+      if (!('IntersectionObserver' in window) || prefersReduced) {
+        return; // stays visible by default
+      }
+
+      targets.forEach(el => el.classList.add('reveal-init'));
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      targets.forEach(el => io.observe(el));
+    })();
+  </script>
+</body>
+</html>
