@@ -3,185 +3,242 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Work – Student Tech Agency</title>
+  <title>Work — agency.</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ======================== NAV ======================== -->
   <nav class="nav">
-    <div class="nav__logo">agency.</div>
+    <a href="index.html" class="nav__logo">agency.</a>
     <ul class="nav__links">
       <li><a href="index.html">Home</a></li>
       <li><a href="work.html" class="active">Work</a></li>
-      <li><a href="project-detail.html">Detail</a></li>
       <li><a href="team.html">Team</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <a href="contact.html" class="nav__cta">Run App</a>
   </nav>
 
-  <main class="page-content">
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <div class="cursor-spotlight"></div>
 
-    <!-- ======================== PAGE HEADER ======================== -->
-    <div class="page-header">
-      <div class="line-xl">OUR BUILD ARCHIVE</div>
-      <div class="line-md">Everything we have shipped. No concepts, all production-ready.</div>
+  <!-- SPREAD: THE ARCHIVE -->
+  <section class="spread spread--light page-spread">
+
+    <div style="max-width:1200px;margin:0 auto;">
+      <div class="headline" data-split style="margin-bottom:0.5em;">
+        <span class="char-wrap"><span>OUR BUILD</span></span>
+      </div>
+      <div class="headline" data-split style="margin-bottom:1em;">
+        <span class="char-wrap"><span>ARCHIVE</span></span>
+        <span class="headline__italic" style="font-size:0.3em;margin-left:0.3em;transform:rotate(-4deg);display:inline-block;vertical-align:middle;">everything we shipped</span>
+      </div>
+      <div class="subhead" style="color:var(--text-muted);margin-bottom:3em;">No concepts. All production-ready.</div>
+
+      <div class="filter-row">
+        <div class="filter-tag filter-tag--active">ALL PROJECTS</div>
+        <div class="filter-tag">COMP. VISION</div>
+        <div class="filter-tag">LLM AGENTS</div>
+        <div class="filter-tag">ROBOTICS</div>
+        <div class="filter-tag">WEB APP</div>
+        <div class="filter-tag">HARDWARE</div>
+      </div>
+
+      <div class="folder-grid">
+
+        <!-- Folder 1: AeroTwin -->
+        <div class="folder" onclick="location.href='project-detail.html'">
+          <div class="folder__blueprint">
+            <div style="font-size:0.6rem;opacity:0.7;">ARCH // FLOW</div>
+            <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">STATE_SYNCHRONIZER</div>
+            <div style="font-size:0.55rem;color:#60A5FA;">[RUST_ENGINE_v1.2]</div>
+          </div>
+          <div class="folder__metrics">
+            <div style="font-size:0.55rem;color:var(--text-muted);">LATENCY PROTOCOL</div>
+            <div style="font-size:1rem;color:var(--accent-orange);">99.9% sync</div>
+            <div style="font-size:0.55rem;">BENCHMARK: SUB-50MS</div>
+          </div>
+          <div class="folder__cover">
+            <div>
+              <div style="font-size:0.55rem;color:var(--text-muted);">UAV SWARMS</div>
+              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;">AeroTwin Swarm</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-script);font-size:0.9rem;opacity:0.8;margin-bottom:0.5em;">Decentralized flight controller for autonomous UAV swarms.</div>
+              <div class="folder__tags">
+                <span class="folder__tag">Rust</span>
+                <span class="folder__tag">ROS2</span>
+                <span class="folder__tag">AWS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Folder 2: MuleNet -->
+        <div class="folder" onclick="location.href='project-detail.html'">
+          <div class="folder__blueprint">
+            <div style="font-size:0.6rem;opacity:0.7;">SPEC // FLOW</div>
+            <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">P2P_MESH_BLE</div>
+            <div style="font-size:0.55rem;color:#60A5FA;">[GO_PROTOCOL_v0.9]</div>
+          </div>
+          <div class="folder__metrics">
+            <div style="font-size:0.55rem;color:var(--text-muted);">ROUTING DECAY</div>
+            <div style="font-size:1rem;color:var(--accent-orange);">100% off-grid</div>
+            <div style="font-size:0.55rem;">HOPS: MAX 6 EDGE</div>
+          </div>
+          <div class="folder__cover">
+            <div>
+              <div style="font-size:0.55rem;color:var(--text-muted);">COMMUNICATIONS</div>
+              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;">MuleNet Protocol</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-script);font-size:0.9rem;opacity:0.8;margin-bottom:0.5em;">Decentralized messaging protocol for off-grid edge devices.</div>
+              <div class="folder__tags">
+                <span class="folder__tag">Go</span>
+                <span class="folder__tag">BLE</span>
+                <span class="folder__tag">Protobuf</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Folder 3: AgentOS -->
+        <div class="folder" onclick="location.href='project-detail.html'">
+          <div class="folder__blueprint">
+            <div style="font-size:0.6rem;opacity:0.7;">DAG // STATE</div>
+            <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">LANGGRAPH_ROUTING</div>
+            <div style="font-size:0.55rem;color:#60A5FA;">[PY_WORKFLOW_v2.0]</div>
+          </div>
+          <div class="folder__metrics">
+            <div style="font-size:0.55rem;color:var(--text-muted);">EXECUTION TIME</div>
+            <div style="font-size:1rem;color:var(--accent-orange);">1.2s avg</div>
+            <div style="font-size:0.55rem;">ACCURACY: 98.4%</div>
+          </div>
+          <div class="folder__cover">
+            <div>
+              <div style="font-size:0.55rem;color:var(--text-muted);">AI AGENT SYSTEMS</div>
+              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;">AgentOS</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-script);font-size:0.9rem;opacity:0.8;margin-bottom:0.5em;">Visual workspace for orchestrating multi-LLM agent swarms.</div>
+              <div class="folder__tags">
+                <span class="folder__tag">Python</span>
+                <span class="folder__tag">Next.js</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Folder 4: VisionPipe -->
+        <div class="folder" onclick="location.href='project-detail.html'">
+          <div class="folder__blueprint">
+            <div style="font-size:0.6rem;opacity:0.7;">CUDA // SHADER</div>
+            <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">INFERENCE_PIPELINE</div>
+            <div style="font-size:0.55rem;color:#60A5FA;">[CUDA_STREAM_v3.4]</div>
+          </div>
+          <div class="folder__metrics">
+            <div style="font-size:0.55rem;color:var(--text-muted);">FRAME RATE</div>
+            <div style="font-size:1rem;color:var(--accent-orange);">120 FPS</div>
+            <div style="font-size:0.55rem;">RESOLUTION: 4K CHANNELS</div>
+          </div>
+          <div class="folder__cover">
+            <div>
+              <div style="font-size:0.55rem;color:var(--text-muted);">COMPUTER VISION</div>
+              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;">VisionPipe</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-script);font-size:0.9rem;opacity:0.8;margin-bottom:0.5em;">Industrial defect detection via high-speed cameras.</div>
+              <div class="folder__tags">
+                <span class="folder__tag">C++</span>
+                <span class="folder__tag">CUDA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Folder 5: HoloControl -->
+        <div class="folder" onclick="location.href='project-detail.html'">
+          <div class="folder__blueprint">
+            <div style="font-size:0.6rem;opacity:0.7;">CAD // SIM</div>
+            <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">ROBOTIC_ARM_KIN</div>
+            <div style="font-size:0.55rem;color:#60A5FA;">[UNITY_SIM_v0.5]</div>
+          </div>
+          <div class="folder__metrics">
+            <div style="font-size:0.55rem;color:var(--text-muted);">POSITION ERROR</div>
+            <div style="font-size:1rem;color:var(--accent-orange);">0.8mm variance</div>
+            <div style="font-size:0.55rem;">UDP JITTER: &lt;5MS</div>
+          </div>
+          <div class="folder__cover">
+            <div>
+              <div style="font-size:0.55rem;color:var(--text-muted);">SPATIAL COMPUTING</div>
+              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;">HoloControl</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-script);font-size:0.9rem;opacity:0.8;margin-bottom:0.5em;">Spatial computing interface for robotic arms.</div>
+              <div class="folder__tags">
+                <span class="folder__tag">Unity</span>
+                <span class="folder__tag">C#</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Folder 6: BioForecaster -->
+        <div class="folder" onclick="location.href='project-detail.html'">
+          <div class="folder__blueprint">
+            <div style="font-size:0.6rem;opacity:0.7;">CNN // REG</div>
+            <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">SATELLITE_IMG_CNN</div>
+            <div style="font-size:0.55rem;color:#60A5FA;">[PYTORCH_YIELD_v1.1]</div>
+          </div>
+          <div class="folder__metrics">
+            <div style="font-size:0.55rem;color:var(--text-muted);">YIELD RATIO</div>
+            <div style="font-size:1rem;color:var(--accent-orange);">94.1% accuracy</div>
+            <div style="font-size:0.55rem;">SPECTRAL BANDS: 8</div>
+          </div>
+          <div class="folder__cover">
+            <div>
+              <div style="font-size:0.55rem;color:var(--text-muted);">DEEP LEARNING</div>
+              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;">BioForecaster</div>
+            </div>
+            <div>
+              <div style="font-family:var(--font-script);font-size:0.9rem;opacity:0.8;margin-bottom:0.5em;">Deep learning crop yield models from satellite imagery.</div>
+              <div class="folder__tags">
+                <span class="folder__tag">PyTorch</span>
+                <span class="folder__tag">Python</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <!-- ======================== FILTER TAG ROW ======================== -->
-    <div class="filter-row">
-      <div class="filter-tag filter-tag--active">ALL PROJECTS</div>
-      <div class="filter-tag">COMP. VISION</div>
-      <div class="filter-tag">LLM AGENTS</div>
-      <div class="filter-tag">ROBOTICS</div>
-      <div class="filter-tag">WEB APP</div>
-      <div class="filter-tag">HARDWARE</div>
-    </div>
+  </section>
 
-    <!-- ======================== MASONRY PROJECT GRID ======================== -->
-    <div class="project-grid">
-
-      <div class="project-card project-card--tall">
-        <div class="img-box"></div>
-        <div class="line-lg">AeroTwin Swarm</div>
-        <div class="line-md">Decentralized flight controller for autonomous UAV swarms.</div>
-        <div class="line-md">High-frequency coordination protocol.</div>
-        <div class="project-card__tags">
-          <div class="project-card__tag">Rust</div>
-          <div class="project-card__tag">ROS2</div>
-        </div>
-      </div>
-
-      <div class="project-card project-card--short">
-        <div class="img-box"></div>
-        <div class="line-lg">MuleNet</div>
-        <div class="line-md">Decentralized messaging protocol for off-grid edge devices.</div>
-        <div class="project-card__tags">
-          <div class="project-card__tag">Go</div>
-          <div class="project-card__tag">BLE</div>
-        </div>
-      </div>
-
-      <div class="project-card project-card--mid">
-        <div class="img-box"></div>
-        <div class="line-lg">AgentOS</div>
-        <div class="line-md">Visual workspace for orchestrating multi-LLM agent swarms.</div>
-        <div class="line-md">Low-latency state machines.</div>
-        <div class="project-card__tags">
-          <div class="project-card__tag">Python</div>
-          <div class="project-card__tag">Next.js</div>
-        </div>
-      </div>
-
-      <div class="project-card project-card--short">
-        <div class="img-box"></div>
-        <div class="line-lg">VisionPipe</div>
-        <div class="line-md">Industrial defect detection via high-speed cameras.</div>
-        <div class="project-card__tags">
-          <div class="project-card__tag">C++</div>
-          <div class="project-card__tag">CUDA</div>
-        </div>
-      </div>
-
-      <div class="project-card project-card--mid">
-        <div class="img-box"></div>
-        <div class="line-lg">HoloControl</div>
-        <div class="line-md">Spatial computing interface for robotic arms.</div>
-        <div class="line-md">Real-time physical replication.</div>
-        <div class="project-card__tags">
-          <div class="project-card__tag">Unity</div>
-          <div class="project-card__tag">C#</div>
-        </div>
-      </div>
-
-      <div class="project-card project-card--tall">
-        <div class="img-box"></div>
-        <div class="line-lg">BioForecaster</div>
-        <div class="line-md">Deep learning crop yield models from satellite imagery.</div>
-        <div class="line-md">Multi-spectral analysis.</div>
-        <div class="project-card__tags">
-          <div class="project-card__tag">PyTorch</div>
-          <div class="project-card__tag">Python</div>
-          <div class="project-card__tag">AWS</div>
-        </div>
-      </div>
-
-      <div class="project-card project-card--short">
-        <div class="img-box"></div>
-        <div class="line-lg">NeuroSynth</div>
-        <div class="line-md">EEG signal processing library for direct neuro-control.</div>
-        <div class="project-card__tags">
-          <div class="project-card__tag">C++</div>
-          <div class="project-card__tag">Python</div>
-        </div>
-      </div>
-
-      <div class="project-card project-card--mid">
-        <div class="img-box"></div>
-        <div class="line-lg">GridForecast</div>
-        <div class="line-md">Smart grid load balancing with solar models.</div>
-        <div class="project-card__tags">
-          <div class="project-card__tag">Rust</div>
-          <div class="project-card__tag">WASM</div>
-        </div>
-      </div>
-
-    </div>
-
-  </main>
-
-  <!-- ======================== FOOTER ======================== -->
   <footer class="footer">
-    <div class="footer__col">
-      <div class="line-md">AGENCY.</div>
-      <div class="line-sm">© 2026 Student Tech Agency</div>
-      <div class="line-sm">Built under intense pressure</div>
-      <div class="line-sm">No suits. No fluff.</div>
+    <div class="footer__inner">
+      <div class="footer__col">
+        <div class="footer__col-title">Agency</div>
+        <div style="font-size:0.85rem;opacity:0.7;">© 2026 Student Tech Agency</div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Navigate</div>
+        <a href="index.html" style="font-size:0.85rem;">Home</a>
+        <a href="work.html" style="font-size:0.85rem;">Work</a>
+        <a href="team.html" style="font-size:0.85rem;">Team</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Connect</div>
+        <div style="font-size:0.85rem;opacity:0.7;">hello@agency.dev</div>
+      </div>
     </div>
-    <div class="footer__col">
-      <div class="line-md">NAVIGATION</div>
-      <div class="line-sm"><a href="index.html">Home</a></div>
-      <div class="line-sm"><a href="work.html">Work</a></div>
-      <div class="line-sm"><a href="team.html">Team</a></div>
-    </div>
-    <div class="footer__col">
-      <div class="line-md">SAY HELLO</div>
-      <div class="line-sm">hello@agency.dev</div>
-      <div class="line-sm">SF / NYC / Remote</div>
-    </div>
-    <div class="footer__bottom"></div>
+    <div class="footer__bottom">SF / NYC / Remote — No suits. No fluff.</div>
   </footer>
 
-  <!-- ======================== SCROLL REVEAL & STICKERS ======================== -->
-  <script>
-    (function () {
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const targets = document.querySelectorAll(
-        '.project-row,.services-grid,.team-strip,.logos-row,' +
-        '.page-header,.filter-row,.project-grid,.detail-title,' +
-        '.detail-hero-img,.facts-row,.detail-body,.screenshot-row,' +
-        '.next-project,.team-intro,.team-grid,.timeline,' +
-        '.contact-headline,.contact-form,.social-row'
-      );
-
-      if (!('IntersectionObserver' in window) || prefersReduced) {
-        return; // stays visible by default
-      }
-
-      targets.forEach(el => el.classList.add('reveal-init'));
-
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('reveal-visible');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.08 });
-
-      targets.forEach(el => io.observe(el));
-    })();
-  </script>
+  <script src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script src="js/editorial.js"></script>
 </body>
 </html>

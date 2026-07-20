@@ -8,368 +8,636 @@
 </head>
 <body>
 
-  <!-- ======================== NAV ======================== -->
+  <!-- WELCOME SCREEN -->
+  <div class="welcome-screen" id="welcome-screen">
+    <div class="welcome-screen__logo">agency.</div>
+    <div class="welcome-screen__tagline" id="welcome-tagline">AI & Software Student Agency</div>
+    <button class="welcome-screen__enter" id="welcome-enter">Enter</button>
+  </div>
+
+  <!-- NAV -->
   <nav class="nav">
-    <div class="nav__logo">agency.</div>
+    <a href="index.html" class="nav__logo">agency.</a>
     <ul class="nav__links">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="work.html">Work</a></li>
-      <li><a href="project-detail.html">Detail</a></li>
       <li><a href="team.html">Team</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
     <a href="contact.html" class="nav__cta">Run App</a>
   </nav>
 
-  <main class="page-content">
+  <!-- CUSTOM CURSOR -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <div class="cursor-spotlight"></div>
 
-    <!-- ======================== HERO ======================== -->
-    <!-- ======================== HERO ======================== -->
-    <section class="hero">
-      <!-- Background grain/noise SVG filter (invisible, for texture) -->
-      <svg style="position: absolute; width: 0; height: 0;" width="0" height="0">
-        <filter id="noiseFilter">
-          <feTurbulence type="fractalNoise" baseFrequency="0.6" numOctaves="3" stitchTiles="stitch" />
-          <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.04 0" />
-        </filter>
+  <!-- ================================================================
+       SPREAD 1: THE MANIFESTO
+       Art Direction: Dark cinematic hero. Typography IS the composition.
+       ================================================================ -->
+  <section class="spread spread--light manifesto" id="spread-1">
+
+    <!-- Headline Composition -->
+    <div class="manifesto__headline">
+
+      <div class="headline__line" data-split>
+        <span class="char-wrap"><span style="font-family:var(--font-body);font-weight:400;font-size:0.35em;text-transform:lowercase;color:var(--text-muted);vertical-align:middle;margin-right:0.2em;">we</span></span>
+        <span class="char-wrap"><span>BUILD</span></span>
+        <!-- Hand-drawn underline SVG -->
+        <svg class="doodle-svg" style="width:105%;height:14px;position:absolute;bottom:-4px;left:0;" viewBox="0 0 100 10" preserveAspectRatio="none">
+          <path class="draw-path" d="M 1 7 C 30 9, 70 8, 99 3 C 60 5, 20 8, 2 6" stroke="var(--accent-orange)" stroke-width="4" />
+        </svg>
+        <!-- "(seriously)" in Caveat -->
+        <span class="char-wrap"><span class="headline__italic" style="font-size:0.4em;margin-left:0.3em;transform:rotate(-8deg);display:inline-block;vertical-align:middle;">(seriously)</span></span>
+      </div>
+
+      <div class="headline__line" data-split style="margin-top:0.1em;">
+        <span class="char-wrap"><span>PRODUCTION</span></span>
+        <span class="headline__mono">v1.0.4</span>
+      </div>
+
+      <div class="headline__line headline--mega" data-split style="margin-top:0.05em;">
+        <span class="char-wrap"><span class="headline__highlight">SOFTWARE</span></span>
+      </div>
+
+    </div>
+
+    <!-- Robot Mascot -->
+    <div class="manifesto__robot" id="manifesto-robot">
+      <svg viewBox="0 0 150 150">
+        <rect x="25" y="25" width="100" height="85" rx="16" fill="var(--accent-green)" stroke="var(--text-dark)" stroke-width="3" />
+        <rect x="35" y="35" width="80" height="50" rx="8" fill="#111" />
+        <circle class="mascot-eye" cx="60" cy="55" r="7" fill="var(--accent-orange)" />
+        <circle class="mascot-eye" cx="90" cy="55" r="7" fill="var(--accent-orange)" />
+        <path d="M 67 71 Q 75 78 83 71" fill="none" stroke="#FFF" stroke-width="3" stroke-linecap="round" />
+        <path d="M 50 110 L 45 135 M 100 110 L 105 135" stroke="var(--text-dark)" stroke-width="3" stroke-linecap="round" />
+        <rect x="35" y="132" width="25" height="6" rx="3" fill="var(--text-dark)" />
+        <rect x="90" y="132" width="25" height="6" rx="3" fill="var(--text-dark)" />
+        <path d="M 75 25 L 75 12" stroke="var(--text-dark)" stroke-width="3" />
+        <circle cx="75" cy="8" r="6" fill="var(--accent-orange)" stroke="var(--text-dark)" stroke-width="2" />
+      </svg>
+      <div class="manifesto__robot-bubble" style="color:var(--text-dark);">
+        <span style="font-family:var(--font-mono);font-weight:700;">BUILD_OK</span>
+      </div>
+    </div>
+
+    <!-- Stickers -->
+    <div class="sticker" style="top:12%;left:8%;transform:rotate(-12deg);z-index:20;" data-sticker>
+      <span class="sticker__pill sticker__pill--lilac">5 DEVS, 1 MISSION</span>
+    </div>
+    <div class="sticker" style="top:10%;right:10%;transform:rotate(8deg);z-index:20;" data-sticker>
+      <span class="sticker__pill sticker__pill--orange">STATUS: SHIPPING</span>
+    </div>
+    <div class="sticker" style="bottom:22%;left:6%;transform:rotate(-6deg);z-index:20;" data-sticker>
+      <span class="sticker__pill sticker__pill--green">EST. 2024</span>
+    </div>
+
+    <!-- Arrow doodle from BUILD to robot -->
+    <svg class="doodle-svg" style="width:8em;height:8em;top:25%;right:25%;transform:rotate(-10deg);z-index:4;" viewBox="0 0 100 100">
+      <path class="draw-path" d="M 15 80 Q 45 60 75 25 M 75 25 L 55 32 M 75 25 L 68 45" stroke="var(--text-dark)" stroke-width="4" />
+    </svg>
+
+    <!-- Subtitle & Actions -->
+    <div class="manifesto__subtitle" id="manifesto-sub">
+      <div class="subhead">A crew of 5 software builders.</div>
+      <div class="subhead" style="margin-top:0.3em;">No suits. No fluff. Just production-grade AI.</div>
+    </div>
+
+    <div class="manifesto__actions" id="manifesto-actions">
+      <a href="work.html" class="btn btn--primary">See Work</a>
+      <a href="contact.html" class="btn btn--secondary">Say Hi</a>
+    </div>
+
+    <div class="manifesto__scroll-hint">scroll ↓</div>
+
+  </section>
+
+  <!-- ================================================================
+       SPREAD 2: THE ARCHIVE
+       Art Direction: Dark. Draggable project card stack.
+       ================================================================ -->
+  <section class="spread spread--dark archive" id="spread-2">
+
+    <div class="archive__header">
+      <div class="headline" data-split>
+        <span class="char-wrap"><span>FEATURED</span></span>
+      </div>
+      <div class="headline" data-split style="margin-top:0.1em;">
+        <span class="char-wrap"><span>WORK</span></span>
+        <span class="headline__italic" style="font-size:0.35em;margin-left:0.3em;transform:rotate(-5deg);display:inline-block;vertical-align:middle;">projects</span>
+      </div>
+      <div class="subhead" style="margin-top:1em;color:var(--text-muted);">Drag to explore. Click to read.</div>
+    </div>
+
+    <div class="archive__dragger-area">
+      <!-- Decorative blob -->
+      <svg class="archive__blob" viewBox="0 0 200 200">
+        <path d="M45.3,-51.2C57.1,-41.5,63.8,-25.8,65.1,-9.7C66.4,6.4,62.3,22.9,52.6,34.8C42.9,46.7,27.6,54,11.3,57.3C-5,60.6,-22.3,59.9,-36.1,52.3C-49.9,44.7,-60.2,30.2,-63.3,14C-66.4,-2.2,-62.3,-20,-52.1,-32.5C-41.9,-45,-25.6,-52.2,-9.1,-54.7C7.4,-57.2,33.5,-60.9,45.3,-51.2Z" fill="var(--accent-lilac)" opacity="0.3" transform="translate(100 100)" />
       </svg>
 
-      <!-- Asymmetric Badges & Chips -->
-      <div class="hero-badge badge--mission">5 DEVS, 1 MISSION</div>
-      <div class="hero-badge badge--status">STATUS: SHIPPING</div>
-      <div class="hero-badge badge--est">EST. 2024</div>
+      <div class="archive__stack" id="archive-stack">
 
-      <!-- Mascot & Composition Balance -->
-      <div class="hero__mascot-wrapper">
-        <div class="hero__mascot">
-          <svg viewBox="0 0 150 150" width="100%" height="100%">
-            <!-- Body -->
-            <rect x="25" y="25" width="100" height="85" rx="16" fill="var(--accent-green)" stroke="var(--color-black)" stroke-width="3" />
-            <!-- Screen -->
-            <rect x="35" y="35" width="80" height="50" rx="8" fill="#111111" />
-            <!-- Eyes (Blinking glow) -->
-            <circle class="mascot-eye mascot-eye-left" cx="60" cy="55" r="7" fill="var(--accent-orange)" />
-            <circle class="mascot-eye mascot-eye-right" cx="90" cy="55" r="7" fill="var(--accent-orange)" />
-            <!-- Smile -->
-            <path d="M 67 71 Q 75 78 83 71" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" />
-            <!-- Feet -->
-            <path d="M 50 110 L 45 135 M 100 110 L 105 135" stroke="var(--color-black)" stroke-width="3" stroke-linecap="round" />
-            <rect x="35" y="132" width="25" height="6" rx="3" fill="var(--color-black)" />
-            <rect x="90" y="132" width="25" height="6" rx="3" fill="var(--color-black)" />
-            <!-- Antenna -->
-            <path d="M 75 25 L 75 12" stroke="var(--color-black)" stroke-width="3" />
-            <circle cx="75" cy="8" r="6" fill="var(--accent-orange)" stroke="var(--color-black)" stroke-width="2" />
-          </svg>
-          <!-- Mascot expression bubble -->
-          <div class="mascot-bubble">
-            <span class="font-mono">BUILD_OK</span>
+        <!-- Card 1: AeroTwin -->
+        <div class="archive__card" data-project>
+          <div class="archive__card-media" style="background:linear-gradient(135deg,#1A365D 0%,#2563EB 100%);"></div>
+          <div class="archive__card-inner">
+            <span class="archive__card-tag">UAV SWARMS</span>
+            <div>
+              <div class="archive__card-title">AeroTwin</div>
+              <div class="archive__card-desc">Autonomous state-sync engine built for UAV swarms.</div>
+              <div class="archive__card-meta">
+                <span class="archive__card-tech">Rust</span>
+                <span class="archive__card-tech">ROS2</span>
+                <span class="archive__card-tech">AWS</span>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- Card 2: MuleNet -->
+        <div class="archive__card" data-project>
+          <div class="archive__card-media" style="background:linear-gradient(135deg,#065F46 0%,#10B981 100%);"></div>
+          <div class="archive__card-inner">
+            <span class="archive__card-tag">COMMUNICATIONS</span>
+            <div>
+              <div class="archive__card-title">MuleNet</div>
+              <div class="archive__card-desc">Decentralized BLE messaging protocol for off-grid edge devices.</div>
+              <div class="archive__card-meta">
+                <span class="archive__card-tech">Go</span>
+                <span class="archive__card-tech">BLE</span>
+                <span class="archive__card-tech">Protobuf</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: AgentOS -->
+        <div class="archive__card" data-project>
+          <div class="archive__card-media" style="background:linear-gradient(135deg,#581C87 0%,#A855F7 100%);"></div>
+          <div class="archive__card-inner">
+            <span class="archive__card-tag">AI AGENT SYSTEMS</span>
+            <div>
+              <div class="archive__card-title">AgentOS</div>
+              <div class="archive__card-desc">Multi-agent orchestration workspace powered by LangGraph.</div>
+              <div class="archive__card-meta">
+                <span class="archive__card-tech">Python</span>
+                <span class="archive__card-tech">LangGraph</span>
+                <span class="archive__card-tech">Next.js</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: VisionPipe -->
+        <div class="archive__card" data-project>
+          <div class="archive__card-media" style="background:linear-gradient(135deg,#92400E 0%,#F59E0B 100%);"></div>
+          <div class="archive__card-inner">
+            <span class="archive__card-tag">COMPUTER VISION</span>
+            <div>
+              <div class="archive__card-title">VisionPipe</div>
+              <div class="archive__card-desc">Industrial defect detection via high-speed camera streams and CUDA.</div>
+              <div class="archive__card-meta">
+                <span class="archive__card-tech">C++</span>
+                <span class="archive__card-tech">CUDA</span>
+                <span class="archive__card-tech">PyTorch</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: GridForecast -->
+        <div class="archive__card" data-project>
+          <div class="archive__card-media" style="background:linear-gradient(135deg,#1E3A5F 0%,#38BDF8 100%);"></div>
+          <div class="archive__card-inner">
+            <span class="archive__card-tag">EDGE ML</span>
+            <div>
+              <div class="archive__card-title">GridForecast</div>
+              <div class="archive__card-desc">Smart grid load forecasting with edge neural networks.</div>
+              <div class="archive__card-meta">
+                <span class="archive__card-tech">Rust</span>
+                <span class="archive__card-tech">WASM</span>
+                <span class="archive__card-tech">ONNX</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Headline Layout -->
-      <div class="hero__headline">
-        
-        <div class="hero__line hero__line--1">
-          <span class="word-small">we</span>
-          <span class="word-display accent-orange position-relative">
-            BUILD
-            <!-- Hand drawn underline SVG -->
-            <svg class="doodle doodle--underline" viewBox="0 0 100 10" preserveAspectRatio="none">
-              <path d="M 1 7 C 30 9, 70 8, 99 3 C 60 5, 20 8, 2 6" fill="none" stroke="var(--accent-orange)" stroke-width="4" stroke-linecap="round" />
-            </svg>
-          </span>
-          <!-- Seriously margin script -->
-          <span class="word-script label-seriously">(seriously)</span>
-          
-          <!-- Squiggly arrow doodle -->
-          <svg class="doodle doodle--arrow" viewBox="0 0 100 100">
-            <path d="M 15 80 Q 45 60 75 25 M 75 25 L 55 32 M 75 25 L 68 45" fill="none" stroke="var(--color-black)" stroke-width="4" stroke-linecap="round"/>
+      <div class="archive__hint">← drag to explore →</div>
+    </div>
+
+  </section>
+
+  <!-- ================================================================
+       SPREAD 3: THE WORKSHOP
+       Art Direction: Light cream. Scattered physical objects.
+       ================================================================ -->
+  <section class="spread spread--light workshop" id="spread-3">
+
+    <div class="workshop__header">
+      <div class="headline" data-split>
+        <span class="char-wrap"><span>WHAT WE</span></span>
+      </div>
+      <div class="headline" data-split style="margin-top:0.1em;">
+        <span class="char-wrap"><span class="headline__italic" style="font-size:0.7em;transform:rotate(-5deg);display:inline-block;">obsess</span></span>
+      </div>
+      <div class="headline" data-split style="margin-top:0.05em;">
+        <span class="char-wrap"><span>OVER</span></span>
+      </div>
+    </div>
+
+    <div class="workshop__objects" id="workshop-objects">
+
+      <!-- Object 1: AI Agents — Notebook sheet -->
+      <div class="workshop__object" style="width:18em;left:5%;top:10%;transform:rotate(-3deg);" data-workshop-obj>
+        <div class="worksheet" style="transform:rotate(-3deg);">
+          <div class="worksheet__title">AI Agents</div>
+          <ul class="worksheet__items">
+            <li>LangGraph multi-agent pipelines</li>
+            <li>CrewAI orchestration patterns</li>
+            <li>Custom tool-calling frameworks</li>
+            <li>RAG + vector store integration</li>
+            <li>Production deployment on AWS</li>
+          </ul>
+          <div class="worksheet__annotation">daily driver ↓</div>
+        </div>
+        <div class="masking-tape" style="top:-12px;left:30%;transform:rotate(-6deg);"></div>
+      </div>
+
+      <!-- Object 2: Edge Vision — Blueprint -->
+      <div class="workshop__object" style="width:17em;left:32%;top:25%;transform:rotate(4deg);" data-workshop-obj>
+        <div class="blueprint-sheet" style="transform:rotate(4deg);">
+          <div style="font-size:0.65rem;opacity:0.7;">ARCH // VISION</div>
+          <div style="font-size:0.9rem;margin:0.3em 0;color:#93C5FD;">EDGE INFERENCE</div>
+          <div style="font-size:0.6rem;color:#60A5FA;">[YOLO_v8 → TensorRT]</div>
+          <div style="margin-top:0.8em;font-size:0.55rem;line-height:1.6;">
+            INPUT → CAMERA STREAM<br/>
+            PIPELINE → CUDA PREPROCESS<br/>
+            MODEL → CUSTOM CNN<br/>
+            OUTPUT → REAL-TIME BBOX
+          </div>
+        </div>
+        <div class="worksheet__annotation" style="bottom:-1.8em;right:0;">current obsession →</div>
+      </div>
+
+      <!-- Object 3: Embedded IoT — Sticky note -->
+      <div class="workshop__object" style="width:14em;left:56%;top:5%;transform:rotate(-6deg);" data-workshop-obj>
+        <div class="sticky-note sticky-note--orange" style="transform:rotate(-6deg);font-size:0.9rem;">
+          <div style="font-weight:700;margin-bottom:0.4em;">Embedded IoT</div>
+          ROS2 nav stacks<br/>
+          ESP32 sensor fusion<br/>
+          Rust firmware<br/>
+          Custom BLE protocols
+        </div>
+      </div>
+
+      <!-- Object 4: Web Systems — Torn paper -->
+      <div class="workshop__object" style="width:19em;left:72%;top:20%;transform:rotate(2deg);" data-workshop-obj>
+        <div class="paper-sheet" style="transform:rotate(2deg);">
+          <div class="worksheet__title">Web Systems</div>
+          <div style="display:flex;flex-wrap:wrap;gap:0.3em;margin-top:0.5em;">
+            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">Next.js</span>
+            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">Go</span>
+            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">Docker</span>
+            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">AWS</span>
+            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">PostgreSQL</span>
+            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">Redis</span>
+          </div>
+          <div class="worksheet__annotation" style="bottom:-1.5em;left:0.5em;">built with coffee ☕</div>
+        </div>
+        <div class="masking-tape" style="top:-12px;right:20%;transform:rotate(5deg);"></div>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================================================================
+       SPREAD 4: THE CREW
+       Art Direction: Dark. Scattered polaroids on a dark wall.
+       ================================================================ -->
+  <section class="spread spread--dark crew" id="spread-4">
+
+    <div class="crew__header">
+      <div class="headline" data-split>
+        <span class="char-wrap"><span>THE BUILDERS</span></span>
+      </div>
+      <div style="margin-top:0.8em;">
+        <span class="headline__italic" style="font-size:1.8rem;transform:rotate(-4deg);display:inline-block;">5 friends, no suits</span>
+      </div>
+    </div>
+
+    <!-- Decorative blobs -->
+    <svg class="crew__blob" style="width:27em;top:-5%;left:55%;transform:translate(-50%,0);" viewBox="0 0 200 200">
+      <path d="M42.7,-62.8C54.9,-53.6,64.1,-40.2,68.8,-25.2C73.5,-10.2,73.7,6.4,67.4,20.3C61.1,34.2,48.3,45.4,34.3,53.5C20.3,61.6,5.1,66.6,-10.5,66.4C-26.1,66.2,-42.1,60.8,-53.4,50.1C-64.7,39.4,-71.3,23.4,-72.1,7.1C-72.9,-9.2,-67.9,-26.8,-57.4,-38.5C-46.9,-50.2,-30.9,-56,-16.4,-63.3C-1.9,-70.6,11.1,-79.4,23.9,-77.2C36.7,-75,30.5,-72,42.7,-62.8Z" fill="var(--accent-lilac)" opacity="0.2" transform="translate(100 100)" />
+    </svg>
+
+    <div class="crew__scatter" id="crew-scatter">
+
+      <!-- Gokul -->
+      <div class="crew__member" style="left:8%;top:15%;transform:rotate(-3deg);" data-crew-member>
+        <div class="polaroid">
+          <div class="polaroid__photo" style="background:var(--accent-green);">
+            <img src="assets/robot_skectch/robot_smileandtypeonlaptop.png" alt="Gokul's desk" />
+          </div>
+          <div class="polaroid__name">Gokul</div>
+          <div class="polaroid__role">Dev Lead / Compilers & Systems</div>
+        </div>
+      </div>
+
+      <!-- Aria -->
+      <div class="crew__member" style="left:35%;top:8%;transform:rotate(4deg);width:15em;" data-crew-member>
+        <div class="polaroid">
+          <div class="polaroid__photo" style="background:var(--accent-lilac);">
+            <img src="assets/robot_skectch/robot_thinkandseelaptop.png" alt="Aria's desk" />
+          </div>
+          <div class="polaroid__name">Aria</div>
+          <div class="polaroid__role">AI Architect / LangGraph & Tuning</div>
+        </div>
+      </div>
+
+      <!-- Sam -->
+      <div class="crew__member" style="left:12%;top:52%;transform:rotate(-5deg);width:14em;" data-crew-member>
+        <div class="polaroid">
+          <div class="polaroid__photo" style="background:var(--accent-orange);">
+            <img src="assets/robot_skectch/robot_seeblueprintandsmile.png" alt="Sam's desk" />
+          </div>
+          <div class="polaroid__name">Sam</div>
+          <div class="polaroid__role">Robotics Lead / ROS2 & Control</div>
+        </div>
+      </div>
+
+      <!-- Lina -->
+      <div class="crew__member" style="left:52%;top:35%;transform:rotate(2deg);width:16em;" data-crew-member>
+        <div class="polaroid">
+          <div class="polaroid__photo" style="background:#82a0ff;">
+            <img src="assets/robot_skectch/robot_sayhi.png" alt="Lina's desk" />
+          </div>
+          <div class="polaroid__name">Lina</div>
+          <div class="polaroid__role">Full Stack Dev / Next.js & Cloud</div>
+        </div>
+      </div>
+
+      <!-- Devon -->
+      <div class="crew__member" style="left:38%;top:65%;transform:rotate(-2deg);width:15em;" data-crew-member>
+        <div class="polaroid">
+          <div class="polaroid__photo" style="background:var(--accent-green);">
+            <img src="assets/robot_skectch/robot_pointingwithholdingcoffee.png" alt="Devon's desk" />
+          </div>
+          <div class="polaroid__name">Devon</div>
+          <div class="polaroid__role">Embedded Eng / Firmware & IoT</div>
+        </div>
+      </div>
+
+      <!-- Sticky notes scattered -->
+      <div class="crew__sticky sticky-note" style="left:62%;top:12%;transform:rotate(5deg);width:9em;font-size:0.75rem;" data-sticker>
+        current branch: main<br/>
+        status: compiling...
+      </div>
+
+      <div class="crew__sticky sticky-note sticky-note--lilac" style="left:28%;top:38%;transform:rotate(-4deg);width:8em;font-size:0.75rem;" data-sticker>
+        favorite tool: Rust<br/>
+        backup: Coffee
+      </div>
+
+      <div class="crew__sticky sticky-note sticky-note--green" style="left:70%;top:58%;transform:rotate(3deg);width:9em;font-size:0.75rem;" data-sticker>
+        last deploy: 2h ago<br/>
+        build: PASSING ✓
+      </div>
+
+      <!-- Decorative stickers -->
+      <svg class="doodle-svg" style="width:5em;top:28%;left:80%;transform:rotate(12deg);z-index:10;" viewBox="0 0 100 100" data-sticker>
+        <path class="draw-path" d="M50 5 L62 38 L97 38 L68 60 L79 95 L50 73 L21 95 L32 60 L3 38 L38 38 Z" stroke="var(--accent-orange)" stroke-width="3" fill="none" />
+      </svg>
+
+      <svg class="doodle-svg" style="width:4em;bottom:15%;left:8%;transform:rotate(-8deg);z-index:10;" viewBox="0 0 100 100" data-sticker>
+        <path class="draw-path" d="M10 50 C 40 20, 60 80, 80 50" stroke="var(--text-light)" stroke-width="4" fill="none" />
+        <path class="draw-path" d="M65 35 L 85 50 L 70 70" stroke="var(--text-light)" stroke-width="4" fill="none" />
+      </svg>
+
+    </div>
+
+  </section>
+
+  <!-- ================================================================
+       SPREAD 5: THE JOURNAL
+       Art Direction: Light cream. Vertical engineering timeline.
+       ================================================================ -->
+  <section class="spread spread--light journal" id="spread-5">
+
+    <div class="journal__header">
+      <div class="headline" data-split>
+        <span class="char-wrap"><span>OUR</span></span>
+      </div>
+      <div class="headline" data-split style="margin-top:0.1em;">
+        <span class="char-wrap"><span>JOURNEY</span></span>
+      </div>
+      <div style="margin-top:0.8em;">
+        <span class="headline__italic" style="font-size:1.5rem;transform:rotate(-3deg);display:inline-block;">since summer 2024</span>
+      </div>
+    </div>
+
+    <div class="journal__track">
+      <!-- SVG timeline line -->
+      <svg class="journal__line-svg" style="height:100%;" viewBox="0 0 4 600" preserveAspectRatio="none">
+        <path class="draw-path" d="M 2 0 C 2 100, 2 200, 2 300 C 2 400, 2 500, 2 600" stroke="var(--color-border)" stroke-width="2" />
+      </svg>
+
+      <div class="journal__entries" id="journal-entries">
+
+        <!-- Entry 1 -->
+        <div class="journal__entry journal__entry--left" data-journal-entry style="transform:rotate(-2deg);">
+          <div class="journal__dot"></div>
+          <div class="journal__entry-paper">
+            <div class="journal__entry-date">Summer 2024</div>
+            <div class="journal__entry-title">Bootcamp</div>
+            <div class="journal__entry-note">where it all started</div>
+          </div>
+          <svg class="journal__entry-sticker" viewBox="0 0 100 100" data-sticker>
+            <path d="M50 5 L62 38 L97 38 L68 60 L79 95 L50 73 L21 95 L32 60 L3 38 L38 38 Z" fill="var(--accent-orange)" stroke="var(--color-border)" stroke-width="4" />
           </svg>
         </div>
 
-        <div class="hero__line hero__line--2">
-          <span class="word-display">PRODUCTION</span>
-          <span class="word-mono">v1.0.4</span>
+        <!-- Entry 2 -->
+        <div class="journal__entry journal__entry--right" data-journal-entry style="transform:rotate(3deg);">
+          <div class="journal__dot"></div>
+          <div class="journal__entry-paper">
+            <div class="journal__entry-date">Fall 2024</div>
+            <div class="journal__entry-title">First Win</div>
+            <div class="journal__entry-note">hackathon champions 🏆</div>
+          </div>
         </div>
 
-        <div class="hero__line hero__line--3">
-          <span class="word-display position-relative" style="display: inline-block;">
-            <span class="highlight-bg"></span>
-            <span class="z-index-2 position-relative">SOFTWARE</span>
-          </span>
+        <!-- Entry 3 -->
+        <div class="journal__entry journal__entry--left" data-journal-entry style="transform:rotate(-1deg);">
+          <div class="journal__dot"></div>
+          <div class="journal__entry-paper">
+            <div class="journal__entry-date">Winter 2024</div>
+            <div class="journal__entry-title">Client #1</div>
+            <div class="journal__entry-note">shipped real software</div>
+          </div>
+        </div>
+
+        <!-- Entry 4 -->
+        <div class="journal__entry journal__entry--right" data-journal-entry style="transform:rotate(2deg);">
+          <div class="journal__dot"></div>
+          <div class="journal__entry-paper">
+            <div class="journal__entry-date">Spring 2025</div>
+            <div class="journal__entry-title">SaaS Launch</div>
+            <div class="journal__entry-note">production-grade, deployed</div>
+          </div>
+          <svg class="journal__entry-sticker" viewBox="0 0 100 100" data-sticker style="top:auto;bottom:-0.8em;right:auto;left:-0.8em;">
+            <path d="M20 80 L50 10 L80 80 Z" fill="var(--accent-green)" stroke="var(--color-border)" stroke-width="4" />
+          </svg>
+        </div>
+
+        <!-- Entry 5 -->
+        <div class="journal__entry journal__entry--left" data-journal-entry style="transform:rotate(-3deg);">
+          <div class="journal__dot"></div>
+          <div class="journal__entry-paper">
+            <div class="journal__entry-date">Present</div>
+            <div class="journal__entry-title">Scaling</div>
+            <div class="journal__entry-note">5 builders, shipping daily</div>
+          </div>
         </div>
 
       </div>
+    </div>
 
-      <div class="hero__sub">
-        <div class="line-md">A crew of 5 software builders. No suits. No fluff.</div>
-        <div class="line-md">Just production-grade artificial intelligence and real software engineering.</div>
+  </section>
+
+  <!-- ================================================================
+       SPREAD 6: THE STAMPS
+       Art Direction: Light to dark. Logo stamp impressions.
+       ================================================================ -->
+  <section class="spread spread--light stamps" id="spread-6">
+
+    <div class="stamps__header">
+      <div class="headline" data-split>
+        <span class="char-wrap"><span>WHO</span></span>
       </div>
-
-      <div class="hero__actions">
-        <a href="work.html" class="btn-block btn-block--primary">See Work</a>
-        <a href="contact.html" class="btn-block btn-block--secondary">Say Hi</a>
+      <div class="headline" data-split style="margin-top:0.1em;">
+        <span class="char-wrap"><span>TRUSTS</span></span>
       </div>
-    </section>
-
-    <!-- ======================== SECTION LABEL ======================== -->
-    <div class="section-label">Featured Projects ~</div>
-
-    <!-- ======================== PROJECT SCROLL ROW ======================== -->
-    <div class="project-row">
-
-      <div class="project-row__card">
-        <div class="img-box"></div>
-        <div class="line-lg">AeroTwin</div>
-        <div class="line-md">Autonomous state-sync engine built for UAV swarms.</div>
-        <div class="line-md">Rust / ROS2 / AWS</div>
+      <div style="margin-top:0.5em;">
+        <span class="headline__italic" style="font-size:1.8rem;transform:rotate(-5deg);display:inline-block;">this crew</span>
       </div>
+    </div>
 
-      <div class="project-row__card">
-        <div class="img-box"></div>
-        <div class="line-lg">MuleNet</div>
-        <div class="line-md">Decentralized BLE messaging protocol for off-grid edge devices.</div>
-        <div class="line-md">Go / BLE / Protobuf</div>
-      </div>
+    <div class="stamps__scatter" id="stamps-scatter">
 
-      <div class="project-row__card">
-        <div class="img-box"></div>
-        <div class="line-lg">AgentOS</div>
-        <div class="line-md">Multi-agent orchestration workspace powered by LangGraph.</div>
-        <div class="line-md">Python / FastGPT / LangGraph</div>
-      </div>
+      <div class="stamp" style="top:10%;left:10%;transform:rotate(-8deg);font-size:0.8rem;" data-stamp>HACKATHON<br/>WINNER</div>
 
-      <div class="project-row__card">
-        <div class="img-box"></div>
-        <div class="line-lg">VisionPipe</div>
-        <div class="line-md">Industrial defect detection via high-speed camera streams and CUDA.</div>
-        <div class="line-md">C++ / CUDA / PyTorch</div>
-      </div>
+      <div class="stamp" style="top:5%;left:42%;transform:rotate(5deg);font-size:0.7rem;border-color:var(--accent-orange);color:var(--accent-orange);" data-stamp>Y COMBINATOR<br/>RECOGNIZED</div>
 
-      <div class="project-row__card">
-        <div class="img-box"></div>
-        <div class="line-lg">GridForecast</div>
-        <div class="line-md">Smart grid load forecasting with edge neural networks.</div>
-        <div class="line-md">Rust / WASM / ONNX</div>
-      </div>
+      <div class="stamp" style="top:35%;left:5%;transform:rotate(-3deg);font-size:0.85rem;" data-stamp>TECHCRUNCH<br/>FEATURED</div>
+
+      <div class="stamp" style="top:30%;left:55%;transform:rotate(7deg);font-size:0.75rem;" data-stamp>ETH GLOBAL<br/>FINALIST</div>
+
+      <div class="stamp" style="top:60%;left:25%;transform:rotate(-6deg);font-size:0.9rem;border-color:var(--accent-orange);color:var(--accent-orange);" data-stamp>AI GRAND<br/>PRIZE</div>
+
+      <div class="stamp" style="top:55%;left:65%;transform:rotate(4deg);font-size:0.8rem;" data-stamp>ROBOCUP<br/>1ST PLACE</div>
 
     </div>
 
-    <!-- ======================== SECTION LABEL ======================== -->
-    <div class="section-label">Our Expertise ~</div>
+  </section>
 
-    <!-- ======================== SERVICES / SKILLS GRID ======================== -->
-    <div class="services-grid">
+  <!-- ================================================================
+       SPREAD 7: THE INVITATION
+       Art Direction: Dark cinematic close. Mirror of hero.
+       ================================================================ -->
+  <section class="spread spread--dark invitation" id="spread-7">
 
-      <div class="service-card">
-        <div class="service-card__icon">✦</div>
-        <div class="line-lg">AI Agents</div>
-        <div class="line-md">Fully custom multi-agent logic built with LangGraph and Python.</div>
-        <div class="line-md">LangGraph / CrewAI / LangChain</div>
+    <div class="invitation__headline">
+      <div class="headline headline--mega" data-split>
+        <span class="char-wrap"><span>LET'S BUILD</span></span>
       </div>
-
-      <div class="service-card">
-        <div class="service-card__icon">👁</div>
-        <div class="line-lg">Edge Vision</div>
-        <div class="line-md">Embedded YOLO & custom CNN pipelines for real-time edge inference.</div>
-        <div class="line-md">TensorRT / CUDA / C++</div>
+      <div class="headline headline--mega" data-split style="margin-top:0.05em;">
+        <span class="char-wrap"><span>SOMETHING</span></span>
       </div>
-
-      <div class="service-card">
-        <div class="service-card__icon">⚙</div>
-        <div class="line-lg">Embedded IoT</div>
-        <div class="line-md">Low-latency robotics firmware, custom protocols, and ROS2 navigation.</div>
-        <div class="line-md">ROS2 / Rust / C++ / ESP32</div>
+      <div class="headline headline--mega" data-split style="margin-top:0.05em;">
+        <span class="char-wrap"><span class="headline__italic" style="font-size:0.5em;transform:rotate(-6deg);display:inline-block;vertical-align:middle;">real</span></span>
       </div>
-
-      <div class="service-card">
-        <div class="service-card__icon">⚡</div>
-        <div class="line-lg">Web Systems</div>
-        <div class="line-md">Production-grade full-stack apps built with high scalability.</div>
-        <div class="line-md">Next.js / Go / Docker / AWS</div>
-      </div>
-
     </div>
 
-    <!-- ======================== SECTION LABEL ======================== -->
-    <div class="section-label">The Builders ~</div>
-
-    <!-- ======================== TEAM STRIP ======================== -->
-    <div class="team-strip">
-
-      <div class="team-strip__photo">
-        <div class="line-sm">Gokul / Dev Lead</div>
-      </div>
-
-      <div class="team-strip__photo">
-        <div class="line-sm">Aria / AI Lead</div>
-      </div>
-
-      <div class="team-strip__photo">
-        <div class="line-sm">Sam / Robotics</div>
-      </div>
-
-      <div class="team-strip__photo">
-        <div class="line-sm">Lina / Full Stack</div>
-      </div>
-
-      <div class="team-strip__photo">
-        <div class="line-sm">Devon / Embedded</div>
-      </div>
-
+    <!-- Robot peeking from left -->
+    <div class="invitation__robot" id="invitation-robot">
+      <svg viewBox="0 0 150 150">
+        <rect x="25" y="25" width="100" height="85" rx="16" fill="var(--accent-green)" stroke="var(--text-light)" stroke-width="3" />
+        <rect x="35" y="35" width="80" height="50" rx="8" fill="#111" />
+        <circle class="mascot-eye" cx="60" cy="55" r="7" fill="var(--accent-orange)" />
+        <circle class="mascot-eye" cx="90" cy="55" r="7" fill="var(--accent-orange)" />
+        <path d="M 67 71 Q 75 78 83 71" fill="none" stroke="#FFF" stroke-width="3" stroke-linecap="round" />
+        <path d="M 50 110 L 45 135 M 100 110 L 105 135" stroke="var(--text-light)" stroke-width="3" stroke-linecap="round" />
+        <rect x="35" y="132" width="25" height="6" rx="3" fill="var(--text-light)" />
+        <rect x="90" y="132" width="25" height="6" rx="3" fill="var(--text-light)" />
+        <path d="M 75 25 L 75 12" stroke="var(--text-light)" stroke-width="3" />
+        <circle cx="75" cy="8" r="6" fill="var(--accent-orange)" stroke="var(--text-light)" stroke-width="2" />
+      </svg>
     </div>
 
-    <!-- ======================== SECTION LABEL ======================== -->
-    <div class="section-label">Trusted By ~</div>
-
-    <!-- ======================== LOGOS ROW ======================== -->
-    <div class="logos-row">
-      <div class="logo-block">MIT HACK WIN</div>
-      <div class="logo-block">Y COMBINATOR</div>
-      <div class="logo-block">TECHCRUNCH</div>
-      <div class="logo-block">ETH GLOBAL</div>
-      <div class="logo-block">AI GRAND PRIZE</div>
-      <div class="logo-block">ROBOCUP 1ST</div>
+    <!-- Sticky note -->
+    <div class="invitation__note sticky-note sticky-note--orange" style="right:10%;top:25%;transform:rotate(-4deg);width:11em;font-size:0.9rem;" data-sticker>
+      <div style="font-weight:700;">We respond in 24h.</div>
+      <div style="margin-top:0.3em;font-size:0.85em;">No gatekeepers. Just us.</div>
     </div>
 
-  </main>
+    <div class="invitation__cta">
+      <a href="contact.html" class="btn btn--primary">Say Hello</a>
+      <div class="invitation__socials">
+        <a href="https://github.com" class="social-pill" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com" class="social-pill" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://twitter.com" class="social-pill" target="_blank" rel="noopener">Twitter</a>
+      </div>
+      <div class="label" style="margin-top:1em;opacity:0.4;">hello@agency.dev</div>
+    </div>
 
-  <!-- ======================== FOOTER ======================== -->
+    <!-- Decorative arrow -->
+    <svg class="doodle-svg" style="width:7em;bottom:20%;left:15%;transform:rotate(10deg);z-index:4;" viewBox="0 0 100 100">
+      <path class="draw-path" d="M 80 20 Q 50 40 20 75 M 20 75 L 40 68 M 20 75 L 27 55" stroke="var(--text-light)" stroke-width="4" />
+    </svg>
+
+  </section>
+
+  <!-- FOOTER -->
   <footer class="footer">
-    <div class="footer__col">
-      <div class="line-md">AGENCY.</div>
-      <div class="line-sm">© 2026 Student Tech Agency</div>
-      <div class="line-sm">Built under intense pressure</div>
-      <div class="line-sm">No suits. No fluff.</div>
+    <div class="footer__inner">
+      <div class="footer__col">
+        <div class="footer__col-title">Agency</div>
+        <div style="font-size:0.85rem;opacity:0.7;">© 2026 Student Tech Agency</div>
+        <div style="font-size:0.85rem;opacity:0.7;">Built under intense pressure.</div>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Navigate</div>
+        <a href="index.html" style="font-size:0.85rem;">Home</a>
+        <a href="work.html" style="font-size:0.85rem;">Work</a>
+        <a href="team.html" style="font-size:0.85rem;">Team</a>
+        <a href="contact.html" style="font-size:0.85rem;">Contact</a>
+      </div>
+      <div class="footer__col">
+        <div class="footer__col-title">Connect</div>
+        <a href="https://github.com" style="font-size:0.85rem;" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com" style="font-size:0.85rem;" target="_blank" rel="noopener">LinkedIn</a>
+        <div style="font-size:0.85rem;opacity:0.7;">hello@agency.dev</div>
+      </div>
     </div>
-    <div class="footer__col">
-      <div class="line-md">NAVIGATION</div>
-      <div class="line-sm"><a href="index.html">Home</a></div>
-      <div class="line-sm"><a href="work.html">Work</a></div>
-      <div class="line-sm"><a href="team.html">Team</a></div>
+    <div class="footer__bottom">
+      SF / NYC / Remote — No suits. No fluff.
     </div>
-    <div class="footer__col">
-      <div class="line-md">SAY HELLO</div>
-      <div class="line-sm">hello@agency.dev</div>
-      <div class="line-sm">SF / NYC / Remote</div>
-    </div>
-    <div class="footer__bottom"></div>
   </footer>
 
-  <!-- ======================== SCROLL REVEAL & STICKERS ======================== -->
-  <script>
-    (function () {
-      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  <!-- ================================================================
+       SCRIPTS
+       ================================================================ -->
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js"></script>
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <!-- Editorial JS -->
+  <script src="js/editorial.js"></script>
 
-      // Custom Spotlight tracking cursor
-      if (!prefersReduced) {
-        const spotlight = document.createElement('div');
-        spotlight.className = 'cursor-spotlight';
-        document.body.appendChild(spotlight);
-        window.addEventListener('mousemove', (e) => {
-          spotlight.style.left = e.clientX + 'px';
-          spotlight.style.top = e.clientY + 'px';
-        }, { passive: true });
-      }
-
-      const line1 = document.querySelector('.hero__line--1');
-      const line2 = document.querySelector('.hero__line--3');
-      const heroSub = document.querySelector('.hero__sub');
-      const heroActions = document.querySelector('.hero__actions');
-      const heroSection = document.querySelector('.hero');
-
-      if (line1 && line2 && heroSection && !prefersReduced) {
-        const stickersData = [
-          { type: 'arrow', left: '10%', top: '15%', rot: '-10deg' },
-          { type: 'sparkle', left: '85%', top: '25%', rot: '12deg' },
-          { type: 'heart', left: '75%', top: '70%', rot: '8deg' },
-          { type: 'badge', left: '5%', top: '75%', rot: '-8deg' }
-        ];
-
-        const activeStickers = stickersData.map(data => {
-          const s = document.createElement('div');
-          s.className = `sticker sticker--${data.type}`;
-          s.style.left = data.left;
-          s.style.top = data.top;
-          s.style.setProperty('--rot', data.rot);
-          heroSection.appendChild(s);
-          return s;
-        });
-
-        // maxScroll derives from the hero's real height
-        let maxScroll = heroSection.offsetHeight * 0.6;
-        window.addEventListener('resize', () => {
-          maxScroll = heroSection.offsetHeight * 0.6;
-        }, { passive: true });
-
-        let ticking = false;
-
-        function updateHero() {
-          const scrolled = window.pageYOffset;
-          const scrollPct = Math.min(scrolled / maxScroll, 1);
-
-          // Larger, viewport-relative offset so lines start off-screen/shifted
-          // Limit this layout motion dynamically
-          if (window.innerWidth >= 768) {
-            const trans1 = -40 + (scrollPct * 40); // starting position shifted left (bleeding off)
-            const trans2 = 40 - (scrollPct * 40);  // starting position shifted right (bleeding off)
-            line1.style.transform = `translateX(${trans1}vw)`;
-            line2.style.transform = `translateX(${trans2}vw)`;
-          } else {
-            // Simplified fallback on mobile
-            line1.style.transform = 'none';
-            line2.style.transform = 'none';
-          }
-
-          const settled = scrollPct > 0.7 || window.innerWidth < 768;
-          activeStickers.forEach(s => s.classList.toggle('show', settled));
-          if (heroSub) heroSub.classList.toggle('show', settled);
-          if (heroActions) heroActions.classList.toggle('show', settled);
-
-          ticking = false;
-        }
-
-        window.addEventListener('scroll', () => {
-          if (!ticking) {
-            requestAnimationFrame(updateHero);
-            ticking = true;
-          }
-        }, { passive: true });
-
-        updateHero();
-      } else {
-        // Fallback for prefersReduced or no lines
-        if (heroSub) heroSub.classList.add('show');
-        if (heroActions) heroActions.classList.add('show');
-      }
-
-      // Reveal-on-scroll: visible by default in CSS, only animated if JS handles it.
-      const targets = document.querySelectorAll(
-        '.project-row,.services-grid,.team-strip,.logos-row,' +
-        '.page-header,.filter-row,.project-grid,.detail-title,' +
-        '.detail-hero-img,.facts-row,.detail-body,.screenshot-row,' +
-        '.next-project,.team-intro,.team-grid,.timeline,' +
-        '.contact-headline,.contact-form,.social-row'
-      );
-
-      if (!('IntersectionObserver' in window) || prefersReduced) {
-        return; // sections stay visible, no animation attempted
-      }
-
-      targets.forEach(el => el.classList.add('reveal-init'));
-
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('reveal-visible');
-            io.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.08 });
-
-      targets.forEach(el => io.observe(el));
-    })();
-  </script>
 </body>
 </html>
