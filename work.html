@@ -5,67 +5,244 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Work — agency.</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Hanken+Grotesk:wght@400;500;600&family=Caveat:wght@400;700&family=JetBrains+Mono:wght@400;500&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@100..900&family=Syne:wght@100..900&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      corePlugins: {
+        preflight: false
+      },
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-tint": "#5f5e5e",
+            "secondary-fixed-dim": "#c8c6c5",
+            "on-tertiary-fixed-variant": "#484645",
+            "surface-container-high": "#ece7e7",
+            "on-tertiary-fixed": "#1c1b1a",
+            "surface-dim": "#ded9d9",
+            "primary-fixed": "#e5e2e1",
+            "on-error": "#ffffff",
+            "outline-variant": "#c4c7c7",
+            "inverse-primary": "#c8c6c5",
+            "outline": "#747878",
+            "on-surface-variant": "#444748",
+            "inverse-on-surface": "#f5efef",
+            "inverse-surface": "#323030",
+            "secondary": "#5f5e5d",
+            "on-tertiary": "#ffffff",
+            "on-primary-fixed-variant": "#474646",
+            "on-primary-fixed": "#1c1b1b",
+            "on-primary": "#ffffff",
+            "on-primary-container": "#858383",
+            "on-background": "#1d1b1b",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f8f2f2",
+            "tertiary-fixed": "#e6e1df",
+            "on-secondary-fixed-variant": "#474746",
+            "on-tertiary-container": "#868381",
+            "on-error-container": "#93000a",
+            "surface-container": "#f2edec",
+            "tertiary-container": "#1c1b1a",
+            "surface-variant": "#e6e1e1",
+            "on-surface": "#1d1b1b",
+            "tertiary": "#000000",
+            "surface-container-highest": "#e6e1e1",
+            "surface": "#fdf8f8",
+            "tertiary-fixed-dim": "#cac6c3",
+            "surface-bright": "#fdf8f8",
+            "secondary-container": "#e4e2e0",
+            "on-secondary": "#ffffff",
+            "primary-fixed-dim": "#c8c6c5",
+            "primary": "#000000",
+            "on-secondary-fixed": "#1b1c1b",
+            "on-secondary-container": "#656463",
+            "primary-container": "#1c1b1b",
+            "error": "#ba1a1a",
+            "secondary-fixed": "#e4e2e0",
+            "error-container": "#ffdad6",
+            "background": "#fdf8f8",
+            "accent-orange": "#FF5C00"
+          },
+          borderRadius: {
+            "DEFAULT": "0.125rem",
+            "lg": "0.25rem",
+            "xl": "0.5rem",
+            "full": "0.75rem"
+          },
+          spacing: {
+            "margin-mobile": "16px",
+            "margin-desktop": "48px",
+            "unit": "4px",
+            "xs": "4px",
+            "sm": "8px",
+            "xl": "64px",
+            "md": "16px",
+            "lg": "32px",
+            "gutter": "24px"
+          },
+          fontFamily: {
+            "display-xl": ["Syne"],
+            "display-xl-mobile": ["Syne"],
+            "body-md": ["Hanken Grotesk"],
+            "headline-md": ["Syne"],
+            "label-md": ["Syne"],
+            "headline-lg": ["Syne"],
+            "body-lg": ["Hanken Grotesk"],
+            "code-sm": ["JetBrains Mono"],
+            "handwritten": ["Caveat"]
+          },
+          fontSize: {
+            "display-xl": ["84px", {"lineHeight": "90px", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+            "display-xl-mobile": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+            "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+            "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "600"}],
+            "headline-lg": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+            "code-sm": ["12px", {"lineHeight": "16px", "letterSpacing": "0.05em"}]
+          }
+        },
+      }
+    };
+  </script>
+  <style>
+    .hard-shadow { box-shadow: 4px 4px 0px #000000; }
+    .hard-shadow-lg { box-shadow: 8px 8px 0px #000000; }
+    .case-file-border { border: 2px solid #1d1b1b; }
+    .stagger-grid > div:nth-child(even) { transform: translateY(40px); }
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .animate-slide-up { animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    .sticker-rotate { transform: rotate(-2deg); transition: transform 0.3s ease; }
+    .card-hover:hover {
+      transform: translate(-4px, -4px) rotate(1deg) !important;
+      box-shadow: 12px 12px 0px #000000;
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
 </head>
 <body>
 
-  <nav class="nav">
-    <a href="index.html" class="nav__logo">agency.</a>
-    <ul class="nav__links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="work.html" class="active">Work</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <a href="contact.html" class="nav__cta">Run App</a>
-  </nav>
+  <!-- ================================================================
+       STICKY NAVIGATION HEADER
+       ================================================================ -->
+  <header class="sticky-header">
+    <a href="index.html" class="header__logo">agency.</a>
+    
+    <div class="header__meta hide-mobile">
+      <span>Software Collective &bull; Folio 2026</span>
+    </div>
+
+    <nav class="header__nav">
+      <ul class="header__links hide-mobile">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="work.html" class="active">Works</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="header__status hide-tablet">
+        <span class="status-dot"></span>
+        <span>Available for builds</span>
+      </div>
+
+      <a href="contact.html" class="header__cta c-button">
+        <span class="c-link">
+          <span class="c-link__inner">
+            <span>Start Project</span>
+            <span class="c-link__animated">Start Project</span>
+          </span>
+        </span>
+      </a>
+    </nav>
+  </header>
 
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
-  <div class="cursor-spotlight"></div>
-
-  <!-- SPREAD: THE ARCHIVE -->
-  <section class="spread spread--light page-spread">
-
-    <div style="max-width:1200px;margin:0 auto;">
-      <div class="headline" data-split style="margin-bottom:0.5em;">
-        <span class="char-wrap"><span>OUR BUILD</span></span>
+  <div class="cursor-spotlight"></div>  <!-- ================================================================
+       MAIN ARCHIVE SECTION
+       ================================================================ -->
+  <main class="pt-[140px] px-margin-desktop max-w-[1440px] mx-auto min-h-screen">
+    <!-- Header Section -->
+    <header class="relative mb-xl animate-slide-up">
+      <div class="flex items-baseline gap-md mb-xs">
+        <span class="font-code-sm text-primary opacity-40">02/</span>
+        <h1 class="font-display-xl text-[120px] leading-[0.9] font-extrabold uppercase tracking-tighter">
+          Our Build<br/>Archive
+        </h1>
+        <div class="relative">
+          <span class="font-handwritten text-accent-orange text-headline-md absolute -top-8 left-4 whitespace-nowrap sticker-rotate">
+            everything we've shipped
+          </span>
+          <!-- Hand-drawn arrow simplified -->
+          <svg class="absolute -top-12 -left-8 w-16 h-16 text-accent-orange opacity-60" viewbox="0 0 100 100">
+            <path d="M10,80 Q50,90 80,20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+            <path d="M70,30 L80,20 L85,35" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+          </svg>
+        </div>
       </div>
-      <div class="headline" data-split style="margin-bottom:1em;">
-        <span class="char-wrap"><span>ARCHIVE</span></span>
-        <span class="headline__italic" style="font-size:0.3em;margin-left:0.3em;transform:rotate(-4deg);display:inline-block;vertical-align:middle;">everything we shipped</span>
+      <div class="mt-lg max-w-2xl">
+        <p class="font-body-lg text-body-lg text-on-surface opacity-80 border-l-2 border-primary pl-lg py-sm">
+          No concepts. Only production-ready systems. We build tools that live in the wild, solving high-entropy engineering problems with ruthless efficiency.
+        </p>
       </div>
-      <div class="subhead" style="color:var(--text-muted);margin-bottom:3em;">No concepts. All production-ready.</div>
-
-      <div class="filter-row">
-        <div class="filter-tag filter-tag--active">ALL PROJECTS</div>
-        <div class="filter-tag">COMP. VISION</div>
-        <div class="filter-tag">LLM AGENTS</div>
-        <div class="filter-tag">ROBOTICS</div>
-        <div class="filter-tag">WEB APP</div>
-        <div class="filter-tag">HARDWARE</div>
+      <!-- Margin Note Decor -->
+      <div class="absolute -right-12 top-0 hidden xl:block opacity-30 select-none">
+        <p class="font-code-sm vertical-text rotate-90 origin-left tracking-widest uppercase">
+          * Engineering Protocol V.4.1 — Verified
+        </p>
       </div>
+    </header>
 
-      <div class="folder-grid">
+    <!-- Filters Section -->
+    <section class="mb-xl">
+      <div class="flex flex-wrap gap-sm items-center">
+        <button class="px-md py-xs rounded-full border-2 border-primary bg-accent-orange text-white font-label-md hard-shadow transition-all hover:-translate-y-1 cursor-pointer">ALL PROJECTS</button>
+        <button class="px-md py-xs rounded-full border-2 border-primary bg-white text-primary font-label-md hover:bg-surface-container-high transition-colors cursor-pointer">COMP. VISION</button>
+        <button class="px-md py-xs rounded-full border-2 border-primary bg-white text-primary font-label-md hover:bg-surface-container-high transition-colors cursor-pointer">LLM AGENTS</button>
+        <button class="px-md py-xs rounded-full border-2 border-primary bg-white text-primary font-label-md hover:bg-surface-container-high transition-colors cursor-pointer">ROBOTICS</button>
+        <button class="px-md py-xs rounded-full border-2 border-primary bg-white text-primary font-label-md hover:bg-surface-container-high transition-colors cursor-pointer">WEB APP</button>
+        <button class="px-md py-xs rounded-full border-2 border-primary bg-white text-primary font-label-md hover:bg-surface-container-high transition-colors cursor-pointer">HARDWARE</button>
+        <div class="ml-auto hidden md:flex items-center gap-xs opacity-40 font-code-sm">
+          <span class="material-symbols-outlined text-sm">filter_list</span>
+          <span>SORT: RECENT_DEPLOY</span>
+        </div>
+      </div>
+    </section>
 
-        <!-- Folder 1: AeroTwin -->
-        <div class="folder" onclick="location.href='project-detail.html'">
-          <div class="folder__blueprint">
-            <div style="font-size:0.6rem;opacity:0.7;">ARCH // FLOW</div>
-            <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">STATE_SYNCHRONIZER</div>
-            <div style="font-size:0.55rem;color:#60A5FA;">[RUST_ENGINE_v1.2]</div>
-          </div>
-          <div class="folder__metrics">
-            <div style="font-size:0.55rem;color:var(--text-muted);">LATENCY PROTOCOL</div>
-            <div style="font-size:1rem;color:var(--accent-orange);">99.9% sync</div>
-            <div style="font-size:0.55rem;">BENCHMARK: SUB-50MS</div>
-          </div>
-          <div class="folder__cover">
+    <!-- Project Grid -->
+    <section class="stagger-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-xl pb-xl">
+      <!-- Folder 1: AeroTwin -->
+      <div class="folder" onclick="location.href='project-detail.html'">
+        <div class="folder__blueprint">
+          <div style="font-size:0.6rem;opacity:0.7;">ARCH // FLOW</div>
+          <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">STATE_SYNCHRONIZER</div>
+          <div style="font-size:0.55rem;color:#60A5FA;">[RUST_ENGINE_v1.2]</div>
+        </div>
+        <div class="folder__metrics">
+          <div style="font-size:0.55rem;color:var(--text-muted);">LATENCY PROTOCOL</div>
+          <div style="font-size:1rem;color:var(--accent-orange);">99.9% sync</div>
+          <div style="font-size:0.55rem;">BENCHMARK: SUB-50MS</div>
+        </div>
+        <div class="folder__cover">
+          <div class="flex flex-col h-full justify-between">
             <div>
               <div style="font-size:0.55rem;color:var(--text-muted);">UAV SWARMS</div>
-              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;">AeroTwin Swarm</div>
+              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;font-weight:800;">AeroTwin Swarm</div>
+            </div>
+            <!-- Showcase Image -->
+            <div class="my-sm h-28 overflow-hidden border-2 border-primary rounded-sm shadow-inner bg-white">
+              <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFXY69oChgvozsWnWDABchzMKY6Sk6CcmtNdiOgObx4XS4DzSkoGHsZzoxZiZTP-bCP7xJOdZWweS3wnqP6g3OQqQOFmn0GotKiH-LKxKmP74R7rj-wfKyGy8s8iDQ_uTKbYvqhBDnwcsYz2zCqvI3_hKv0sxst9WQGeQ9SSLi_lG88u6Q7VcSqwQyFz9n9FeK6Pv5w-pje-PF7uL7ykfgtbB-lpxNjGqxZ4r9fpH1E6Rts0U3VajcxQ" alt="AeroTwin Swarm" />
             </div>
             <div>
-              <div style="font-family:var(--font-script);font-size:0.9rem;opacity:0.8;margin-bottom:0.5em;">Decentralized flight controller for autonomous UAV swarms.</div>
+              <div style="font-family:var(--font-script);font-size:0.85rem;opacity:0.8;margin-bottom:0.5em;line-height:1.2;">Decentralized flight controller for autonomous UAV swarms.</div>
               <div class="folder__tags">
                 <span class="folder__tag">Rust</span>
                 <span class="folder__tag">ROS2</span>
@@ -74,26 +251,32 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Folder 2: MuleNet -->
-        <div class="folder" onclick="location.href='project-detail.html'">
-          <div class="folder__blueprint">
-            <div style="font-size:0.6rem;opacity:0.7;">SPEC // FLOW</div>
-            <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">P2P_MESH_BLE</div>
-            <div style="font-size:0.55rem;color:#60A5FA;">[GO_PROTOCOL_v0.9]</div>
-          </div>
-          <div class="folder__metrics">
-            <div style="font-size:0.55rem;color:var(--text-muted);">ROUTING DECAY</div>
-            <div style="font-size:1rem;color:var(--accent-orange);">100% off-grid</div>
-            <div style="font-size:0.55rem;">HOPS: MAX 6 EDGE</div>
-          </div>
-          <div class="folder__cover">
+      <!-- Folder 2: MuleNet -->
+      <div class="folder" onclick="location.href='project-detail.html'">
+        <div class="folder__blueprint">
+          <div style="font-size:0.6rem;opacity:0.7;">SPEC // FLOW</div>
+          <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">P2P_MESH_BLE</div>
+          <div style="font-size:0.55rem;color:#60A5FA;">[GO_PROTOCOL_v0.9]</div>
+        </div>
+        <div class="folder__metrics">
+          <div style="font-size:0.55rem;color:var(--text-muted);">ROUTING DECAY</div>
+          <div style="font-size:1rem;color:var(--accent-orange);">100% off-grid</div>
+          <div style="font-size:0.55rem;">HOPS: MAX 6 EDGE</div>
+        </div>
+        <div class="folder__cover">
+          <div class="flex flex-col h-full justify-between">
             <div>
               <div style="font-size:0.55rem;color:var(--text-muted);">COMMUNICATIONS</div>
-              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;">MuleNet Protocol</div>
+              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;font-weight:800;">MuleNet Protocol</div>
+            </div>
+            <!-- Showcase Image -->
+            <div class="my-sm h-28 overflow-hidden border-2 border-primary rounded-sm shadow-inner bg-white">
+              <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0UXBIe6TODiFRL-Wnmq_LZr_BvtdlghlHUbRJggYDOfc6d0fn7UPgoXLnKtqxBa2t2V7VJ5GM5jaSDvEOKKcTvBgRcNcdW2MlIx3HGzM-Es8svZu-VKW7ffSA3kYA2Acy-IeGj-Nc7qOb4UHA5qQEwrx9-JHKweMj_SBm3Nf-N06yonihbAf7Pdn7l2p_IHN3dbFjTI-pwZLZhBygjOoaCj8pXrOoViZx8sAF3rTdC78OzWYjV1H6mg" alt="MuleNet Protocol" />
             </div>
             <div>
-              <div style="font-family:var(--font-script);font-size:0.9rem;opacity:0.8;margin-bottom:0.5em;">Decentralized messaging protocol for off-grid edge devices.</div>
+              <div style="font-family:var(--font-script);font-size:0.85rem;opacity:0.8;margin-bottom:0.5em;line-height:1.2;">Decentralized messaging protocol for off-grid edge devices.</div>
               <div class="folder__tags">
                 <span class="folder__tag">Go</span>
                 <span class="folder__tag">BLE</span>
@@ -102,26 +285,32 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Folder 3: AgentOS -->
-        <div class="folder" onclick="location.href='project-detail.html'">
-          <div class="folder__blueprint">
-            <div style="font-size:0.6rem;opacity:0.7;">DAG // STATE</div>
-            <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">LANGGRAPH_ROUTING</div>
-            <div style="font-size:0.55rem;color:#60A5FA;">[PY_WORKFLOW_v2.0]</div>
-          </div>
-          <div class="folder__metrics">
-            <div style="font-size:0.55rem;color:var(--text-muted);">EXECUTION TIME</div>
-            <div style="font-size:1rem;color:var(--accent-orange);">1.2s avg</div>
-            <div style="font-size:0.55rem;">ACCURACY: 98.4%</div>
-          </div>
-          <div class="folder__cover">
+      <!-- Folder 3: AgentOS -->
+      <div class="folder" onclick="location.href='project-detail.html'">
+        <div class="folder__blueprint">
+          <div style="font-size:0.6rem;opacity:0.7;">DAG // STATE</div>
+          <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">LANGGRAPH_ROUTING</div>
+          <div style="font-size:0.55rem;color:#60A5FA;">[PY_WORKFLOW_v2.0]</div>
+        </div>
+        <div class="folder__metrics">
+          <div style="font-size:0.55rem;color:var(--text-muted);">EXECUTION TIME</div>
+          <div style="font-size:1rem;color:var(--accent-orange);">1.2s avg</div>
+          <div style="font-size:0.55rem;">ACCURACY: 98.4%</div>
+        </div>
+        <div class="folder__cover">
+          <div class="flex flex-col h-full justify-between">
             <div>
               <div style="font-size:0.55rem;color:var(--text-muted);">AI AGENT SYSTEMS</div>
-              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;">AgentOS</div>
+              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;font-weight:800;">AgentOS</div>
+            </div>
+            <!-- Showcase Image -->
+            <div class="my-sm h-28 overflow-hidden border-2 border-primary rounded-sm shadow-inner bg-white">
+              <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiUIdk4lVztEeZUplZbRdzOhrt4Ca1ohm9-P5MvqSF8OQx_B93SJLNUAZiY3CLj_pzrBi8RZ9RfbMy9216CmR1DWJIOq1Egv0rxYcpSiBzLzPHIGVHxgH8T4ZW8rmTiCTOdk_AxCvZuOkRrKMbeJt_uypIU4UMniw1HBJbeEky63dG5-loO7ZqzX5yst3V4ASlQuihcB8mVjHvAywuSdqblCMuGAC1GOEku11yPOkliWZ1pRySUICcig" alt="AgentOS" />
             </div>
             <div>
-              <div style="font-family:var(--font-script);font-size:0.9rem;opacity:0.8;margin-bottom:0.5em;">Visual workspace for orchestrating multi-LLM agent swarms.</div>
+              <div style="font-family:var(--font-script);font-size:0.85rem;opacity:0.8;margin-bottom:0.5em;line-height:1.2;">Visual workspace for orchestrating multi-LLM agent swarms.</div>
               <div class="folder__tags">
                 <span class="folder__tag">Python</span>
                 <span class="folder__tag">Next.js</span>
@@ -129,26 +318,32 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Folder 4: VisionPipe -->
-        <div class="folder" onclick="location.href='project-detail.html'">
-          <div class="folder__blueprint">
-            <div style="font-size:0.6rem;opacity:0.7;">CUDA // SHADER</div>
-            <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">INFERENCE_PIPELINE</div>
-            <div style="font-size:0.55rem;color:#60A5FA;">[CUDA_STREAM_v3.4]</div>
-          </div>
-          <div class="folder__metrics">
-            <div style="font-size:0.55rem;color:var(--text-muted);">FRAME RATE</div>
-            <div style="font-size:1rem;color:var(--accent-orange);">120 FPS</div>
-            <div style="font-size:0.55rem;">RESOLUTION: 4K CHANNELS</div>
-          </div>
-          <div class="folder__cover">
+      <!-- Folder 4: VisionPipe -->
+      <div class="folder" onclick="location.href='project-detail.html'">
+        <div class="folder__blueprint">
+          <div style="font-size:0.6rem;opacity:0.7;">CUDA // SHADER</div>
+          <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">INFERENCE_PIPELINE</div>
+          <div style="font-size:0.55rem;color:#60A5FA;">[CUDA_STREAM_v3.4]</div>
+        </div>
+        <div class="folder__metrics">
+          <div style="font-size:0.55rem;color:var(--text-muted);">FRAME RATE</div>
+          <div style="font-size:1rem;color:var(--accent-orange);">120 FPS</div>
+          <div style="font-size:0.55rem;">RESOLUTION: 4K CHANNELS</div>
+        </div>
+        <div class="folder__cover">
+          <div class="flex flex-col h-full justify-between">
             <div>
               <div style="font-size:0.55rem;color:var(--text-muted);">COMPUTER VISION</div>
-              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;">VisionPipe</div>
+              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;font-weight:800;">VisionPipe</div>
+            </div>
+            <!-- Showcase Image -->
+            <div class="my-sm h-28 overflow-hidden border-2 border-primary rounded-sm shadow-inner bg-white">
+              <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA9zpwG6Pv1IZlYLKOmrhmfhQjZxjdn_6p_lyhv2GMjPxDzTJegO20xMlrLJ93h7mKL4ypXHNM1OKFcHYNVgzMddX1uqZHywQyqrKjOaRzDVYEZv4uuqwOGAp3ggi9XMNA1prrXxFaoD9fyN3hPKE5397bo7k2YzAzjwX79_aBypdHe8UJCW-ajDuFlWaBF4vqaA08P5vUYTf1LroT4LcRZPTc7RnFJUgZLJ-ye6e66RCDbk9ab7DPOjA" alt="VisionPipe" />
             </div>
             <div>
-              <div style="font-family:var(--font-script);font-size:0.9rem;opacity:0.8;margin-bottom:0.5em;">Industrial defect detection via high-speed cameras.</div>
+              <div style="font-family:var(--font-script);font-size:0.85rem;opacity:0.8;margin-bottom:0.5em;line-height:1.2;">Industrial defect detection via high-speed cameras.</div>
               <div class="folder__tags">
                 <span class="folder__tag">C++</span>
                 <span class="folder__tag">CUDA</span>
@@ -156,26 +351,32 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Folder 5: HoloControl -->
-        <div class="folder" onclick="location.href='project-detail.html'">
-          <div class="folder__blueprint">
-            <div style="font-size:0.6rem;opacity:0.7;">CAD // SIM</div>
-            <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">ROBOTIC_ARM_KIN</div>
-            <div style="font-size:0.55rem;color:#60A5FA;">[UNITY_SIM_v0.5]</div>
-          </div>
-          <div class="folder__metrics">
-            <div style="font-size:0.55rem;color:var(--text-muted);">POSITION ERROR</div>
-            <div style="font-size:1rem;color:var(--accent-orange);">0.8mm variance</div>
-            <div style="font-size:0.55rem;">UDP JITTER: &lt;5MS</div>
-          </div>
-          <div class="folder__cover">
+      <!-- Folder 5: HoloControl -->
+      <div class="folder" onclick="location.href='project-detail.html'">
+        <div class="folder__blueprint">
+          <div style="font-size:0.6rem;opacity:0.7;">CAD // SIM</div>
+          <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">ROBOTIC_ARM_KIN</div>
+          <div style="font-size:0.55rem;color:#60A5FA;">[UNITY_SIM_v0.5]</div>
+        </div>
+        <div class="folder__metrics">
+          <div style="font-size:0.55rem;color:var(--text-muted);">POSITION ERROR</div>
+          <div style="font-size:1rem;color:var(--accent-orange);">0.8mm variance</div>
+          <div style="font-size:0.55rem;">UDP JITTER: &lt;5MS</div>
+        </div>
+        <div class="folder__cover">
+          <div class="flex flex-col h-full justify-between">
             <div>
               <div style="font-size:0.55rem;color:var(--text-muted);">SPATIAL COMPUTING</div>
-              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;">HoloControl</div>
+              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;font-weight:800;">HoloControl</div>
+            </div>
+            <!-- Showcase Image -->
+            <div class="my-sm h-28 overflow-hidden border-2 border-primary rounded-sm shadow-inner bg-white">
+              <img class="w-full h-full object-cover" src="assets/robot_skectch/robot_seeblueprintandsmile.png" alt="HoloControl" />
             </div>
             <div>
-              <div style="font-family:var(--font-script);font-size:0.9rem;opacity:0.8;margin-bottom:0.5em;">Spatial computing interface for robotic arms.</div>
+              <div style="font-family:var(--font-script);font-size:0.85rem;opacity:0.8;margin-bottom:0.5em;line-height:1.2;">Spatial computing interface for robotic arms.</div>
               <div class="folder__tags">
                 <span class="folder__tag">Unity</span>
                 <span class="folder__tag">C#</span>
@@ -183,26 +384,32 @@
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- Folder 6: BioForecaster -->
-        <div class="folder" onclick="location.href='project-detail.html'">
-          <div class="folder__blueprint">
-            <div style="font-size:0.6rem;opacity:0.7;">CNN // REG</div>
-            <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">SATELLITE_IMG_CNN</div>
-            <div style="font-size:0.55rem;color:#60A5FA;">[PYTORCH_YIELD_v1.1]</div>
-          </div>
-          <div class="folder__metrics">
-            <div style="font-size:0.55rem;color:var(--text-muted);">YIELD RATIO</div>
-            <div style="font-size:1rem;color:var(--accent-orange);">94.1% accuracy</div>
-            <div style="font-size:0.55rem;">SPECTRAL BANDS: 8</div>
-          </div>
-          <div class="folder__cover">
+      <!-- Folder 6: BioForecaster -->
+      <div class="folder" onclick="location.href='project-detail.html'">
+        <div class="folder__blueprint">
+          <div style="font-size:0.6rem;opacity:0.7;">CNN // REG</div>
+          <div style="font-size:0.85rem;margin:0.3em 0;color:#93C5FD;">SATELLITE_IMG_CNN</div>
+          <div style="font-size:0.55rem;color:#60A5FA;">[PYTORCH_YIELD_v1.1]</div>
+        </div>
+        <div class="folder__metrics">
+          <div style="font-size:0.55rem;color:var(--text-muted);">YIELD RATIO</div>
+          <div style="font-size:1rem;color:var(--accent-orange);">94.1% accuracy</div>
+          <div style="font-size:0.55rem;">SPECTRAL BANDS: 8</div>
+        </div>
+        <div class="folder__cover">
+          <div class="flex flex-col h-full justify-between">
             <div>
               <div style="font-size:0.55rem;color:var(--text-muted);">DEEP LEARNING</div>
-              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;">BioForecaster</div>
+              <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;font-weight:800;">BioForecaster</div>
+            </div>
+            <!-- Showcase Image -->
+            <div class="my-sm h-28 overflow-hidden border-2 border-primary rounded-sm shadow-inner bg-white">
+              <img class="w-full h-full object-cover" src="assets/robot_skectch/robot_thinkandseelaptop.png" alt="BioForecaster" />
             </div>
             <div>
-              <div style="font-family:var(--font-script);font-size:0.9rem;opacity:0.8;margin-bottom:0.5em;">Deep learning crop yield models from satellite imagery.</div>
+              <div style="font-family:var(--font-script);font-size:0.85rem;opacity:0.8;margin-bottom:0.5em;line-height:1.2;">Deep learning crop yield models from satellite imagery.</div>
               <div class="folder__tags">
                 <span class="folder__tag">PyTorch</span>
                 <span class="folder__tag">Python</span>
@@ -210,30 +417,98 @@
             </div>
           </div>
         </div>
-
       </div>
+    </section>
+
+    <!-- Decorative Margin Elements -->
+    <div class="fixed left-4 bottom-24 hidden lg:flex flex-col gap-sm opacity-20 select-none">
+      <span class="material-symbols-outlined">star</span>
+      <span class="material-symbols-outlined">star</span>
+      <span class="material-symbols-outlined">star</span>
+    </div>
+  </main>
+
+  <script>
+    // Micro-interactions for hard shadow movement
+    document.querySelectorAll('button').forEach(btn => {
+        btn.addEventListener('mousedown', () => {
+            btn.classList.add('translate-x-[2px]', 'translate-y-[2px]');
+            btn.style.boxShadow = '2px 2px 0px #000';
+        });
+        btn.addEventListener('mouseup', () => {
+            btn.classList.remove('translate-x-[2px]', 'translate-y-[2px]');
+            btn.style.boxShadow = '';
+        });
+    });
+
+    // Simple intersection observer for reveal animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-slide-up');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.folder').forEach(folder => {
+        folder.style.opacity = '0';
+        observer.observe(folder);
+    });
+  </script>
+
+  <!-- ================================================================
+       PREMIUM FOOTER
+       ================================================================ -->
+  <footer class="premium-footer" id="js-footer">
+    <div class="footer-columns">
+      
+      <div class="footer-info">
+        <a href="index.html" class="footer-info__logo">agency.</a>
+        <p class="footer-info__desc">
+          An elite software and automation collective of student builders. 
+          We ship real systems under extreme deadlines.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Navigate</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="footer-col-title">Socials</h4>
+        <ul class="footer-links">
+          <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a></li>
+          <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4 class="footer-col-title">Start a Build</h4>
+        <p style="font-size: 0.85rem; opacity: 0.7; line-height: 1.4; margin-bottom: 0.5rem;">
+          Have a project in mind? We'll scope it out and build it.
+        </p>
+        <span onclick="location.href='mailto:hello@agency.dev'" class="footer-contact__email">hello@agency.dev</span>
+      </div>
+
     </div>
 
-  </section>
-
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__col">
-        <div class="footer__col-title">Agency</div>
-        <div style="font-size:0.85rem;opacity:0.7;">© 2026 Student Tech Agency</div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Student Tech Agency. All rights reserved.</span>
+      <div class="footer-time">
+        <span>UTC/LOCAL:</span>
+        <span class="time-clock">00:00:00</span>
       </div>
-      <div class="footer__col">
-        <div class="footer__col-title">Navigate</div>
-        <a href="index.html" style="font-size:0.85rem;">Home</a>
-        <a href="work.html" style="font-size:0.85rem;">Work</a>
-        <a href="team.html" style="font-size:0.85rem;">Team</a>
-      </div>
-      <div class="footer__col">
-        <div class="footer__col-title">Connect</div>
-        <div style="font-size:0.85rem;opacity:0.7;">hello@agency.dev</div>
-      </div>
+      <span>No decks. No suits. Just pure code.</span>
     </div>
-    <div class="footer__bottom">SF / NYC / Remote — No suits. No fluff.</div>
   </footer>
 
   <script src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js"></script>

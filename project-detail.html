@@ -3,117 +3,340 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Project Detail — agency.</title>
+  <title>AeroTwin — agency.</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <nav class="nav">
-    <a href="index.html" class="nav__logo">agency.</a>
-    <ul class="nav__links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <a href="contact.html" class="nav__cta">Run App</a>
-  </nav>
+  <!-- ================================================================
+       STICKY NAVIGATION HEADER
+       ================================================================ -->
+  <header class="sticky-header">
+    <a href="index.html" class="header__logo">agency.</a>
+    
+    <div class="header__meta hide-mobile">
+      <span>Software Collective &bull; Folio 2026</span>
+    </div>
+
+    <nav class="header__nav">
+      <ul class="header__links hide-mobile">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="work.html">Works</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="header__status hide-tablet">
+        <span class="status-dot"></span>
+        <span>Available for builds</span>
+      </div>
+
+      <a href="contact.html" class="header__cta c-button">
+        <span class="c-link">
+          <span class="c-link__inner">
+            <span>Start Project</span>
+            <span class="c-link__animated">Start Project</span>
+          </span>
+        </span>
+      </a>
+    </nav>
+  </header>
 
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
   <div class="cursor-spotlight"></div>
 
-  <section class="spread spread--dark page-spread" style="padding-top:10em;min-height:auto;">
+  <!-- ================================================================
+       PROJECT DETAIL: AEROTWIN
+       Art Direction: Dark spread. Physical paper objects scattered.
+       ================================================================ -->
+  <section class="spread spread--dark" style="min-height:auto;padding:5em 2.5em 6em;">
 
-    <div style="max-width:1000px;margin:0 auto;">
+    <div style="max-width:1100px;margin:0 auto;">
 
-      <a href="work.html" style="font-family:var(--font-mono);font-size:0.7rem;font-weight:700;border-bottom:2px solid var(--text-light);padding-bottom:2px;display:inline-block;margin-bottom:2em;color:var(--text-light);">← Back to Work</a>
+      <!-- BACK LINK -->
+      <a href="work.html" style="font-family:var(--font-mono);font-size:0.7rem;font-weight:700;border-bottom:2px solid rgba(240,235,230,0.3);padding-bottom:2px;display:inline-block;margin-bottom:3em;color:var(--text-light);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent-orange)'" onmouseout="this.style.borderColor='rgba(240,235,230,0.3)'">&larr; BACK TO WORK</a>
 
-      <div style="margin-bottom:3em;">
-        <div class="label" style="color:var(--text-muted);margin-bottom:0.5em;">CASE STUDY</div>
-        <div class="headline headline--mega" data-split style="margin-bottom:0.3em;">
+      <!-- HERO: TITLE COMPOSITION -->
+      <div style="text-align:center;margin-bottom:4em;position:relative;">
+
+        <div class="sticker" style="top:-1em;right:10%;transform:rotate(6deg);z-index:20;" data-sticker>
+          <span class="sticker__pill sticker__pill--orange">CASE STUDY</span>
+        </div>
+
+        <div class="label" style="color:var(--text-muted);margin-bottom:0.8em;letter-spacing:0.15em;">UAV SWARMS / STATE SYNCHRONIZATION</div>
+
+        <div class="headline headline--mega" data-split style="margin-bottom:0.15em;">
           <span class="char-wrap"><span>AERO</span></span>
         </div>
-        <div class="headline headline--mega" data-split style="margin-bottom:0.5em;">
+        <div class="headline headline--mega" data-split style="margin-bottom:0.4em;">
           <span class="char-wrap"><span>TWIN</span></span>
         </div>
-        <div class="subhead" style="color:var(--text-muted);">A complete state-synchronization engine built for autonomous UAV swarms.</div>
-      </div>
 
-      <!-- Hero image -->
-      <div class="detail-hero-img" style="background:linear-gradient(135deg,#1A365D 0%,#2563EB 50%,var(--accent-lilac) 100%);margin-bottom:3em;border:2px solid var(--text-light);border-radius:var(--border-radius);"></div>
-
-      <!-- Facts -->
-      <div class="facts-row" style="margin-bottom:3em;">
-        <div class="fact-cell" style="background:#2d2d2d;border-color:var(--text-light);color:var(--text-light);box-shadow:4px 4px 0 rgba(240,235,230,0.2);">
-          <div class="label" style="color:var(--text-muted);">PLATFORM</div>
-          <div style="font-family:var(--font-display);font-size:1.1rem;margin-top:0.3em;">AWS Cloud</div>
+        <div style="margin-top:0.8em;">
+          <span class="headline__italic" style="font-size:clamp(1.2rem,2.5vw,1.8rem);transform:rotate(-4deg);display:inline-block;">autonomous state-sync engine</span>
         </div>
-        <div class="fact-cell" style="background:#2d2d2d;border-color:var(--text-light);color:var(--text-light);box-shadow:4px 4px 0 rgba(240,235,230,0.2);">
-          <div class="label" style="color:var(--text-muted);">TIMELINE</div>
-          <div style="font-family:var(--font-display);font-size:1.1rem;margin-top:0.3em;">4 Weeks</div>
+
+        <div class="subhead" style="color:var(--text-muted);margin-top:1.2em;max-width:34em;margin-left:auto;margin-right:auto;">A complete state-synchronization engine built for autonomous UAV swarms. Sub-50ms execution. 99.9% sync accuracy.</div>
+      </div>
+
+      <!-- HERO IMAGE: BLUEPRINT STYLE -->
+      <div style="position:relative;margin-bottom:4em;">
+        <div class="blueprint-sheet" style="padding:2em;transform:rotate(-0.5deg);">
+          <div style="font-size:0.6rem;opacity:0.7;margin-bottom:0.5em;">ARCH // SYSTEM OVERVIEW</div>
+          <div style="font-size:1rem;color:#93C5FD;margin-bottom:0.8em;">AEROTWIN STATE SYNCHRONIZER</div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1em;font-size:0.55rem;line-height:1.8;">
+            <div>
+              <div style="color:#60A5FA;font-weight:700;">INPUT LAYER</div>
+              <div>GPS telemetry stream</div>
+              <div>IMU sensor fusion</div>
+              <div>Peer heartbeat protocol</div>
+            </div>
+            <div>
+              <div style="color:#60A5FA;font-weight:700;">CONSENSUS ENGINE</div>
+              <div>CRDT conflict resolution</div>
+              <div>Rust memory-safe state</div>
+              <div>Sub-50ms convergence</div>
+            </div>
+            <div>
+              <div style="color:#60A5FA;font-weight:700;">OUTPUT LAYER</div>
+              <div>Unified swarm topology</div>
+              <div>Collision avoidance mesh</div>
+              <div>Navigation command sync</div>
+            </div>
+          </div>
+          <div style="margin-top:1.2em;font-size:0.5rem;color:#60A5FA;border-top:1px dashed rgba(147,197,253,0.3);padding-top:0.6em;">
+            PROTOCOL: PEER-TO-PEER &middot; TRANSPORT: BLE + MESH &middot; STATE: CRDT &middot; LANG: RUST
+          </div>
         </div>
-        <div class="fact-cell" style="background:#2d2d2d;border-color:var(--text-light);color:var(--text-light);box-shadow:4px 4px 0 rgba(240,235,230,0.2);">
-          <div class="label" style="color:var(--text-muted);">ROLE</div>
-          <div style="font-family:var(--font-display);font-size:1.1rem;margin-top:0.3em;">Architect</div>
+        <div class="masking-tape" style="top:-10px;left:20%;transform:rotate(-4deg);"></div>
+      </div>
+
+      <!-- QUICK FACTS -->
+      <div class="detail-facts">
+
+        <div class="paper-sheet" style="padding:1.2em;text-align:center;transform:rotate(-1deg);">
+          <div class="label" style="color:var(--text-muted);margin-bottom:0.4em;">STACK</div>
+          <div style="font-family:var(--font-display);font-size:1rem;">Rust + ROS2</div>
         </div>
-        <div class="fact-cell" style="background:#2d2d2d;border-color:var(--text-light);color:var(--text-light);box-shadow:4px 4px 0 rgba(240,235,230,0.2);">
-          <div class="label" style="color:var(--text-muted);">LANGUAGE</div>
-          <div style="font-family:var(--font-display);font-size:1.1rem;margin-top:0.3em;">Rust</div>
+
+        <div class="paper-sheet" style="padding:1.2em;text-align:center;transform:rotate(0.5deg);">
+          <div class="label" style="color:var(--text-muted);margin-bottom:0.4em;">TIMELINE</div>
+          <div style="font-family:var(--font-display);font-size:1rem;">4 Weeks</div>
         </div>
+
+        <div class="paper-sheet" style="padding:1.2em;text-align:center;transform:rotate(-0.3deg);">
+          <div class="label" style="color:var(--text-muted);margin-bottom:0.4em;">TEAM</div>
+          <div style="font-family:var(--font-display);font-size:1rem;">3 Engineers</div>
+        </div>
+
+        <div class="paper-sheet" style="padding:1.2em;text-align:center;transform:rotate(0.8deg);">
+          <div class="label" style="color:var(--text-muted);margin-bottom:0.4em;">STATUS</div>
+          <div style="font-family:var(--font-display);font-size:1rem;color:var(--accent-orange);">Shipped</div>
+        </div>
+
       </div>
 
-      <!-- Body -->
-      <div class="para-block" style="background:#2d2d2d;border-color:var(--text-light);color:var(--text-light);box-shadow:6px 6px 0 rgba(240,235,230,0.2);margin-bottom:1.5em;">
-        <p class="subhead" style="color:rgba(240,235,230,0.8);">We set out to build a fully synchronized edge agent model that could handle thousands of concurrent queries without bottlenecking the parent process. Our final pipeline benchmarked at sub-50ms execution times.</p>
+      <!-- THE STORY -->
+      <div style="margin-bottom:4em;">
+
+        <div style="margin-bottom:2em;">
+          <div class="headline" data-split style="font-size:clamp(1.8rem,5vw,3rem);margin-bottom:0.5em;">
+            <span class="char-wrap"><span>THE</span></span>
+          </div>
+          <div class="headline" data-split style="font-size:clamp(1.8rem,5vw,3rem);margin-bottom:0.5em;">
+            <span class="char-wrap"><span>PROBLEM</span></span>
+          </div>
+        </div>
+
+        <div class="detail-story">
+
+          <div class="paper-sheet" style="padding:2em;transform:rotate(-0.5deg);">
+            <div style="font-family:var(--font-display);font-size:0.8rem;text-transform:uppercase;margin-bottom:0.8em;color:var(--accent-orange);">What We Built</div>
+            <p class="subhead" style="color:var(--text-muted);font-size:0.9rem;">A fully synchronized edge agent model that handles thousands of concurrent queries without bottlenecking the parent process. Our final pipeline benchmarked at sub-50ms execution times across 50+ UAV nodes.</p>
+          </div>
+
+          <div class="paper-sheet" style="padding:2em;transform:rotate(0.3deg);">
+            <div style="font-family:var(--font-display);font-size:0.8rem;text-transform:uppercase;margin-bottom:0.8em;color:var(--accent-orange);">The Challenge</div>
+            <p class="subhead" style="color:var(--text-muted);font-size:0.9rem;">Wireless packet loss in field conditions causes state drift between swarm members. Each node must resume peer-to-peer synchronization immediately after reconnecting, without human intervention or full-state transfers.</p>
+          </div>
+
+        </div>
+
+        <div class="sticky-note sticky-note--orange" style="width:14em;font-size:0.85rem;transform:rotate(-3deg);margin:2em 0 0 auto;" data-sticker>
+          <div style="font-weight:700;">Key insight:</div>
+          CRDTs let nodes disagree temporarily and converge automatically. No central authority needed.
+        </div>
+
       </div>
 
-      <div class="para-block" style="background:#2d2d2d;border-color:var(--text-light);color:var(--text-light);box-shadow:6px 6px 0 rgba(240,235,230,0.2);margin-bottom:1.5em;">
-        <p class="subhead" style="color:rgba(240,235,230,0.8);">To achieve this performance, we designed a lightweight consensus engine using CRDTs (Conflict-Free Replicated Data Types) written in Rust, allowing each UAV node to resume peer-to-peer synchronization immediately after suffering wireless packet loss.</p>
+      <!-- ARCHITECTURE DEEP DIVE -->
+      <div style="margin-bottom:4em;">
+
+        <div style="margin-bottom:2em;">
+          <div class="headline" data-split style="font-size:clamp(1.8rem,5vw,3rem);margin-bottom:0.5em;">
+            <span class="char-wrap"><span>HOW IT</span></span>
+          </div>
+          <div class="headline" data-split style="font-size:clamp(1.8rem,5vw,3rem);margin-bottom:0.5em;">
+            <span class="char-wrap"><span>WORKS</span></span>
+          </div>
+        </div>
+
+        <div class="detail-steps">
+
+          <div class="paper-sheet" style="padding:1.5em;transform:rotate(-1deg);">
+            <div style="font-family:var(--font-display);font-size:2rem;color:var(--accent-orange);margin-bottom:0.3em;">01</div>
+            <div style="font-family:var(--font-display);font-size:0.85rem;text-transform:uppercase;margin-bottom:0.6em;">Consensus Layer</div>
+            <p style="font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Each UAV node maintains a local CRDT state tree. When peers reconnect, they exchange only delta operations — not full state dumps. Conflict resolution is automatic via last-writer-wins with vector clocks.</p>
+          </div>
+
+          <div class="paper-sheet" style="padding:1.5em;transform:rotate(0.5deg);">
+            <div style="font-family:var(--font-display);font-size:2rem;color:var(--accent-orange);margin-bottom:0.3em;">02</div>
+            <div style="font-family:var(--font-display);font-size:0.85rem;text-transform:uppercase;margin-bottom:0.6em;">Transport Mesh</div>
+            <p style="font-size:0.8rem;color:var(--text-muted);line-height:1.5;">BLE for close-range swarm communication, fallback to WiFi mesh for extended range. Automatic protocol switching based on signal quality. Zero packet loss at the application layer.</p>
+          </div>
+
+          <div class="paper-sheet" style="padding:1.5em;transform:rotate(-0.3deg);">
+            <div style="font-family:var(--font-display);font-size:2rem;color:var(--accent-orange);margin-bottom:0.3em;">03</div>
+            <div style="font-family:var(--font-display);font-size:0.85rem;text-transform:uppercase;margin-bottom:0.6em;">Collision Avoidance</div>
+            <p style="font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Unified navigation mesh computed from synchronized state. Each node knows every other node's position within 50ms. Predictive trajectory modeling prevents close-approach events.</p>
+          </div>
+
+        </div>
+
       </div>
 
-      <div class="para-block" style="background:#2d2d2d;border-color:var(--text-light);color:var(--text-light);box-shadow:6px 6px 0 rgba(240,235,230,0.2);margin-bottom:3em;">
-        <p class="subhead" style="color:rgba(240,235,230,0.8);">Field testing proved that 99.9% state synchronization was achieved in under 50ms, enabling robust collision avoidance algorithms and unified navigation swarms even when entirely cut off from ground control stations.</p>
+      <!-- BENCHMARK RESULTS -->
+      <div style="margin-bottom:4em;">
+
+        <div class="sticky-note" style="width:16em;transform:rotate(-2deg);margin-bottom:2em;" data-sticker>
+          <div style="font-weight:700;">Field Test Results</div>
+          50 nodes, 8hr mission, adversarial conditions
+        </div>
+
+        <div class="detail-benchmarks">
+
+          <div class="blueprint-sheet" style="padding:1.2em;text-align:center;">
+            <div style="font-size:0.55rem;opacity:0.7;">SYNC ACCURACY</div>
+            <div style="font-family:var(--font-display);font-size:2rem;color:#93C5FD;margin:0.3em 0;">99.9%</div>
+            <div style="font-size:0.5rem;color:#60A5FA;">ACROSS 50+ NODES</div>
+          </div>
+
+          <div class="blueprint-sheet" style="padding:1.2em;text-align:center;">
+            <div style="font-size:0.55rem;opacity:0.7;">CONVERGENCE TIME</div>
+            <div style="font-family:var(--font-display);font-size:2rem;color:#93C5FD;margin:0.3em 0;">&lt;50ms</div>
+            <div style="font-size:0.5rem;color:#60A5FA;">AFTER RECONNECTION</div>
+          </div>
+
+          <div class="blueprint-sheet" style="padding:1.2em;text-align:center;">
+            <div style="font-size:0.55rem;opacity:0.7;">PACKET OVERHEAD</div>
+            <div style="font-family:var(--font-display);font-size:2rem;color:#93C5FD;margin:0.3em 0;">0.3%</div>
+            <div style="font-size:0.5rem;color:#60A5FA;">DELTA-ONLY PROTOCOL</div>
+          </div>
+
+        </div>
+
       </div>
 
-      <!-- Screenshots -->
-      <div class="screenshot-row">
-        <div style="flex:0 0 300px;height:200px;background:var(--accent-lilac);border:2px solid var(--text-light);border-radius:8px;"></div>
-        <div style="flex:0 0 300px;height:200px;background:var(--accent-green);border:2px solid var(--text-light);border-radius:8px;"></div>
-        <div style="flex:0 0 300px;height:200px;background:var(--accent-orange);border:2px solid var(--text-light);border-radius:8px;"></div>
+      <!-- SCREENSHOT GALLERY -->
+      <div style="margin-bottom:4em;">
+
+        <div style="margin-bottom:1.5em;">
+          <span class="headline__italic" style="font-size:1.4rem;transform:rotate(-3deg);display:inline-block;">from the lab</span>
+        </div>
+
+        <div class="detail-screenshots">
+
+          <div style="flex:0 0 320px;height:200px;background:linear-gradient(135deg,#1A365D 0%,#2563EB 100%);border:2px solid rgba(240,235,230,0.2);border-radius:var(--border-radius);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5em;">
+            <div style="font-family:var(--font-mono);font-size:0.65rem;color:rgba(240,235,230,0.5);">DASHBOARD VIEW</div>
+            <div style="font-family:var(--font-display);font-size:1.2rem;color:#fff;">Swarm Topology</div>
+          </div>
+
+          <div style="flex:0 0 320px;height:200px;background:linear-gradient(135deg,#065F46 0%,#10B981 100%);border:2px solid rgba(240,235,230,0.2);border-radius:var(--border-radius);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5em;">
+            <div style="font-family:var(--font-mono);font-size:0.65rem;color:rgba(240,235,230,0.5);">NODE TOPOLOGY</div>
+            <div style="font-family:var(--font-display);font-size:1.2rem;color:#fff;">State Graph</div>
+          </div>
+
+          <div style="flex:0 0 320px;height:200px;background:linear-gradient(135deg,#92400E 0%,#F59E0B 100%);border:2px solid rgba(240,235,230,0.2);border-radius:var(--border-radius);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5em;">
+            <div style="font-family:var(--font-mono);font-size:0.65rem;color:rgba(240,235,230,0.5);">SYNC LATENCY</div>
+            <div style="font-family:var(--font-display);font-size:1.2rem;color:#fff;">Real-Time Feed</div>
+          </div>
+
+          <div style="flex:0 0 320px;height:200px;background:linear-gradient(135deg,#581C87 0%,#A855F7 100%);border:2px solid rgba(240,235,230,0.2);border-radius:var(--border-radius);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5em;">
+            <div style="font-family:var(--font-mono);font-size:0.65rem;color:rgba(240,235,230,0.5);">FIELD TEST</div>
+            <div style="font-family:var(--font-display);font-size:1.2rem;color:#fff;">Mission Control</div>
+          </div>
+
+        </div>
+
       </div>
 
-      <!-- Next project -->
-      <a href="work.html" class="next-project" style="background:#2d2d2d;border-color:var(--text-light);color:var(--text-light);box-shadow:6px 6px 0 rgba(240,235,230,0.2);">
+      <!-- NEXT PROJECT -->
+      <a href="work.html" class="next-project" style="background:transparent;border:2px solid rgba(240,235,230,0.2);color:var(--text-light);box-shadow:none;transition:all 0.3s ease;" onmouseover="this.style.borderColor='var(--accent-orange)';this.style.boxShadow='0 0 30px rgba(255,107,53,0.1)'" onmouseout="this.style.borderColor='rgba(240,235,230,0.2)';this.style.boxShadow='none'">
         <div>
           <div class="label" style="color:var(--text-muted);">UP NEXT</div>
-          <div style="font-family:var(--font-display);font-size:1.2rem;margin-top:0.3em;">MuleNet Protocol</div>
+          <div style="font-family:var(--font-display);font-size:1.4rem;margin-top:0.3em;">MuleNet Protocol</div>
+          <div style="font-family:var(--font-script);font-size:0.9rem;color:var(--text-muted);margin-top:0.3em;">Decentralized BLE messaging for off-grid devices</div>
         </div>
-        <div style="font-size:1.5em;">➔</div>
+        <div style="font-size:1.8em;transition:transform 0.3s ease;">&rarr;</div>
       </a>
 
     </div>
 
   </section>
 
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__col">
-        <div class="footer__col-title">Agency</div>
-        <div style="font-size:0.85rem;opacity:0.7;">© 2026 Student Tech Agency</div>
+  <!-- ================================================================
+       PREMIUM FOOTER
+       ================================================================ -->
+  <footer class="premium-footer" id="js-footer">
+    <div class="footer-columns">
+      
+      <div class="footer-info">
+        <a href="index.html" class="footer-info__logo">agency.</a>
+        <p class="footer-info__desc">
+          An elite software and automation collective of student builders. 
+          We ship real systems under extreme deadlines.
+        </p>
       </div>
-      <div class="footer__col">
-        <div class="footer__col-title">Navigate</div>
-        <a href="index.html" style="font-size:0.85rem;">Home</a>
-        <a href="work.html" style="font-size:0.85rem;">Work</a>
-        <a href="team.html" style="font-size:0.85rem;">Team</a>
+
+      <div>
+        <h4 class="footer-col-title">Navigate</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
-      <div class="footer__col">
-        <div class="footer__col-title">Connect</div>
-        <div style="font-size:0.85rem;opacity:0.7;">hello@agency.dev</div>
+
+      <div>
+        <h4 class="footer-col-title">Socials</h4>
+        <ul class="footer-links">
+          <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a></li>
+          <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
       </div>
+
+      <div class="footer-contact">
+        <h4 class="footer-col-title">Start a Build</h4>
+        <p style="font-size: 0.85rem; opacity: 0.7; line-height: 1.4; margin-bottom: 0.5rem;">
+          Have a project in mind? We'll scope it out and build it.
+        </p>
+        <span onclick="location.href='mailto:hello@agency.dev'" class="footer-contact__email">hello@agency.dev</span>
+      </div>
+
     </div>
-    <div class="footer__bottom">SF / NYC / Remote — No suits. No fluff.</div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Student Tech Agency. All rights reserved.</span>
+      <div class="footer-time">
+        <span>UTC/LOCAL:</span>
+        <span class="time-clock">00:00:00</span>
+      </div>
+      <span>No decks. No suits. Just pure code.</span>
+    </div>
   </footer>
 
   <script src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js"></script>

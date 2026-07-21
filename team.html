@@ -8,16 +8,39 @@
 </head>
 <body>
 
-  <nav class="nav">
-    <a href="index.html" class="nav__logo">agency.</a>
-    <ul class="nav__links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="team.html" class="active">Team</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <a href="contact.html" class="nav__cta">Run App</a>
-  </nav>
+  <!-- ================================================================
+       STICKY NAVIGATION HEADER
+       ================================================================ -->
+  <header class="sticky-header">
+    <a href="index.html" class="header__logo">agency.</a>
+    
+    <div class="header__meta hide-mobile">
+      <span>Software Collective &bull; Folio 2026</span>
+    </div>
+
+    <nav class="header__nav">
+      <ul class="header__links hide-mobile">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="work.html">Works</a></li>
+        <li><a href="team.html" class="active">Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="header__status hide-tablet">
+        <span class="status-dot"></span>
+        <span>Available for builds</span>
+      </div>
+
+      <a href="contact.html" class="header__cta c-button">
+        <span class="c-link">
+          <span class="c-link__inner">
+            <span>Start Project</span>
+            <span class="c-link__animated">Start Project</span>
+          </span>
+        </span>
+      </a>
+    </nav>
+  </header>
 
   <div class="cursor-dot"></div>
   <div class="cursor-ring"></div>
@@ -244,24 +267,58 @@
 
   </section>
 
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__col">
-        <div class="footer__col-title">Agency</div>
-        <div style="font-size:0.85rem;opacity:0.7;">© 2026 Student Tech Agency</div>
+  <!-- ================================================================
+       PREMIUM FOOTER
+       ================================================================ -->
+  <footer class="premium-footer" id="js-footer">
+    <div class="footer-columns">
+      
+      <div class="footer-info">
+        <a href="index.html" class="footer-info__logo">agency.</a>
+        <p class="footer-info__desc">
+          An elite software and automation collective of student builders. 
+          We ship real systems under extreme deadlines.
+        </p>
       </div>
-      <div class="footer__col">
-        <div class="footer__col-title">Navigate</div>
-        <a href="index.html" style="font-size:0.85rem;">Home</a>
-        <a href="work.html" style="font-size:0.85rem;">Work</a>
-        <a href="team.html" style="font-size:0.85rem;">Team</a>
+
+      <div>
+        <h4 class="footer-col-title">Navigate</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
       </div>
-      <div class="footer__col">
-        <div class="footer__col-title">Connect</div>
-        <div style="font-size:0.85rem;opacity:0.7;">hello@agency.dev</div>
+
+      <div>
+        <h4 class="footer-col-title">Socials</h4>
+        <ul class="footer-links">
+          <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
+          <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a></li>
+          <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
       </div>
+
+      <div class="footer-contact">
+        <h4 class="footer-col-title">Start a Build</h4>
+        <p style="font-size: 0.85rem; opacity: 0.7; line-height: 1.4; margin-bottom: 0.5rem;">
+          Have a project in mind? We'll scope it out and build it.
+        </p>
+        <span onclick="location.href='mailto:hello@agency.dev'" class="footer-contact__email">hello@agency.dev</span>
+      </div>
+
     </div>
-    <div class="footer__bottom">SF / NYC / Remote — No suits. No fluff.</div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Student Tech Agency. All rights reserved.</span>
+      <div class="footer-time">
+        <span>UTC/LOCAL:</span>
+        <span class="time-clock">00:00:00</span>
+      </div>
+      <span>No decks. No suits. Just pure code.</span>
+    </div>
   </footer>
 
   <script src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js"></script>

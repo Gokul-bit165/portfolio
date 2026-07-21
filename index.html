@@ -3,29 +3,135 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>agency. — AI & Software Student Agency</title>
+  <title>agency. — We Ship Software, Not Decks</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&amp;family=Hanken+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@100..900&amp;family=Hanken+Grotesk:wght@100..900&amp;family=Syne:wght@100..900&amp;family=Caveat&amp;display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      corePlugins: {
+        preflight: false
+      },
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-background": "#1d1b1b",
+            "on-error-container": "#93000a",
+            "on-tertiary": "#ffffff",
+            "on-secondary": "#ffffff",
+            primary: "#000000",
+            "tertiary-fixed": "#e6e1df",
+            "on-surface-variant": "#444748",
+            "on-surface": "#1d1b1b",
+            error: "#ba1a1a",
+            "primary-fixed": "#e5e2e1",
+            "on-error": "#ffffff",
+            "on-tertiary-fixed": "#1c1b1a",
+            outline: "#747878",
+            "on-tertiary-fixed-variant": "#484645",
+            "secondary-fixed": "#e4e2e0",
+            "tertiary-container": "#1c1b1a",
+            "on-primary-container": "#858383",
+            "on-primary-fixed-variant": "#474646",
+            "inverse-surface": "#323030",
+            "secondary-container": "#e4e2e0",
+            "secondary-fixed-dim": "#c8c6c5",
+            "outline-variant": "#c4c7c7",
+            "surface-variant": "#e6e1e1",
+            background: "#fdf8f8",
+            "on-tertiary-container": "#868381",
+            "surface-container-high": "#ece7e7",
+            "primary-fixed-dim": "#c8c6c5",
+            "surface-container-highest": "#e6e1e1",
+            "on-secondary-fixed": "#1b1c1b",
+            "error-container": "#ffdad6",
+            "on-primary": "#ffffff",
+            "surface-bright": "#fdf8f8",
+            "surface-tint": "#5f5e5e",
+            secondary: "#5f5e5d",
+            "on-secondary-fixed-variant": "#474746",
+            surface: "#fdf8f8",
+            "surface-container-low": "#f8f2f2",
+            "surface-container-lowest": "#ffffff",
+            "inverse-on-surface": "#f5efef",
+            tertiary: "#000000",
+            "on-primary-fixed": "#1c1b1b",
+            "surface-dim": "#ded9d9",
+            "surface-container": "#f2edec",
+            "inverse-primary": "#c8c6c5",
+            "primary-container": "#1c1b1b",
+            "on-secondary-container": "#656463",
+            "tertiary-fixed-dim": "#cac6c3"
+          },
+          borderRadius: {
+            DEFAULT: "0.125rem",
+            lg: "0.25rem",
+            xl: "0.5rem",
+            full: "0.75rem"
+          },
+          spacing: {
+            unit: "4px",
+            gutter: "24px",
+            xl: "64px",
+            sm: "8px",
+            "margin-desktop": "48px",
+            md: "16px",
+            lg: "32px",
+            "margin-mobile": "16px",
+            xs: "4px"
+          },
+          fontFamily: {
+            "headline-md": ["Syne"],
+            "display-xl": ["Syne"],
+            "body-md": ["Hanken Grotesk"],
+            "code-sm": ["IBM Plex Mono"],
+            "body-lg": ["Hanken Grotesk"],
+            "headline-lg": ["Syne"],
+            "display-xl-mobile": ["Syne"],
+            annotation: ["Caveat"],
+            clash: ["Syne"],
+            "label-md": ["Syne"]
+          },
+          fontSize: {
+            "label-md": ["14px", { lineHeight: "20px", fontWeight: "600" }],
+            "headline-md": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+            "display-xl": ["84px", { lineHeight: "90px", letterSpacing: "-0.04em", fontWeight: "800" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            "display-xl-mobile": ["48px", { lineHeight: "52px", letterSpacing: "-0.02em", fontWeight: "800" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "headline-lg": ["40px", { lineHeight: "48px", fontWeight: "700" }]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .hard-shadow { box-shadow: 4px 4px 0px #1c1b1b; }
+    .hard-shadow-hover:active { transform: translate(4px, 4px); box-shadow: 0px 0px 0px #1c1b1b; }
+    .scribble-underline {
+        position: relative;
+        display: inline-block;
+    }
+    .scribble-underline::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 100%;
+        height: 12px;
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='12' viewBox='0 0 100 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 8.5C15 4.5 35 2 50 2.5C65 3 85 6.5 98 10' stroke='%23000000' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        z-index: -1;
+    }
+    .sticker-rotate { transform: rotate(-3deg); }
+    .marker-doodle { font-family: 'Caveat', cursive; color: #1c1b1b; pointer-events: none; }
+  </style>
 </head>
 <body>
-
-  <!-- WELCOME SCREEN -->
-  <div class="welcome-screen" id="welcome-screen">
-    <div class="welcome-screen__logo">agency.</div>
-    <div class="welcome-screen__tagline" id="welcome-tagline">AI & Software Student Agency</div>
-    <button class="welcome-screen__enter" id="welcome-enter">Enter</button>
-  </div>
-
-  <!-- NAV -->
-  <nav class="nav">
-    <a href="index.html" class="nav__logo">agency.</a>
-    <ul class="nav__links">
-      <li><a href="index.html" class="active">Home</a></li>
-      <li><a href="work.html">Work</a></li>
-      <li><a href="team.html">Team</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-    <a href="contact.html" class="nav__cta">Run App</a>
-  </nav>
 
   <!-- CUSTOM CURSOR -->
   <div class="cursor-dot"></div>
@@ -33,281 +139,739 @@
   <div class="cursor-spotlight"></div>
 
   <!-- ================================================================
-       SPREAD 1: THE MANIFESTO
-       Art Direction: Dark cinematic hero. Typography IS the composition.
+       STICKY NAVIGATION HEADER
        ================================================================ -->
-  <section class="spread spread--light manifesto" id="spread-1">
+  <header class="sticky-header">
+    <a href="index.html" class="header__logo">agency.</a>
+    
+    <div class="header__meta hide-mobile">
+      <span>Software Collective &bull; Folio 2026</span>
+    </div>
 
-    <!-- Headline Composition -->
-    <div class="manifesto__headline">
+    <nav class="header__nav">
+      <ul class="header__links hide-mobile">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="work.html">Works</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
 
-      <div class="headline__line" data-split>
-        <span class="char-wrap"><span style="font-family:var(--font-body);font-weight:400;font-size:0.35em;text-transform:lowercase;color:var(--text-muted);vertical-align:middle;margin-right:0.2em;">we</span></span>
-        <span class="char-wrap"><span>BUILD</span></span>
-        <!-- Hand-drawn underline SVG -->
-        <svg class="doodle-svg" style="width:105%;height:14px;position:absolute;bottom:-4px;left:0;" viewBox="0 0 100 10" preserveAspectRatio="none">
-          <path class="draw-path" d="M 1 7 C 30 9, 70 8, 99 3 C 60 5, 20 8, 2 6" stroke="var(--accent-orange)" stroke-width="4" />
-        </svg>
-        <!-- "(seriously)" in Caveat -->
-        <span class="char-wrap"><span class="headline__italic" style="font-size:0.4em;margin-left:0.3em;transform:rotate(-8deg);display:inline-block;vertical-align:middle;">(seriously)</span></span>
+      <div class="header__status hide-tablet">
+        <span class="status-dot"></span>
+        <span>Available for builds</span>
       </div>
 
-      <div class="headline__line" data-split style="margin-top:0.1em;">
-        <span class="char-wrap"><span>PRODUCTION</span></span>
-        <span class="headline__mono">v1.0.4</span>
-      </div>
-
-      <div class="headline__line headline--mega" data-split style="margin-top:0.05em;">
-        <span class="char-wrap"><span class="headline__highlight">SOFTWARE</span></span>
-      </div>
-
-    </div>
-
-    <!-- Robot Mascot -->
-    <div class="manifesto__robot" id="manifesto-robot">
-      <svg viewBox="0 0 150 150">
-        <rect x="25" y="25" width="100" height="85" rx="16" fill="var(--accent-green)" stroke="var(--text-dark)" stroke-width="3" />
-        <rect x="35" y="35" width="80" height="50" rx="8" fill="#111" />
-        <circle class="mascot-eye" cx="60" cy="55" r="7" fill="var(--accent-orange)" />
-        <circle class="mascot-eye" cx="90" cy="55" r="7" fill="var(--accent-orange)" />
-        <path d="M 67 71 Q 75 78 83 71" fill="none" stroke="#FFF" stroke-width="3" stroke-linecap="round" />
-        <path d="M 50 110 L 45 135 M 100 110 L 105 135" stroke="var(--text-dark)" stroke-width="3" stroke-linecap="round" />
-        <rect x="35" y="132" width="25" height="6" rx="3" fill="var(--text-dark)" />
-        <rect x="90" y="132" width="25" height="6" rx="3" fill="var(--text-dark)" />
-        <path d="M 75 25 L 75 12" stroke="var(--text-dark)" stroke-width="3" />
-        <circle cx="75" cy="8" r="6" fill="var(--accent-orange)" stroke="var(--text-dark)" stroke-width="2" />
-      </svg>
-      <div class="manifesto__robot-bubble" style="color:var(--text-dark);">
-        <span style="font-family:var(--font-mono);font-weight:700;">BUILD_OK</span>
+      <a href="contact.html" class="header__cta c-button">
+        <span class="c-link">
+          <span class="c-link__inner">
+            <span>Start Project</span>
+            <span class="c-link__animated">Start Project</span>
+          </span>
+        </span>
+      </a>
+    </nav>
+  </header>  <!-- ================================================================
+       HERO SECTION WITH 3D OR DYNAMIC EFFECTS
+       ================================================================ -->
+  <main class="min-h-screen relative flex items-center pt-xl px-margin-desktop overflow-hidden" id="hero-section">
+    <!-- Background Decor & Doodles -->
+    <div class="absolute inset-0 pointer-events-none opacity-20">
+      <span class="absolute top-1/4 left-10 font-annotation text-4xl marker-doodle sticker-rotate">✧</span>
+      <span class="absolute bottom-1/4 right-20 font-annotation text-6xl marker-doodle rotate-12">☺</span>
+      <span class="absolute top-1/3 right-1/4 font-annotation text-3xl marker-doodle -rotate-12">★</span>
+      <div class="absolute top-[20%] left-[45%] w-32 h-32 opacity-10">
+        <svg class="w-full h-full stroke-current fill-none" viewbox="0 0 100 100"><path d="M10 50 Q 30 10 50 50 T 90 50" stroke-width="2"></path></svg>
       </div>
     </div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter w-full max-w-[1440px] mx-auto z-10">
+      <!-- Left Side: Typography -->
+      <div class="md:col-span-8 flex flex-col justify-center space-y-lg relative">
+        <!-- Scattered Monospace Labels -->
+        <div class="absolute -top-12 left-0 font-code-sm text-code-sm text-secondary uppercase tracking-widest flex items-center gap-xs">
+          <span class="w-2 h-2 bg-error rounded-full animate-pulse"></span>
+          EST. 2026 / TOKYO // SF
+        </div>
+        <div class="relative">
+          <h1 class="font-display-xl text-display-xl-mobile md:text-display-xl text-primary leading-tight flex flex-col gap-2">
+            <span>We engineer</span>
+            <span class="text-secondary">intelligent systems</span>
+            <span>that people</span>
+            <span>
+              <span class="font-annotation text-on-background scribble-underline inline-block rotate-[-2deg] mr-2">actually</span>
+              enjoy using.
+            </span>
+          </h1>
+        </div>
+        <!-- CTA & Interaction -->
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-lg pt-md">
+          <div class="relative group">
+            <button onclick="location.href='contact.html'" class="bg-primary text-background px-xl py-lg rounded-full font-headline-md text-headline-md hard-shadow transition-all hover:translate-x-1 hover:translate-y-1 active:translate-x-1 active:translate-y-1 flex items-center gap-sm cursor-pointer">
+              Let's Build 
+              <span class="material-symbols-outlined text-4xl">trending_flat</span>
+            </button>
+            <!-- Animated Sticker Placeholder 6 -->
+            <div class="absolute -bottom-8 -right-8 w-24 h-24 z-20 pointer-events-none sticker-rotate">
+              <!-- STITCH_SVG_START:ANIMATION_6 class="w-full h-full" -->
+              <div class="w-full h-full" id="animated-svg-ANIMATION_6" style="display:block;">
+                <svg viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M40,100 Q40,40 100,40 Q160,40 160,100 Q160,160 100,160 Q40,160 40,100" fill="#FF6B3D" opacity="0.8">
+                    <animatetransform attributename="transform" dur="4s" repeatcount="indefinite" type="scale" values="1;1.05;1"></animatetransform>
+                  </path>
+                  <circle cx="70" cy="85" fill="#121212" r="8"></circle>
+                  <circle cx="130" cy="85" fill="#121212" r="8"></circle>
+                  <path d="M70,120 Q100,150 130,120" fill="none" stroke="#121212" stroke-linecap="round" stroke-width="6"></path>
+                  <path d="M160,40 L180,20 M175,20 L180,20 L180,25" fill="none" stroke="#6BCBFF" stroke-linecap="round" stroke-width="4"></path>
+                </svg>
+              </div>
+              <!-- STITCH_SVG_END:ANIMATION_6 -->
+            </div>
+          </div>
+          <button onclick="location.href='#works-section'" class="font-code-sm text-code-sm uppercase tracking-widest border-2 border-primary px-lg py-md rounded-full hover:bg-primary-container transition-colors cursor-pointer">
+            See Our Work
+          </button>
+        </div>
+        <div class="absolute bottom-[-100px] left-0 font-code-sm text-code-sm text-secondary opacity-50 hidden lg:block">
+          [00] INITIALIZING CORE_ENGINE_01<br/>
+          [01] OPTIMIZING USER_EXPERIENCE<br/>
+          [02] RENDERING HUMAN_EMOTION...
+        </div>
+      </div>
+      <!-- Right Side: Interactive 3D Visual -->
+      <div class="md:col-span-4 relative min-h-[400px] md:min-h-0">
+        <div class="absolute inset-0 flex items-center justify-center">
+          <!-- 3D Scene Placeholder 7 -->
+          <!-- STITCH_THREEJS_START:ANIMATION_7 class="w-full h-[120%] absolute -top-[10%]" -->
+          <div class="w-full h-[120%] absolute -top-[10%]" style="display:block;">
+            <script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+            <div id="threejs-container-ANIMATION_7" style="width:100%;height:100%"></div>
+            <script>
+            (function() {
+              const container = document.getElementById('threejs-container-ANIMATION_7');
+              if (!container) return;
+              const devicePixelRatio = window.devicePixelRatio || 1;
+              const width = container.clientWidth || window.innerWidth;
+              const height = container.clientHeight || window.innerHeight;
 
-    <!-- Stickers -->
-    <div class="sticker" style="top:12%;left:8%;transform:rotate(-12deg);z-index:20;" data-sticker>
-      <span class="sticker__pill sticker__pill--lilac">5 DEVS, 1 MISSION</span>
+              const scene = new THREE.Scene();
+              const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+              const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+              renderer.setSize(width, height);
+              container.appendChild(renderer.domElement);
+
+              const shapes = [];
+              const colors = [0xFF6B3D, 0x6BCBFF, 0xA7F3D0, 0xFFE66D, 0xD8B4FE];
+
+              for (let i = 0; i < 15; i++) {
+                  const geometry = i % 2 === 0 ? new THREE.IcosahedronGeometry(Math.random() * 0.5 + 0.2, 0) : new THREE.BoxGeometry(0.5, 0.5, 0.5);
+                  const material = new THREE.MeshPhongMaterial({ 
+                      color: colors[Math.floor(Math.random() * colors.length)],
+                      flatShading: true
+                  });
+                  const mesh = new THREE.Mesh(geometry, material);
+                  mesh.position.set(
+                      (Math.random() - 0.5) * 10,
+                      (Math.random() - 0.5) * 10,
+                      (Math.random() - 0.5) * 5
+                  );
+                  mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, 0);
+                  scene.add(mesh);
+                  shapes.push({
+                      mesh,
+                      speed: Math.random() * 0.01 + 0.005,
+                      rotSpeed: Math.random() * 0.02
+                  });
+              }
+
+              const light = new THREE.DirectionalLight(0xffffff, 1);
+              light.position.set(5, 5, 5);
+              scene.add(light);
+              scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+
+              camera.position.z = 8;
+
+              function animate() {
+                  requestAnimationFrame(animate);
+                  shapes.forEach(s => {
+                      s.mesh.rotation.x += s.rotSpeed;
+                      s.mesh.rotation.y += s.rotSpeed;
+                      s.mesh.position.y += Math.sin(Date.now() * 0.001 + s.mesh.position.x) * 0.005;
+                  });
+                  renderer.render(scene, camera);
+              }
+
+              window.addEventListener('resize', () => {
+                  const w = container.clientWidth || window.innerWidth;
+                  const h = container.clientHeight || window.innerHeight;
+                  renderer.setSize(w, h);
+                  camera.aspect = w / h;
+                  camera.updateProjectionMatrix();
+              });
+
+              animate();
+            })();
+            </script>
+          </div>
+          <!-- STITCH_THREEJS_END:ANIMATION_7 -->
+        </div>
+        <div class="absolute bottom-10 right-0 font-code-sm text-code-sm text-right">
+          <div class="text-secondary">CURRENTLY BUILDING</div>
+          <div class="font-bold text-primary">NEURAL_INTERFACE_v4</div>
+        </div>
+        <div class="absolute top-1/2 -right-4 font-annotation text-xl rotate-90 marker-doodle text-primary/40 hidden xl:block">
+          hover to manipulate <span class="material-symbols-outlined text-lg align-middle">gesture</span>
+        </div>
+      </div>
     </div>
-    <div class="sticker" style="top:10%;right:10%;transform:rotate(8deg);z-index:20;" data-sticker>
-      <span class="sticker__pill sticker__pill--orange">STATUS: SHIPPING</span>
+  </main>
+
+  <!-- Micro-interactions Script -->
+  <script>
+    document.addEventListener('mousemove', (e) => {
+        const doodles = document.querySelectorAll('.marker-doodle');
+        const x = (window.innerWidth / 2 - e.pageX) / 50;
+        const y = (window.innerHeight / 2 - e.pageY) / 50;
+        
+        doodles.forEach(doodle => {
+            const speed = Math.random() * 2;
+            doodle.style.transform = `translate(${x * speed}px, ${y * speed}px) rotate(${speed * 5}deg)`;
+        });
+    });
+
+    // Floating effect for CTA sticker
+    (function() {
+      const sticker = document.getElementById('animated-svg-ANIMATION_6');
+      if (sticker) {
+          let angle = 0;
+          function animateSticker() {
+              angle += 0.05;
+              const offset = Math.sin(angle) * 5;
+              sticker.style.transform = `translateY(${offset}px) rotate(${Math.cos(angle) * 2}deg)`;
+              requestAnimationFrame(animateSticker);
+          }
+          animateSticker();
+      }
+    })();
+  </script>
+
+  <!-- ================================================================
+       WORKS SHOWCASE
+       ================================================================ -->
+  <section class="spread spread--dark works-showcase" id="works-section">
+    <div class="works-showcase__inner">
+      <div class="works-showcase__header">
+        <div class="headline" data-split>
+          <span class="char-wrap"><span>FEATURED</span></span>
+        </div>
+        <div class="headline" data-split style="margin-top:0.1em;">
+          <span class="char-wrap"><span>BUILDS</span></span>
+          <span class="headline__italic" style="font-size:0.35em;margin-left:0.3em;transform:rotate(-4deg);display:inline-block;vertical-align:middle;">case studies</span>
+        </div>
+      </div>
     </div>
-    <div class="sticker" style="bottom:22%;left:6%;transform:rotate(-6deg);z-index:20;" data-sticker>
-      <span class="sticker__pill sticker__pill--green">EST. 2024</span>
+
+    <style>
+      .marquee-container {
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+        padding: 2rem 0;
+      }
+      .marquee-track {
+        display: flex;
+        gap: 2rem;
+        width: max-content;
+        animation: marquee-scroll 45s linear infinite;
+      }
+      .marquee-track:hover {
+        animation-play-state: paused;
+      }
+      .marquee-track .work-card {
+        width: 380px;
+        flex-shrink: 0;
+      }
+      @media (max-width: 640px) {
+        .marquee-track .work-card {
+          width: 300px;
+          min-height: 22rem;
+          padding: 1rem;
+        }
+      }
+      @keyframes marquee-scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+
+    <div class="marquee-container">
+      <div class="marquee-track">
+        <!-- Slide 1: AeroTwin -->
+        <div class="work-card" onclick="location.href='project-detail.html'">
+          <div class="work-card__image-wrap">
+            <div class="work-card__gradient" style="background: linear-gradient(135deg, #1E40AF 0%, #38BDF8 100%);"></div>
+            <div class="work-card__overlay">
+              <span class="work-card__tag">UAV Swarms</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div>
+              <h3 class="work-card__title">AeroTwin</h3>
+              <p class="work-card__desc">Decentralized state-sync and flight controller for autonomous drone fleets.</p>
+            </div>
+            <div class="work-card__footer">
+              <div class="work-card__tech">
+                <span>Rust</span>
+                <span>ROS2</span>
+                <span>CRDT</span>
+              </div>
+              <span class="c-button">
+                <span class="c-link">
+                  <span class="c-link__inner">
+                    <span>View Project &rarr;</span>
+                    <span class="c-link__animated">View Project &rarr;</span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2: MuleNet -->
+        <div class="work-card" onclick="location.href='project-detail.html'">
+          <div class="work-card__image-wrap">
+            <div class="work-card__gradient" style="background: linear-gradient(135deg, #EF4444 0%, #F59E0B 100%);"></div>
+            <div class="work-card__overlay">
+              <span class="work-card__tag">Communications</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div>
+              <h3 class="work-card__title">MuleNet</h3>
+              <p class="work-card__desc">Decentralized messaging protocol for off-grid edge devices and hardware meshes.</p>
+            </div>
+            <div class="work-card__footer">
+              <div class="work-card__tech">
+                <span>Go</span>
+                <span>BLE</span>
+                <span>Protobuf</span>
+              </div>
+              <span class="c-button">
+                <span class="c-link">
+                  <span class="c-link__inner">
+                    <span>View Project &rarr;</span>
+                    <span class="c-link__animated">View Project &rarr;</span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3: AgentOS -->
+        <div class="work-card" onclick="location.href='project-detail.html'">
+          <div class="work-card__image-wrap">
+            <div class="work-card__gradient" style="background: linear-gradient(135deg, #7C3AED 0%, #C084FC 100%);"></div>
+            <div class="work-card__overlay">
+              <span class="work-card__tag">AI Agents</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div>
+              <h3 class="work-card__title">AgentOS</h3>
+              <p class="work-card__desc">Visual workspace for orchestrating and debugging multi-LLM agent swarms.</p>
+            </div>
+            <div class="work-card__footer">
+              <div class="work-card__tech">
+                <span>Python</span>
+                <span>LangGraph</span>
+                <span>Next.js</span>
+              </div>
+              <span class="c-button">
+                <span class="c-link">
+                  <span class="c-link__inner">
+                    <span>View Project &rarr;</span>
+                    <span class="c-link__animated">View Project &rarr;</span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4: VisionPipe -->
+        <div class="work-card" onclick="location.href='project-detail.html'">
+          <div class="work-card__image-wrap">
+            <div class="work-card__gradient" style="background: linear-gradient(135deg, #059669 0%, #34D399 100%);"></div>
+            <div class="work-card__overlay">
+              <span class="work-card__tag">Comp Vision</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div>
+              <h3 class="work-card__title">VisionPipe</h3>
+              <p class="work-card__desc">Real-time anomaly detection pipeline on manufacturing lines at 120fps.</p>
+            </div>
+            <div class="work-card__footer">
+              <div class="work-card__tech">
+                <span>C++</span>
+                <span>CUDA</span>
+                <span>TensorRT</span>
+              </div>
+              <span class="c-button">
+                <span class="c-link">
+                  <span class="c-link__inner">
+                    <span>View Project &rarr;</span>
+                    <span class="c-link__animated">View Project &rarr;</span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 5: HoloControl -->
+        <div class="work-card" onclick="location.href='project-detail.html'">
+          <div class="work-card__image-wrap">
+            <div class="work-card__gradient" style="background: linear-gradient(135deg, #2563EB 0%, #93C5FD 100%);"></div>
+            <div class="work-card__overlay">
+              <span class="work-card__tag">Spatial Sim</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div>
+              <h3 class="work-card__title">HoloControl</h3>
+              <p class="work-card__desc">Spatial computing interface and simulation environment for advanced robotic arms.</p>
+            </div>
+            <div class="work-card__footer">
+              <div class="work-card__tech">
+                <span>Unity</span>
+                <span>C#</span>
+                <span>UDP</span>
+              </div>
+              <span class="c-button">
+                <span class="c-link">
+                  <span class="c-link__inner">
+                    <span>View Project &rarr;</span>
+                    <span class="c-link__animated">View Project &rarr;</span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 6: BioForecaster -->
+        <div class="work-card" onclick="location.href='project-detail.html'">
+          <div class="work-card__image-wrap">
+            <div class="work-card__gradient" style="background: linear-gradient(135deg, #0D9488 0%, #2DD4BF 100%);"></div>
+            <div class="work-card__overlay">
+              <span class="work-card__tag">Deep Learning</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div>
+              <h3 class="work-card__title">BioForecaster</h3>
+              <p class="work-card__desc">Deep learning crop yield models and spectral analysis from satellite imagery.</p>
+            </div>
+            <div class="work-card__footer">
+              <div class="work-card__tech">
+                <span>PyTorch</span>
+                <span>Python</span>
+                <span>GIS</span>
+              </div>
+              <span class="c-button">
+                <span class="c-link">
+                  <span class="c-link__inner">
+                    <span>View Project &rarr;</span>
+                    <span class="c-link__animated">View Project &rarr;</span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicate Slide 1 -->
+        <div class="work-card" onclick="location.href='project-detail.html'">
+          <div class="work-card__image-wrap">
+            <div class="work-card__gradient" style="background: linear-gradient(135deg, #1E40AF 0%, #38BDF8 100%);"></div>
+            <div class="work-card__overlay">
+              <span class="work-card__tag">UAV Swarms</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div>
+              <h3 class="work-card__title">AeroTwin</h3>
+              <p class="work-card__desc">Decentralized state-sync and flight controller for autonomous drone fleets.</p>
+            </div>
+            <div class="work-card__footer">
+              <div class="work-card__tech">
+                <span>Rust</span>
+                <span>ROS2</span>
+                <span>CRDT</span>
+              </div>
+              <span class="c-button">
+                <span class="c-link">
+                  <span class="c-link__inner">
+                    <span>View Project &rarr;</span>
+                    <span class="c-link__animated">View Project &rarr;</span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicate Slide 2 -->
+        <div class="work-card" onclick="location.href='project-detail.html'">
+          <div class="work-card__image-wrap">
+            <div class="work-card__gradient" style="background: linear-gradient(135deg, #EF4444 0%, #F59E0B 100%);"></div>
+            <div class="work-card__overlay">
+              <span class="work-card__tag">Communications</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div>
+              <h3 class="work-card__title">MuleNet</h3>
+              <p class="work-card__desc">Decentralized messaging protocol for off-grid edge devices and hardware meshes.</p>
+            </div>
+            <div class="work-card__footer">
+              <div class="work-card__tech">
+                <span>Go</span>
+                <span>BLE</span>
+                <span>Protobuf</span>
+              </div>
+              <span class="c-button">
+                <span class="c-link">
+                  <span class="c-link__inner">
+                    <span>View Project &rarr;</span>
+                    <span class="c-link__animated">View Project &rarr;</span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicate Slide 3 -->
+        <div class="work-card" onclick="location.href='project-detail.html'">
+          <div class="work-card__image-wrap">
+            <div class="work-card__gradient" style="background: linear-gradient(135deg, #7C3AED 0%, #C084FC 100%);"></div>
+            <div class="work-card__overlay">
+              <span class="work-card__tag">AI Agents</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div>
+              <h3 class="work-card__title">AgentOS</h3>
+              <p class="work-card__desc">Visual workspace for orchestrating and debugging multi-LLM agent swarms.</p>
+            </div>
+            <div class="work-card__footer">
+              <div class="work-card__tech">
+                <span>Python</span>
+                <span>LangGraph</span>
+                <span>Next.js</span>
+              </div>
+              <span class="c-button">
+                <span class="c-link">
+                  <span class="c-link__inner">
+                    <span>View Project &rarr;</span>
+                    <span class="c-link__animated">View Project &rarr;</span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicate Slide 4 -->
+        <div class="work-card" onclick="location.href='project-detail.html'">
+          <div class="work-card__image-wrap">
+            <div class="work-card__gradient" style="background: linear-gradient(135deg, #059669 0%, #34D399 100%);"></div>
+            <div class="work-card__overlay">
+              <span class="work-card__tag">Comp Vision</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div>
+              <h3 class="work-card__title">VisionPipe</h3>
+              <p class="work-card__desc">Real-time anomaly detection pipeline on manufacturing lines at 120fps.</p>
+            </div>
+            <div class="work-card__footer">
+              <div class="work-card__tech">
+                <span>C++</span>
+                <span>CUDA</span>
+                <span>TensorRT</span>
+              </div>
+              <span class="c-button">
+                <span class="c-link">
+                  <span class="c-link__inner">
+                    <span>View Project &rarr;</span>
+                    <span class="c-link__animated">View Project &rarr;</span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicate Slide 5 -->
+        <div class="work-card" onclick="location.href='project-detail.html'">
+          <div class="work-card__image-wrap">
+            <div class="work-card__gradient" style="background: linear-gradient(135deg, #2563EB 0%, #93C5FD 100%);"></div>
+            <div class="work-card__overlay">
+              <span class="work-card__tag">Spatial Sim</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div>
+              <h3 class="work-card__title">HoloControl</h3>
+              <p class="work-card__desc">Spatial computing interface and simulation environment for advanced robotic arms.</p>
+            </div>
+            <div class="work-card__footer">
+              <div class="work-card__tech">
+                <span>Unity</span>
+                <span>C#</span>
+                <span>UDP</span>
+              </div>
+              <span class="c-button">
+                <span class="c-link">
+                  <span class="c-link__inner">
+                    <span>View Project &rarr;</span>
+                    <span class="c-link__animated">View Project &rarr;</span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicate Slide 6 -->
+        <div class="work-card" onclick="location.href='project-detail.html'">
+          <div class="work-card__image-wrap">
+            <div class="work-card__gradient" style="background: linear-gradient(135deg, #0D9488 0%, #2DD4BF 100%);"></div>
+            <div class="work-card__overlay">
+              <span class="work-card__tag">Deep Learning</span>
+            </div>
+          </div>
+          <div class="work-card__content">
+            <div>
+              <h3 class="work-card__title">BioForecaster</h3>
+              <p class="work-card__desc">Deep learning crop yield models and spectral analysis from satellite imagery.</p>
+            </div>
+            <div class="work-card__footer">
+              <div class="work-card__tech">
+                <span>PyTorch</span>
+                <span>Python</span>
+                <span>GIS</span>
+              </div>
+              <span class="c-button">
+                <span class="c-link">
+                  <span class="c-link__inner">
+                    <span>View Project &rarr;</span>
+                    <span class="c-link__animated">View Project &rarr;</span>
+                  </span>
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Arrow doodle from BUILD to robot -->
-    <svg class="doodle-svg" style="width:8em;height:8em;top:25%;right:25%;transform:rotate(-10deg);z-index:4;" viewBox="0 0 100 100">
-      <path class="draw-path" d="M 15 80 Q 45 60 75 25 M 75 25 L 55 32 M 75 25 L 68 45" stroke="var(--text-dark)" stroke-width="4" />
-    </svg>
-
-    <!-- Subtitle & Actions -->
-    <div class="manifesto__subtitle" id="manifesto-sub">
-      <div class="subhead">A crew of 5 software builders.</div>
-      <div class="subhead" style="margin-top:0.3em;">No suits. No fluff. Just production-grade AI.</div>
+    <!-- Center the View All Works button -->
+    <div class="works-showcase__inner">
+      <div class="works-showcase__view-more">
+        <a href="work.html" class="c-button view-all-btn">
+          <span class="c-link">
+            <span class="c-link__inner">
+              <span>View All Works &rarr;</span>
+              <span class="c-link__animated">View All Works &rarr;</span>
+            </span>
+          </span>
+        </a>
+      </div>
     </div>
-
-    <div class="manifesto__actions" id="manifesto-actions">
-      <a href="work.html" class="btn btn--primary">See Work</a>
-      <a href="contact.html" class="btn btn--secondary">Say Hi</a>
-    </div>
-
-    <div class="manifesto__scroll-hint">scroll ↓</div>
-
   </section>
 
   <!-- ================================================================
-       SPREAD 2: THE ARCHIVE
-       Art Direction: Dark. Draggable project card stack.
-       ================================================================ -->
-  <section class="spread spread--dark archive" id="spread-2">
-
-    <div class="archive__header">
-      <div class="headline" data-split>
-        <span class="char-wrap"><span>FEATURED</span></span>
-      </div>
-      <div class="headline" data-split style="margin-top:0.1em;">
-        <span class="char-wrap"><span>WORK</span></span>
-        <span class="headline__italic" style="font-size:0.35em;margin-left:0.3em;transform:rotate(-5deg);display:inline-block;vertical-align:middle;">projects</span>
-      </div>
-      <div class="subhead" style="margin-top:1em;color:var(--text-muted);">Drag to explore. Click to read.</div>
-    </div>
-
-    <div class="archive__dragger-area">
-      <!-- Decorative blob -->
-      <svg class="archive__blob" viewBox="0 0 200 200">
-        <path d="M45.3,-51.2C57.1,-41.5,63.8,-25.8,65.1,-9.7C66.4,6.4,62.3,22.9,52.6,34.8C42.9,46.7,27.6,54,11.3,57.3C-5,60.6,-22.3,59.9,-36.1,52.3C-49.9,44.7,-60.2,30.2,-63.3,14C-66.4,-2.2,-62.3,-20,-52.1,-32.5C-41.9,-45,-25.6,-52.2,-9.1,-54.7C7.4,-57.2,33.5,-60.9,45.3,-51.2Z" fill="var(--accent-lilac)" opacity="0.3" transform="translate(100 100)" />
-      </svg>
-
-      <div class="archive__stack" id="archive-stack">
-
-        <!-- Card 1: AeroTwin -->
-        <div class="archive__card" data-project>
-          <div class="archive__card-media" style="background:linear-gradient(135deg,#1A365D 0%,#2563EB 100%);"></div>
-          <div class="archive__card-inner">
-            <span class="archive__card-tag">UAV SWARMS</span>
-            <div>
-              <div class="archive__card-title">AeroTwin</div>
-              <div class="archive__card-desc">Autonomous state-sync engine built for UAV swarms.</div>
-              <div class="archive__card-meta">
-                <span class="archive__card-tech">Rust</span>
-                <span class="archive__card-tech">ROS2</span>
-                <span class="archive__card-tech">AWS</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 2: MuleNet -->
-        <div class="archive__card" data-project>
-          <div class="archive__card-media" style="background:linear-gradient(135deg,#065F46 0%,#10B981 100%);"></div>
-          <div class="archive__card-inner">
-            <span class="archive__card-tag">COMMUNICATIONS</span>
-            <div>
-              <div class="archive__card-title">MuleNet</div>
-              <div class="archive__card-desc">Decentralized BLE messaging protocol for off-grid edge devices.</div>
-              <div class="archive__card-meta">
-                <span class="archive__card-tech">Go</span>
-                <span class="archive__card-tech">BLE</span>
-                <span class="archive__card-tech">Protobuf</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 3: AgentOS -->
-        <div class="archive__card" data-project>
-          <div class="archive__card-media" style="background:linear-gradient(135deg,#581C87 0%,#A855F7 100%);"></div>
-          <div class="archive__card-inner">
-            <span class="archive__card-tag">AI AGENT SYSTEMS</span>
-            <div>
-              <div class="archive__card-title">AgentOS</div>
-              <div class="archive__card-desc">Multi-agent orchestration workspace powered by LangGraph.</div>
-              <div class="archive__card-meta">
-                <span class="archive__card-tech">Python</span>
-                <span class="archive__card-tech">LangGraph</span>
-                <span class="archive__card-tech">Next.js</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 4: VisionPipe -->
-        <div class="archive__card" data-project>
-          <div class="archive__card-media" style="background:linear-gradient(135deg,#92400E 0%,#F59E0B 100%);"></div>
-          <div class="archive__card-inner">
-            <span class="archive__card-tag">COMPUTER VISION</span>
-            <div>
-              <div class="archive__card-title">VisionPipe</div>
-              <div class="archive__card-desc">Industrial defect detection via high-speed camera streams and CUDA.</div>
-              <div class="archive__card-meta">
-                <span class="archive__card-tech">C++</span>
-                <span class="archive__card-tech">CUDA</span>
-                <span class="archive__card-tech">PyTorch</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Card 5: GridForecast -->
-        <div class="archive__card" data-project>
-          <div class="archive__card-media" style="background:linear-gradient(135deg,#1E3A5F 0%,#38BDF8 100%);"></div>
-          <div class="archive__card-inner">
-            <span class="archive__card-tag">EDGE ML</span>
-            <div>
-              <div class="archive__card-title">GridForecast</div>
-              <div class="archive__card-desc">Smart grid load forecasting with edge neural networks.</div>
-              <div class="archive__card-meta">
-                <span class="archive__card-tech">Rust</span>
-                <span class="archive__card-tech">WASM</span>
-                <span class="archive__card-tech">ONNX</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="archive__hint">← drag to explore →</div>
-    </div>
-
-  </section>
-
-  <!-- ================================================================
-       SPREAD 3: THE WORKSHOP
-       Art Direction: Light cream. Scattered physical objects.
+       SPREAD 3: THE WORKSHOP (SERVICES)
        ================================================================ -->
   <section class="spread spread--light workshop" id="spread-3">
 
     <div class="workshop__header">
       <div class="headline" data-split>
-        <span class="char-wrap"><span>WHAT WE</span></span>
+        <span class="char-wrap"><span>OUR</span></span>
       </div>
       <div class="headline" data-split style="margin-top:0.1em;">
-        <span class="char-wrap"><span class="headline__italic" style="font-size:0.7em;transform:rotate(-5deg);display:inline-block;">obsess</span></span>
-      </div>
-      <div class="headline" data-split style="margin-top:0.05em;">
-        <span class="char-wrap"><span>OVER</span></span>
+        <span class="char-wrap"><span class="headline__italic" style="font-size:0.8em;transform:rotate(-4deg);display:inline-block;">weapon</span></span>
+        <span class="char-wrap"><span>OF CHOICE</span></span>
       </div>
     </div>
 
     <div class="workshop__objects" id="workshop-objects">
 
-      <!-- Object 1: AI Agents — Notebook sheet -->
-      <div class="workshop__object" style="width:18em;left:5%;top:10%;transform:rotate(-3deg);" data-workshop-obj>
-        <div class="worksheet" style="transform:rotate(-3deg);">
-          <div class="worksheet__title">AI Agents</div>
+      <!-- Rust + Systems -->
+      <div class="workshop__object" style="width:17em;transform:rotate(-4deg);" data-workshop-obj>
+        <div class="blueprint-sheet" style="transform:rotate(-4deg);">
+          <div style="font-size:0.6rem;opacity:0.7;">SYS // FIRMWARE</div>
+          <div style="font-size:1rem;margin:0.3em 0;color:#93C5FD;">RUST + EMBEDDED</div>
+          <div style="font-size:0.55rem;color:#60A5FA;">[MEMORY_SAFE_v3.0]</div>
+          <div style="margin-top:0.8em;font-size:0.55rem;line-height:1.7;">
+            TARGET → ESP32 / ARM Cortex<br/>
+            PROTOCOL → Custom BLE stack<br/>
+            SAFETY → Zero-cost abstractions<br/>
+            PERF → Sub-microsecond ISR
+          </div>
+        </div>
+        <div class="worksheet__annotation" style="bottom:-1.8em;left:0;">our bread and butter</div>
+      </div>
+
+      <!-- AI / LLM -->
+      <div class="workshop__object" style="width:18em;transform:rotate(3deg);" data-workshop-obj>
+        <div class="worksheet" style="transform:rotate(3deg);">
+          <div class="worksheet__title">AI & LLM Systems</div>
           <ul class="worksheet__items">
-            <li>LangGraph multi-agent pipelines</li>
-            <li>CrewAI orchestration patterns</li>
-            <li>Custom tool-calling frameworks</li>
-            <li>RAG + vector store integration</li>
-            <li>Production deployment on AWS</li>
+            <li>LangGraph agent orchestration</li>
+            <li>RAG pipelines with vector DB</li>
+            <li>Custom fine-tuning workflows</li>
+            <li>Real-time inference at the edge</li>
+            <li>Multi-modal agent swarms</li>
           </ul>
-          <div class="worksheet__annotation">daily driver ↓</div>
+          <div class="worksheet__annotation">most in-demand →</div>
         </div>
-        <div class="masking-tape" style="top:-12px;left:30%;transform:rotate(-6deg);"></div>
+        <div class="masking-tape" style="top:-12px;left:25%;transform:rotate(-5deg);"></div>
       </div>
 
-      <!-- Object 2: Edge Vision — Blueprint -->
-      <div class="workshop__object" style="width:17em;left:32%;top:25%;transform:rotate(4deg);" data-workshop-obj>
-        <div class="blueprint-sheet" style="transform:rotate(4deg);">
-          <div style="font-size:0.65rem;opacity:0.7;">ARCH // VISION</div>
-          <div style="font-size:0.9rem;margin:0.3em 0;color:#93C5FD;">EDGE INFERENCE</div>
-          <div style="font-size:0.6rem;color:#60A5FA;">[YOLO_v8 → TensorRT]</div>
-          <div style="margin-top:0.8em;font-size:0.55rem;line-height:1.6;">
-            INPUT → CAMERA STREAM<br/>
-            PIPELINE → CUDA PREPROCESS<br/>
-            MODEL → CUSTOM CNN<br/>
-            OUTPUT → REAL-TIME BBOX
-          </div>
-        </div>
-        <div class="worksheet__annotation" style="bottom:-1.8em;right:0;">current obsession →</div>
-      </div>
-
-      <!-- Object 3: Embedded IoT — Sticky note -->
-      <div class="workshop__object" style="width:14em;left:56%;top:5%;transform:rotate(-6deg);" data-workshop-obj>
-        <div class="sticky-note sticky-note--orange" style="transform:rotate(-6deg);font-size:0.9rem;">
-          <div style="font-weight:700;margin-bottom:0.4em;">Embedded IoT</div>
-          ROS2 nav stacks<br/>
-          ESP32 sensor fusion<br/>
-          Rust firmware<br/>
-          Custom BLE protocols
+      <!-- Web / Cloud -->
+      <div class="workshop__object" style="width:15em;transform:rotate(-5deg);" data-workshop-obj>
+        <div class="sticky-note sticky-note--orange" style="transform:rotate(-5deg);font-size:0.85rem;">
+          <div style="font-weight:700;margin-bottom:0.4em;">Web & Cloud</div>
+          Next.js frontends<br/>
+          Go microservices<br/>
+          AWS / Docker deploy<br/>
+          PostgreSQL + Redis
         </div>
       </div>
 
-      <!-- Object 4: Web Systems — Torn paper -->
-      <div class="workshop__object" style="width:19em;left:72%;top:20%;transform:rotate(2deg);" data-workshop-obj>
+      <!-- Robotics / Vision -->
+      <div class="workshop__object" style="width:19em;transform:rotate(2deg);" data-workshop-obj>
         <div class="paper-sheet" style="transform:rotate(2deg);">
-          <div class="worksheet__title">Web Systems</div>
+          <div class="worksheet__title">Robotics & Vision</div>
           <div style="display:flex;flex-wrap:wrap;gap:0.3em;margin-top:0.5em;">
-            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">Next.js</span>
-            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">Go</span>
-            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">Docker</span>
-            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">AWS</span>
-            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">PostgreSQL</span>
-            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">Redis</span>
+            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">ROS2</span>
+            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">CUDA</span>
+            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">YOLO</span>
+            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">Unity</span>
+            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">TensorRT</span>
+            <span class="archive__card-tech" style="border-color:var(--color-border);color:var(--text-dark);">PX4</span>
           </div>
-          <div class="worksheet__annotation" style="bottom:-1.5em;left:0.5em;">built with coffee ☕</div>
+          <div class="worksheet__annotation" style="bottom:-1.5em;left:0.5em;">where hardware meets code</div>
         </div>
-        <div class="masking-tape" style="top:-12px;right:20%;transform:rotate(5deg);"></div>
+        <div class="masking-tape" style="top:-12px;right:15%;transform:rotate(4deg);"></div>
       </div>
 
     </div>
@@ -315,104 +879,94 @@
   </section>
 
   <!-- ================================================================
-       SPREAD 4: THE CREW
-       Art Direction: Dark. Scattered polaroids on a dark wall.
+       SPREAD 4: THE CREW (ABOUT US)
        ================================================================ -->
   <section class="spread spread--dark crew" id="spread-4">
 
     <div class="crew__header">
       <div class="headline" data-split>
-        <span class="char-wrap"><span>THE BUILDERS</span></span>
+        <span class="char-wrap"><span>MEET THE</span></span>
+      </div>
+      <div class="headline" data-split style="margin-top:0.1em;">
+        <span class="char-wrap"><span>CREW</span></span>
       </div>
       <div style="margin-top:0.8em;">
-        <span class="headline__italic" style="font-size:1.8rem;transform:rotate(-4deg);display:inline-block;">5 friends, no suits</span>
+        <span class="headline__italic" style="font-size:1.6rem;transform:rotate(-3deg);display:inline-block;">no suits, just hoodies</span>
       </div>
     </div>
 
-    <!-- Decorative blobs -->
-    <svg class="crew__blob" style="width:27em;top:-5%;left:55%;transform:translate(-50%,0);" viewBox="0 0 200 200">
-      <path d="M42.7,-62.8C54.9,-53.6,64.1,-40.2,68.8,-25.2C73.5,-10.2,73.7,6.4,67.4,20.3C61.1,34.2,48.3,45.4,34.3,53.5C20.3,61.6,5.1,66.6,-10.5,66.4C-26.1,66.2,-42.1,60.8,-53.4,50.1C-64.7,39.4,-71.3,23.4,-72.1,7.1C-72.9,-9.2,-67.9,-26.8,-57.4,-38.5C-46.9,-50.2,-30.9,-56,-16.4,-63.3C-1.9,-70.6,11.1,-79.4,23.9,-77.2C36.7,-75,30.5,-72,42.7,-62.8Z" fill="var(--accent-lilac)" opacity="0.2" transform="translate(100 100)" />
+    <svg class="crew__blob" style="width:30em;top:-8%;left:50%;transform:translate(-50%,0);" viewBox="0 0 200 200">
+      <path d="M42.7,-62.8C54.9,-53.6,64.1,-40.2,68.8,-25.2C73.5,-10.2,73.7,6.4,67.4,20.3C61.1,34.2,48.3,45.4,34.3,53.5C20.3,61.6,5.1,66.6,-10.5,66.4C-26.1,66.2,-42.1,60.8,-53.4,50.1C-64.7,39.4,-71.3,23.4,-72.1,7.1C-72.9,-9.2,-67.9,-26.8,-57.4,-38.5C-46.9,-50.2,-30.9,-56,-16.4,-63.3C-1.9,-70.6,11.1,-79.4,23.9,-77.2C36.7,-75,30.5,-72,42.7,-62.8Z" fill="var(--accent-lilac)" opacity="0.18" transform="translate(100 100)" />
     </svg>
 
     <div class="crew__scatter" id="crew-scatter">
 
-      <!-- Gokul -->
-      <div class="crew__member" style="left:8%;top:15%;transform:rotate(-3deg);" data-crew-member>
+      <div class="crew__member" style="transform:rotate(-4deg);width:15em;" data-crew-member>
         <div class="polaroid">
           <div class="polaroid__photo" style="background:var(--accent-green);">
-            <img src="assets/robot_skectch/robot_smileandtypeonlaptop.png" alt="Gokul's desk" />
+            <img src="assets/robot_skectch/robot_smileandtypeonlaptop.png" alt="Gokul" />
           </div>
           <div class="polaroid__name">Gokul</div>
-          <div class="polaroid__role">Dev Lead / Compilers & Systems</div>
+          <div class="polaroid__role">Dev Lead / Systems & Compilers</div>
         </div>
       </div>
 
-      <!-- Aria -->
-      <div class="crew__member" style="left:35%;top:8%;transform:rotate(4deg);width:15em;" data-crew-member>
+      <div class="crew__member" style="transform:rotate(5deg);width:14em;" data-crew-member>
         <div class="polaroid">
           <div class="polaroid__photo" style="background:var(--accent-lilac);">
-            <img src="assets/robot_skectch/robot_thinkandseelaptop.png" alt="Aria's desk" />
+            <img src="assets/robot_skectch/robot_thinkandseelaptop.png" alt="Aria" />
           </div>
           <div class="polaroid__name">Aria</div>
-          <div class="polaroid__role">AI Architect / LangGraph & Tuning</div>
+          <div class="polaroid__role">AI Architect / LLM & RAG</div>
         </div>
       </div>
 
-      <!-- Sam -->
-      <div class="crew__member" style="left:12%;top:52%;transform:rotate(-5deg);width:14em;" data-crew-member>
-        <div class="polaroid">
-          <div class="polaroid__photo" style="background:var(--accent-orange);">
-            <img src="assets/robot_skectch/robot_seeblueprintandsmile.png" alt="Sam's desk" />
-          </div>
-          <div class="polaroid__name">Sam</div>
-          <div class="polaroid__role">Robotics Lead / ROS2 & Control</div>
-        </div>
-      </div>
-
-      <!-- Lina -->
-      <div class="crew__member" style="left:52%;top:35%;transform:rotate(2deg);width:16em;" data-crew-member>
+      <div class="crew__member" style="transform:rotate(-2deg);width:16em;" data-crew-member>
         <div class="polaroid">
           <div class="polaroid__photo" style="background:#82a0ff;">
-            <img src="assets/robot_skectch/robot_sayhi.png" alt="Lina's desk" />
+            <img src="assets/robot_skectch/robot_sayhi.png" alt="Lina" />
           </div>
           <div class="polaroid__name">Lina</div>
-          <div class="polaroid__role">Full Stack Dev / Next.js & Cloud</div>
+          <div class="polaroid__role">Full Stack / Next.js & Cloud</div>
         </div>
       </div>
 
-      <!-- Devon -->
-      <div class="crew__member" style="left:38%;top:65%;transform:rotate(-2deg);width:15em;" data-crew-member>
+      <div class="crew__member" style="transform:rotate(-6deg);width:14em;" data-crew-member>
+        <div class="polaroid">
+          <div class="polaroid__photo" style="background:var(--accent-orange);">
+            <img src="assets/robot_skectch/robot_seeblueprintandsmile.png" alt="Sam" />
+          </div>
+          <div class="polaroid__name">Sam</div>
+          <div class="polaroid__role">Robotics / ROS2 & Control</div>
+        </div>
+      </div>
+
+      <div class="crew__member" style="transform:rotate(3deg);width:15em;" data-crew-member>
         <div class="polaroid">
           <div class="polaroid__photo" style="background:var(--accent-green);">
-            <img src="assets/robot_skectch/robot_pointingwithholdingcoffee.png" alt="Devon's desk" />
+            <img src="assets/robot_skectch/robot_pointingwithholdingcoffee.png" alt="Devon" />
           </div>
           <div class="polaroid__name">Devon</div>
-          <div class="polaroid__role">Embedded Eng / Firmware & IoT</div>
+          <div class="polaroid__role">Embedded / Firmware & IoT</div>
         </div>
       </div>
 
-      <!-- Sticky notes scattered -->
-      <div class="crew__sticky sticky-note" style="left:62%;top:12%;transform:rotate(5deg);width:9em;font-size:0.75rem;" data-sticker>
-        current branch: main<br/>
-        status: compiling...
+      <!-- Sticky notes -->
+      <div class="crew__sticky sticky-note" style="transform:rotate(6deg);width:9em;font-size:0.75rem;" data-sticker>
+        current status:<br/>shipping v2.4
+      </div>
+      <div class="crew__sticky sticky-note sticky-note--lilac" style="transform:rotate(-5deg);width:8.5em;font-size:0.75rem;" data-sticker>
+        default editor: Neovim<br/>backup: sleep
+      </div>
+      <div class="crew__sticky sticky-note sticky-note--green" style="transform:rotate(2deg);width:10em;font-size:0.75rem;" data-sticker>
+        last deploy: today<br/>tests: all green
       </div>
 
-      <div class="crew__sticky sticky-note sticky-note--lilac" style="left:28%;top:38%;transform:rotate(-4deg);width:8em;font-size:0.75rem;" data-sticker>
-        favorite tool: Rust<br/>
-        backup: Coffee
-      </div>
-
-      <div class="crew__sticky sticky-note sticky-note--green" style="left:70%;top:58%;transform:rotate(3deg);width:9em;font-size:0.75rem;" data-sticker>
-        last deploy: 2h ago<br/>
-        build: PASSING ✓
-      </div>
-
-      <!-- Decorative stickers -->
-      <svg class="doodle-svg" style="width:5em;top:28%;left:80%;transform:rotate(12deg);z-index:10;" viewBox="0 0 100 100" data-sticker>
+      <!-- Doodle stickers -->
+      <svg class="doodle-svg" style="width:5em;top:25%;left:82%;transform:rotate(15deg);z-index:10;" viewBox="0 0 100 100" data-sticker>
         <path class="draw-path" d="M50 5 L62 38 L97 38 L68 60 L79 95 L50 73 L21 95 L32 60 L3 38 L38 38 Z" stroke="var(--accent-orange)" stroke-width="3" fill="none" />
       </svg>
-
-      <svg class="doodle-svg" style="width:4em;bottom:15%;left:8%;transform:rotate(-8deg);z-index:10;" viewBox="0 0 100 100" data-sticker>
+      <svg class="doodle-svg" style="width:3.5em;bottom:12%;left:5%;transform:rotate(-10deg);z-index:10;" viewBox="0 0 100 100" data-sticker>
         <path class="draw-path" d="M10 50 C 40 20, 60 80, 80 50" stroke="var(--text-light)" stroke-width="4" fill="none" />
         <path class="draw-path" d="M65 35 L 85 50 L 70 70" stroke="var(--text-light)" stroke-width="4" fill="none" />
       </svg>
@@ -422,222 +976,275 @@
   </section>
 
   <!-- ================================================================
-       SPREAD 5: THE JOURNAL
-       Art Direction: Light cream. Vertical engineering timeline.
+       SPREAD 5: THE JOURNEY (PINNED TIMELINE)
        ================================================================ -->
-  <section class="spread spread--light journal" id="spread-5">
-
-    <div class="journal__header">
-      <div class="headline" data-split>
-        <span class="char-wrap"><span>OUR</span></span>
-      </div>
-      <div class="headline" data-split style="margin-top:0.1em;">
-        <span class="char-wrap"><span>JOURNEY</span></span>
-      </div>
-      <div style="margin-top:0.8em;">
-        <span class="headline__italic" style="font-size:1.5rem;transform:rotate(-3deg);display:inline-block;">since summer 2024</span>
-      </div>
+  <section class="min-h-screen py-xl relative bg-[#FAF8F5] overflow-hidden" id="journey-pin-section">
+    <!-- Centered Header -->
+    <div class="max-w-4xl mx-auto text-center mb-16 px-4">
+      <div class="font-mono-ibm text-xs text-primary opacity-60 uppercase tracking-widest mb-xs">PROCESS_001</div>
+      <h2 class="font-display-xl font-extrabold text-[80px] leading-[0.9] uppercase tracking-tighter text-primary">
+        BUILT.<br/>TESTED.<br/>SHIPPED.
+      </h2>
     </div>
 
-    <div class="journal__track">
-      <!-- SVG timeline line -->
-      <svg class="journal__line-svg" style="height:100%;" viewBox="0 0 4 600" preserveAspectRatio="none">
-        <path class="draw-path" d="M 2 0 C 2 100, 2 200, 2 300 C 2 400, 2 500, 2 600" stroke="var(--color-border)" stroke-width="2" />
-      </svg>
+    <!-- Timeline Wrapper -->
+    <div class="relative max-w-4xl mx-auto px-4 min-h-[700px] pb-24">
+      <!-- Central Line Container -->
+      <div class="absolute left-1/2 top-0 bottom-0 w-[3px] bg-primary/10 -translate-x-1/2">
+        <!-- Growing Line -->
+        <div id="gsap-timeline-progress" class="w-full bg-primary origin-top h-0"></div>
+      </div>
 
-      <div class="journal__entries" id="journal-entries">
-
-        <!-- Entry 1 -->
-        <div class="journal__entry journal__entry--left" data-journal-entry style="transform:rotate(-2deg);">
-          <div class="journal__dot"></div>
-          <div class="journal__entry-paper">
-            <div class="journal__entry-date">Summer 2024</div>
-            <div class="journal__entry-title">Bootcamp</div>
-            <div class="journal__entry-note">where it all started</div>
-          </div>
-          <svg class="journal__entry-sticker" viewBox="0 0 100 100" data-sticker>
-            <path d="M50 5 L62 38 L97 38 L68 60 L79 95 L50 73 L21 95 L32 60 L3 38 L38 38 Z" fill="var(--accent-orange)" stroke="var(--color-border)" stroke-width="4" />
-          </svg>
-        </div>
-
-        <!-- Entry 2 -->
-        <div class="journal__entry journal__entry--right" data-journal-entry style="transform:rotate(3deg);">
-          <div class="journal__dot"></div>
-          <div class="journal__entry-paper">
-            <div class="journal__entry-date">Fall 2024</div>
-            <div class="journal__entry-title">First Win</div>
-            <div class="journal__entry-note">hackathon champions 🏆</div>
+      <!-- Timeline Entries -->
+      <div class="relative z-10 flex flex-col gap-24">
+        
+        <!-- Card 1 (Left) -->
+        <div class="timeline-entry-row flex justify-start w-full relative">
+          <div class="timeline-dot absolute left-1/2 -translate-x-1/2 top-12 w-4 h-4 bg-primary border-4 border-[#FAF8F5] rounded-full scale-0 opacity-0 z-20"></div>
+          <div class="gsap-timeline-card-left w-[45%] opacity-0 -translate-x-12 -rotate-[1.5deg] z-10">
+            <div class="border-2 border-primary bg-[#FAF8F5] p-lg hard-shadow relative transition-transform duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0px_#000]">
+              <div class="font-code-sm text-accent-orange uppercase tracking-wider mb-xs">WINTER 2024</div>
+              <h4 class="font-headline-md text-primary font-bold mb-xs">REAL CLIENT</h4>
+              <p class="font-body-md text-primary/80">someone actually paid us to write code.</p>
+              
+              <!-- Handwritten orange note -->
+              <span class="font-handwritten text-accent-orange text-3xl absolute -bottom-10 right-4 whitespace-nowrap rotate-[2deg] leading-none font-bold">
+                (first wire transfer!)
+              </span>
+            </div>
           </div>
         </div>
 
-        <!-- Entry 3 -->
-        <div class="journal__entry journal__entry--left" data-journal-entry style="transform:rotate(-1deg);">
-          <div class="journal__dot"></div>
-          <div class="journal__entry-paper">
-            <div class="journal__entry-date">Winter 2024</div>
-            <div class="journal__entry-title">Client #1</div>
-            <div class="journal__entry-note">shipped real software</div>
+        <!-- Card 2 (Right) -->
+        <div class="timeline-entry-row flex justify-end w-full relative">
+          <div class="timeline-dot absolute left-1/2 -translate-x-1/2 top-12 w-4 h-4 bg-primary border-4 border-[#FAF8F5] rounded-full scale-0 opacity-0 z-20"></div>
+          <div class="gsap-timeline-card-right w-[45%] opacity-0 translate-x-12 rotate-[1deg] z-10">
+            <div class="border-2 border-primary bg-[#FAF8F5] p-lg hard-shadow relative transition-transform duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0px_#000]">
+              <div class="font-code-sm text-accent-orange uppercase tracking-wider mb-xs">SPRING 2025</div>
+              <h4 class="font-headline-md text-primary font-bold mb-xs">SHIP MODE</h4>
+              <p class="font-body-md text-primary/80">3 production systems.<br/>zero downtime.</p>
+              
+              <!-- Handwritten orange note -->
+              <span class="font-handwritten text-accent-orange text-3xl absolute -top-10 left-4 whitespace-nowrap -rotate-[2deg] leading-none font-bold">
+                (zero downtime!)
+              </span>
+            </div>
           </div>
         </div>
 
-        <!-- Entry 4 -->
-        <div class="journal__entry journal__entry--right" data-journal-entry style="transform:rotate(2deg);">
-          <div class="journal__dot"></div>
-          <div class="journal__entry-paper">
-            <div class="journal__entry-date">Spring 2025</div>
-            <div class="journal__entry-title">SaaS Launch</div>
-            <div class="journal__entry-note">production-grade, deployed</div>
-          </div>
-          <svg class="journal__entry-sticker" viewBox="0 0 100 100" data-sticker style="top:auto;bottom:-0.8em;right:auto;left:-0.8em;">
-            <path d="M20 80 L50 10 L80 80 Z" fill="var(--accent-green)" stroke="var(--color-border)" stroke-width="4" />
-          </svg>
-        </div>
-
-        <!-- Entry 5 -->
-        <div class="journal__entry journal__entry--left" data-journal-entry style="transform:rotate(-3deg);">
-          <div class="journal__dot"></div>
-          <div class="journal__entry-paper">
-            <div class="journal__entry-date">Present</div>
-            <div class="journal__entry-title">Scaling</div>
-            <div class="journal__entry-note">5 builders, shipping daily</div>
+        <!-- Card 3 (Left) -->
+        <div class="timeline-entry-row flex justify-start w-full relative">
+          <div class="timeline-dot absolute left-1/2 -translate-x-1/2 top-12 w-4 h-4 bg-primary border-4 border-[#FAF8F5] rounded-full scale-0 opacity-0 z-20"></div>
+          <div class="gsap-timeline-card-left w-[45%] opacity-0 -translate-x-12 rotate-[-2deg] z-10">
+            <div class="border-2 border-primary bg-[#FAF8F5] p-lg hard-shadow relative transition-transform duration-300 hover:-translate-y-2 hover:shadow-[8px_8px_0px_#000]">
+              <div class="font-code-sm text-accent-orange uppercase tracking-wider mb-xs">TODAY</div>
+              <h4 class="font-headline-md text-primary font-bold mb-xs">SCALING</h4>
+              <p class="font-body-md text-primary/80">building faster than ever.</p>
+              
+              <!-- Handwritten orange note -->
+              <span class="font-handwritten text-accent-orange text-3xl absolute -bottom-10 right-4 whitespace-nowrap rotate-[1deg] leading-none font-bold">
+                (shipping daily!)
+              </span>
+            </div>
           </div>
         </div>
 
       </div>
     </div>
-
   </section>
 
   <!-- ================================================================
-       SPREAD 6: THE STAMPS
-       Art Direction: Light to dark. Logo stamp impressions.
+       PREMIUM EDITORIAL FOOTER
        ================================================================ -->
-  <section class="spread spread--light stamps" id="spread-6">
+  <footer class="w-full bg-[#111111] text-[#FAF8F5] px-margin-desktop py-xl relative overflow-hidden premium-footer" id="js-footer">
+    <div class="max-w-[1440px] mx-auto pt-xl">
+      
+      <!-- Top Section -->
+      <div class="flex flex-col items-center text-center md:items-start md:text-left mb-xl">
+        <!-- Large Editorial Headline -->
+        <h2 class="font-display-xl text-[100px] md:text-[130px] leading-[0.85] font-extrabold uppercase tracking-tighter footer-large-title">
+          <span class="block">LET'S BUILD</span>
+          <span class="block">SOMETHING</span>
+          <span class="block text-accent-orange">USEFUL.</span>
+        </h2>
+        
+        <!-- Handwritten Orange Note -->
+        <div class="mt-lg flex items-center gap-md">
+          <span class="font-handwritten text-accent-orange text-4xl footer-handwritten-note inline-block rotate-[-2deg] font-bold">
+            (not another pitch deck.)
+          </span>
+          <svg class="w-24 h-12 text-accent-orange hidden md:block opacity-60" viewBox="0 0 100 40">
+            <path d="M5,35 Q50,0 95,35" fill="none" stroke="currentColor" stroke-width="2"></path>
+            <path d="M85,25 L95,35 L80,38" fill="none" stroke="currentColor" stroke-width="2"></path>
+          </svg>
+        </div>
 
-    <div class="stamps__header">
-      <div class="headline" data-split>
-        <span class="char-wrap"><span>WHO</span></span>
+        <!-- Short Paragraph -->
+        <p class="mt-xl max-w-xl font-body-lg text-body-lg text-white/70 leading-relaxed">
+          We build AI systems, computer vision software, automation, robotics, and production-ready applications.
+        </p>
+
+        <!-- Large CTA -->
+        <div class="mt-xl footer-cta-btn">
+          <button onclick="location.href='contact.html'" class="bg-[#FAF8F5] text-[#111111] px-xl py-lg text-[24px] font-headline-md font-bold hover:bg-accent-orange hover:text-white transition-all transform hover:-translate-y-2 hard-shadow cursor-pointer" style="box-shadow: 8px 8px 0px #FF5C00">
+            START A PROJECT &rarr;
+          </button>
+        </div>
       </div>
-      <div class="headline" data-split style="margin-top:0.1em;">
-        <span class="char-wrap"><span>TRUSTS</span></span>
+
+      <!-- Footer Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-xl pt-xl border-t border-[#FAF8F5]/10 mt-xl">
+        
+        <!-- Column 1: logo + desc -->
+        <div>
+          <a href="index.html" class="font-headline-md text-headline-md font-bold text-white tracking-tight block mb-md">agency.</a>
+          <p class="font-body-md text-white/50 leading-relaxed max-w-xs">
+            An elite software and automation collective of student builders. We ship real systems under extreme deadlines.
+          </p>
+        </div>
+
+        <!-- Column 2: nav -->
+        <div>
+          <h4 class="font-code-sm text-white/40 uppercase tracking-widest mb-md">Navigation</h4>
+          <ul class="space-y-sm font-code-sm">
+            <li><a href="index.html" class="hover:text-accent-orange transition-colors">Home</a></li>
+            <li><a href="work.html" class="hover:text-accent-orange transition-colors">Work</a></li>
+            <li><a href="team.html" class="hover:text-accent-orange transition-colors">Team</a></li>
+            <li><a href="contact.html" class="hover:text-accent-orange transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: socials -->
+        <div>
+          <h4 class="font-code-sm text-white/40 uppercase tracking-widest mb-md">Socials</h4>
+          <ul class="space-y-sm font-code-sm">
+            <li><a href="https://github.com" target="_blank" rel="noopener" class="hover:text-accent-orange transition-colors">GitHub</a></li>
+            <li><a href="https://linkedin.com" target="_blank" rel="noopener" class="hover:text-accent-orange transition-colors">LinkedIn</a></li>
+            <li><a href="https://twitter.com" target="_blank" rel="noopener" class="hover:text-accent-orange transition-colors">Twitter</a></li>
+            <li><a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-accent-orange transition-colors">Instagram</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: contact -->
+        <div>
+          <h4 class="font-code-sm text-white/40 uppercase tracking-widest mb-md">Contact</h4>
+          <ul class="space-y-sm font-code-sm">
+            <li><span onclick="location.href='mailto:hello@agency.dev'" class="hover:text-accent-orange transition-colors cursor-pointer">hello@agency.dev</span></li>
+          </ul>
+        </div>
+
       </div>
-      <div style="margin-top:0.5em;">
-        <span class="headline__italic" style="font-size:1.8rem;transform:rotate(-5deg);display:inline-block;">this crew</span>
+
+      <!-- Bottom Strip -->
+      <div class="mt-xl pt-lg border-t border-[#FAF8F5]/5 flex flex-col md:flex-row justify-between items-center gap-md opacity-40 font-code-sm">
+        <span>EST.2024</span>
+        <span>Made with curiosity.</span>
+        <span>&copy; 2026 Student Tech Agency. All rights reserved.</span>
       </div>
-    </div>
 
-    <div class="stamps__scatter" id="stamps-scatter">
-
-      <div class="stamp" style="top:10%;left:10%;transform:rotate(-8deg);font-size:0.8rem;" data-stamp>HACKATHON<br/>WINNER</div>
-
-      <div class="stamp" style="top:5%;left:42%;transform:rotate(5deg);font-size:0.7rem;border-color:var(--accent-orange);color:var(--accent-orange);" data-stamp>Y COMBINATOR<br/>RECOGNIZED</div>
-
-      <div class="stamp" style="top:35%;left:5%;transform:rotate(-3deg);font-size:0.85rem;" data-stamp>TECHCRUNCH<br/>FEATURED</div>
-
-      <div class="stamp" style="top:30%;left:55%;transform:rotate(7deg);font-size:0.75rem;" data-stamp>ETH GLOBAL<br/>FINALIST</div>
-
-      <div class="stamp" style="top:60%;left:25%;transform:rotate(-6deg);font-size:0.9rem;border-color:var(--accent-orange);color:var(--accent-orange);" data-stamp>AI GRAND<br/>PRIZE</div>
-
-      <div class="stamp" style="top:55%;left:65%;transform:rotate(4deg);font-size:0.8rem;" data-stamp>ROBOCUP<br/>1ST PLACE</div>
-
-    </div>
-
-  </section>
-
-  <!-- ================================================================
-       SPREAD 7: THE INVITATION
-       Art Direction: Dark cinematic close. Mirror of hero.
-       ================================================================ -->
-  <section class="spread spread--dark invitation" id="spread-7">
-
-    <div class="invitation__headline">
-      <div class="headline headline--mega" data-split>
-        <span class="char-wrap"><span>LET'S BUILD</span></span>
-      </div>
-      <div class="headline headline--mega" data-split style="margin-top:0.05em;">
-        <span class="char-wrap"><span>SOMETHING</span></span>
-      </div>
-      <div class="headline headline--mega" data-split style="margin-top:0.05em;">
-        <span class="char-wrap"><span class="headline__italic" style="font-size:0.5em;transform:rotate(-6deg);display:inline-block;vertical-align:middle;">real</span></span>
-      </div>
-    </div>
-
-    <!-- Robot peeking from left -->
-    <div class="invitation__robot" id="invitation-robot">
-      <svg viewBox="0 0 150 150">
-        <rect x="25" y="25" width="100" height="85" rx="16" fill="var(--accent-green)" stroke="var(--text-light)" stroke-width="3" />
-        <rect x="35" y="35" width="80" height="50" rx="8" fill="#111" />
-        <circle class="mascot-eye" cx="60" cy="55" r="7" fill="var(--accent-orange)" />
-        <circle class="mascot-eye" cx="90" cy="55" r="7" fill="var(--accent-orange)" />
-        <path d="M 67 71 Q 75 78 83 71" fill="none" stroke="#FFF" stroke-width="3" stroke-linecap="round" />
-        <path d="M 50 110 L 45 135 M 100 110 L 105 135" stroke="var(--text-light)" stroke-width="3" stroke-linecap="round" />
-        <rect x="35" y="132" width="25" height="6" rx="3" fill="var(--text-light)" />
-        <rect x="90" y="132" width="25" height="6" rx="3" fill="var(--text-light)" />
-        <path d="M 75 25 L 75 12" stroke="var(--text-light)" stroke-width="3" />
-        <circle cx="75" cy="8" r="6" fill="var(--accent-orange)" stroke="var(--text-light)" stroke-width="2" />
-      </svg>
-    </div>
-
-    <!-- Sticky note -->
-    <div class="invitation__note sticky-note sticky-note--orange" style="right:10%;top:25%;transform:rotate(-4deg);width:11em;font-size:0.9rem;" data-sticker>
-      <div style="font-weight:700;">We respond in 24h.</div>
-      <div style="margin-top:0.3em;font-size:0.85em;">No gatekeepers. Just us.</div>
-    </div>
-
-    <div class="invitation__cta">
-      <a href="contact.html" class="btn btn--primary">Say Hello</a>
-      <div class="invitation__socials">
-        <a href="https://github.com" class="social-pill" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com" class="social-pill" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://twitter.com" class="social-pill" target="_blank" rel="noopener">Twitter</a>
-      </div>
-      <div class="label" style="margin-top:1em;opacity:0.4;">hello@agency.dev</div>
-    </div>
-
-    <!-- Decorative arrow -->
-    <svg class="doodle-svg" style="width:7em;bottom:20%;left:15%;transform:rotate(10deg);z-index:4;" viewBox="0 0 100 100">
-      <path class="draw-path" d="M 80 20 Q 50 40 20 75 M 20 75 L 40 68 M 20 75 L 27 55" stroke="var(--text-light)" stroke-width="4" />
-    </svg>
-
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer__inner">
-      <div class="footer__col">
-        <div class="footer__col-title">Agency</div>
-        <div style="font-size:0.85rem;opacity:0.7;">© 2026 Student Tech Agency</div>
-        <div style="font-size:0.85rem;opacity:0.7;">Built under intense pressure.</div>
-      </div>
-      <div class="footer__col">
-        <div class="footer__col-title">Navigate</div>
-        <a href="index.html" style="font-size:0.85rem;">Home</a>
-        <a href="work.html" style="font-size:0.85rem;">Work</a>
-        <a href="team.html" style="font-size:0.85rem;">Team</a>
-        <a href="contact.html" style="font-size:0.85rem;">Contact</a>
-      </div>
-      <div class="footer__col">
-        <div class="footer__col-title">Connect</div>
-        <a href="https://github.com" style="font-size:0.85rem;" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://linkedin.com" style="font-size:0.85rem;" target="_blank" rel="noopener">LinkedIn</a>
-        <div style="font-size:0.85rem;opacity:0.7;">hello@agency.dev</div>
-      </div>
-    </div>
-    <div class="footer__bottom">
-      SF / NYC / Remote — No suits. No fluff.
     </div>
   </footer>
 
   <!-- ================================================================
        SCRIPTS
        ================================================================ -->
-  <!-- Lenis Smooth Scroll -->
   <script src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js"></script>
-  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
-  <!-- Editorial JS -->
   <script src="js/editorial.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Register ScrollTrigger
+      gsap.registerPlugin(ScrollTrigger);
 
+      // Create pinning timeline for the journey section
+      const journeyTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#journey-pin-section",
+          start: "top top",
+          end: "+=1200", // Scroll length for the pin
+          pin: true,
+          scrub: true,
+          anticipatePin: 1
+        }
+      });
+
+      // 1. Draw the vertical line downward
+      journeyTl.to("#gsap-timeline-progress", {
+        height: "100%",
+        ease: "none",
+        duration: 1
+      });
+
+      // 2. Animate dots and cards sequentially along the progress
+      const rows = document.querySelectorAll(".timeline-entry-row");
+      rows.forEach((row, i) => {
+        const dot = row.querySelector(".timeline-dot");
+        const card = row.querySelector(".gsap-timeline-card-left, .gsap-timeline-card-right");
+        
+        // Distribute the reveals evenly across the scroll duration
+        const revealPoint = i * 0.3; // Stagger timeline activations
+
+        journeyTl.to(dot, {
+          scale: 1,
+          opacity: 1,
+          duration: 0.1,
+          ease: "power1.out"
+        }, revealPoint)
+        .to(card, {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          duration: 0.25,
+          ease: "power2.out"
+        }, revealPoint + 0.05);
+      });
+
+      // 3. Smooth transition to the footer
+      gsap.fromTo("#js-footer", 
+        { y: 80, opacity: 0 },
+        { 
+          y: 0, 
+          opacity: 1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#js-footer",
+            start: "top 95%",
+            end: "top 75%",
+            scrub: true
+          }
+        }
+      );
+
+      // Footer content stagger and fade upward on reveal
+      const footerTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#js-footer",
+          start: "top 80%",
+          toggleActions: "play none none reverse"
+        }
+      });
+
+      footerTl.from(".footer-large-title span", {
+        y: 40,
+        opacity: 0,
+        stagger: 0.1,
+        duration: 0.8,
+        ease: "power3.out"
+      })
+      .from(".footer-handwritten-note", {
+        scale: 0.8,
+        opacity: 0,
+        duration: 0.6,
+        ease: "back.out(1.5)"
+      }, "-=0.4")
+      .from(".footer-cta-btn", {
+        y: 35,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.out"
+      }, "-=0.3");
+    });
+  </script>
 </body>
 </html>
