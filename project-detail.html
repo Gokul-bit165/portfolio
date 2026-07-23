@@ -1,306 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AeroTwin — agency.</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AeroTwin — agency.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+<style>
+  :root{
+    --cream:#EFEAE2;
+    --ink:#171614;
+    --ink-soft:#57534D;
+    --muted:#918C86;
+    --orange:#FF6B35;
+    --teal:#2FA7A0;
+    --line:rgba(23,22,20,0.16);
+    --paper:#F8F5EF;
+    --font-display:'Bricolage Grotesque', sans-serif;
+    --font-mono:'IBM Plex Mono', monospace;
+    --font-body:'Inter', sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--font-body);-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+
+  /* ---------- NAV ---------- */
+  .site-header{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+    padding:1.1em 2.5em;background:rgba(239,234,226,0.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .logo{font-family:var(--font-display);font-weight:800;font-size:1.3rem;}
+  .nav-links{display:flex;gap:2.2em;list-style:none;margin:0;padding:0;font-family:var(--font-mono);
+    font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;}
+  .nav-links a{opacity:0.7;transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;color:var(--orange);}
+  .header-right{display:flex;align-items:center;gap:1.4em;}
+  .status-pill{display:flex;align-items:center;gap:0.5em;font-family:var(--font-mono);font-size:0.66rem;color:var(--ink-soft);}
+  .status-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);}
+  .cta-pill{background:var(--ink);color:var(--cream);font-family:var(--font-mono);font-weight:600;
+    font-size:0.68rem;letter-spacing:0.05em;padding:0.7em 1.3em;border-radius:3px;text-transform:uppercase;}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:2.6em 2em 6em;}
+  .back-link{font-family:var(--font-mono);font-size:0.7rem;font-weight:600;color:var(--ink-soft);
+    display:inline-flex;gap:0.5em;margin-bottom:2em;}
+  .back-link:hover{color:var(--orange);}
+
+  /* ================= TITLE STRIP (compact, above media) ================= */
+  .title-strip{display:flex;justify-content:space-between;align-items:flex-end;gap:2em;
+    margin-bottom:1.4em;flex-wrap:wrap;}
+  .title-eyebrow{font-family:var(--font-mono);font-size:0.66rem;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:0.5em;}
+  .title-main{font-family:var(--font-display);font-weight:800;font-size:clamp(2rem,5vw,2.9rem);line-height:1;}
+  .title-main em{font-style:italic;font-weight:400;color:var(--ink-soft);font-size:0.55em;display:block;margin-top:0.35em;}
+  .title-badge{font-family:var(--font-mono);font-size:0.68rem;color:var(--teal);border:1px solid var(--teal);
+    padding:0.5em 0.9em;border-radius:3px;white-space:nowrap;}
+
+  /* ================= STEAM-STYLE MEDIA HERO ================= */
+  .media-hero{margin-bottom:1em;}
+  .media-main{position:relative;width:100%;aspect-ratio:16/8.2;border-radius:6px;overflow:hidden;
+    background:linear-gradient(135deg,#1A365D,#2563EB);transition:background .35s ease;
+    border:1px solid var(--ink);}
+  .media-main .play-btn{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+  .play-btn .circle{width:64px;height:64px;border-radius:50%;background:rgba(23,22,20,0.55);
+    backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;
+    color:var(--cream);font-size:1.3rem;border:1.5px solid rgba(239,234,226,0.5);}
+  .media-tag{position:absolute;top:1em;left:1.1em;font-family:var(--font-mono);font-size:0.62rem;
+    color:var(--cream);background:rgba(23,22,20,0.55);padding:0.4em 0.8em;border-radius:3px;letter-spacing:0.05em;}
+  .media-counter{position:absolute;bottom:1em;right:1.1em;font-family:var(--font-mono);font-size:0.62rem;
+    color:var(--cream);background:rgba(23,22,20,0.55);padding:0.4em 0.8em;border-radius:3px;}
+
+  .thumb-row{display:flex;gap:0.7em;margin-top:0.8em;}
+  .thumb{flex:1;aspect-ratio:16/9;border-radius:4px;cursor:pointer;border:2px solid transparent;
+    opacity:0.55;transition:opacity .2s,border-color .2s;position:relative;overflow:hidden;}
+  .thumb:hover{opacity:0.85;}
+  .thumb.active{opacity:1;border-color:var(--orange);}
+  .thumb .thumb-play{position:absolute;bottom:0.35em;right:0.4em;font-size:0.55rem;color:var(--cream);
+    background:rgba(23,22,20,0.5);padding:0.15em 0.4em;border-radius:2px;font-family:var(--font-mono);}
+
+  /* ================= INFO BAR (condensed facts under media) ================= */
+  .info-bar{display:flex;flex-wrap:wrap;gap:2.4em;padding:1.6em 0;margin:1.6em 0 3em;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .info-item{display:flex;flex-direction:column;gap:0.2em;}
+  .info-label{font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+  .info-value{font-family:var(--font-mono);font-size:0.9rem;font-weight:600;}
+  .info-value.orange{color:var(--orange);}
+  .info-value a:hover{text-decoration:underline;}
+  .info-desc{flex:1 1 260px;font-size:0.88rem;color:var(--ink-soft);line-height:1.6;}
+  .collaborators-list{display:flex;gap:1.5em;flex-wrap:wrap;margin-top:0.3em;font-family:var(--font-mono);font-size:0.82rem;}
+  .collaborator-tag{display:inline-flex;align-items:center;gap:0.4em;}
+
+  /* ================= MANIFEST SECTIONS ================= */
+  .manifest{margin-bottom:5em;}
+  .manifest-head{display:flex;align-items:baseline;gap:0.9em;margin-bottom:1.8em;
+    border-bottom:2px solid var(--ink);padding-bottom:0.7em;}
+  .manifest-idx{font-family:var(--font-mono);font-size:0.9rem;color:var(--orange);font-weight:700;}
+  .manifest-title{font-family:var(--font-display);font-weight:800;font-size:clamp(1.5rem,4vw,2.1rem);}
+
+  .m-row{display:grid;grid-template-columns:200px 1fr;gap:2em;padding:1.4em 0;border-bottom:1px solid var(--line);}
+  .m-row:last-child{border-bottom:none;}
+  .m-row-label{font-family:var(--font-mono);font-size:0.72rem;letter-spacing:0.06em;
+    text-transform:uppercase;color:var(--orange);font-weight:600;}
+  .m-row-text{font-size:0.92rem;color:var(--ink-soft);line-height:1.65;}
+
+  .insight-line{margin-top:1.6em;padding:1.2em 1.4em;background:var(--paper);border-left:3px solid var(--teal);
+    font-size:0.88rem;color:var(--ink-soft);}
+  .insight-line strong{color:var(--ink);}
+
+  .steps{display:flex;flex-direction:column;}
+  .step-row{display:grid;grid-template-columns:70px 180px 1fr;gap:1.6em;align-items:start;
+    padding:1.5em 0;border-bottom:1px solid var(--line);}
+  .step-row:last-child{border-bottom:none;}
+  .step-tag{font-family:var(--font-mono);font-size:0.95rem;color:var(--muted);}
+  .step-name{font-family:var(--font-display);font-weight:700;font-size:1rem;padding-top:0.1em;}
+  .step-desc{font-size:0.85rem;color:var(--ink-soft);line-height:1.6;}
+
+  /* ================= GALLERY GRID ================= */
+  .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1em;}
+  .gallery-grid .g-item:first-child{grid-column:span 2;grid-row:span 2;}
+  .g-item{position:relative;border-radius:6px;overflow:hidden;aspect-ratio:1/1;cursor:pointer;
+    border:1px solid var(--ink);}
+  .gallery-grid .g-item:first-child{aspect-ratio:auto;}
+  .g-caption{position:absolute;bottom:0;left:0;right:0;padding:0.9em 1em;
+    background:linear-gradient(to top,rgba(23,22,20,0.75),transparent);
+    font-family:var(--font-mono);font-size:0.68rem;color:var(--cream);letter-spacing:0.03em;}
+  .g-item .g-play{position:absolute;top:0.8em;right:0.8em;width:26px;height:26px;border-radius:50%;
+    background:rgba(23,22,20,0.55);display:flex;align-items:center;justify-content:center;
+    color:var(--cream);font-size:0.6rem;}
+
+  /* ================= NEXT ================= */
+  .next{display:flex;align-items:center;justify-content:space-between;padding:1.8em 0 0;
+    border-top:2px solid var(--ink);margin-top:1em;}
+  .next-label{font-family:var(--font-mono);font-size:0.65rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;}
+  .next-title{font-family:var(--font-display);font-weight:800;font-size:1.6rem;margin-top:0.2em;}
+  .next-desc{font-size:0.85rem;color:var(--ink-soft);margin-top:0.2em;}
+  .next-arrow{width:48px;height:48px;border-radius:50%;border:2px solid var(--ink);display:flex;
+    align-items:center;justify-content:center;font-size:1.3em;transition:background .2s,color .2s;}
+  .next:hover .next-arrow{background:var(--ink);color:var(--cream);}
+
+  /* ================= FOOTER ================= */
+  .site-footer{background:var(--ink);color:var(--cream);padding:3.5em 2.5em 1.6em;margin-top:2em;}
+  .footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 0.8fr 0.8fr 1fr;
+    gap:2em;padding-bottom:2.4em;border-bottom:1px solid rgba(239,234,226,0.12);}
+  .footer-logo{font-family:var(--font-display);font-weight:800;font-size:1.3rem;display:block;margin-bottom:0.7em;}
+  .footer-desc{font-size:0.8rem;color:rgba(239,234,226,0.55);line-height:1.6;max-width:22em;}
+  .footer-col-title{font-family:var(--font-mono);font-size:0.65rem;text-transform:uppercase;
+    letter-spacing:0.08em;color:rgba(239,234,226,0.4);margin-bottom:0.9em;}
+  .footer-links{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:0.55em;font-size:0.82rem;}
+  .footer-links a{opacity:0.8;}
+  .footer-links a:hover{color:var(--orange);opacity:1;}
+  .footer-email{color:var(--orange);font-family:var(--font-mono);font-size:0.82rem;}
+  .footer-bottom{max-width:1100px;margin:1.4em auto 0;display:flex;justify-content:space-between;
+    font-family:var(--font-mono);font-size:0.65rem;color:rgba(239,234,226,0.4);flex-wrap:wrap;gap:1em;}
+
+  @media(max-width:820px){
+    .m-row,.step-row{grid-template-columns:1fr;gap:0.5em;}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-grid .g-item:first-child{grid-column:span 2;}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .nav-links,.status-pill{display:none;}
+  }
+</style>
 </head>
 <body>
 
-  <!-- ================================================================
-       STICKY NAVIGATION HEADER
-       ================================================================ -->
-  <header class="sticky-header">
-    <a href="index.html" class="header__logo">agency.</a>
-    
-    <div class="header__meta hide-mobile">
-      <span>Software Collective &bull; Folio 2026</span>
+  <!-- SITE HEADER NAVIGATION -->
+  <header class="sticky-header site-header">
+    <a href="index.html" class="logo header__logo">agency.</a>
+    <ul class="nav-links header__links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="work.html">Works</a></li>
+      <li><a href="team.html">Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="header-right">
+      <div class="status-pill header__status"><span class="status-dot"></span>Available for builds</div>
+      <a href="contact.html" class="cta-pill header__cta">Start Project</a>
     </div>
-
-    <nav class="header__nav">
-      <ul class="header__links hide-mobile">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="work.html">Works</a></li>
-        <li><a href="team.html">Team</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-
-      <div class="header__status hide-tablet">
-        <span class="status-dot"></span>
-        <span>Available for builds</span>
-      </div>
-
-      <a href="contact.html" class="header__cta c-button">
-        <span class="c-link">
-          <span class="c-link__inner">
-            <span>Start Project</span>
-            <span class="c-link__animated">Start Project</span>
-          </span>
-        </span>
-      </a>
-    </nav>
   </header>
 
-  <div class="cursor-dot"></div>
-  <div class="cursor-ring"></div>
-  <div class="cursor-spotlight"></div>
+  <div class="viewfinder-reticle">
+    <div class="viewfinder-corner top-left"></div>
+    <div class="viewfinder-corner top-right"></div>
+    <div class="viewfinder-corner bottom-left"></div>
+    <div class="viewfinder-corner bottom-right"></div>
+    <div class="viewfinder-indicator"><span class="rec-dot"></span><span class="indicator-text">REC</span></div>
+  </div>
 
-  <!-- ================================================================
-       PROJECT DETAIL: AEROTWIN
-       Art Direction: Dark spread. Physical paper objects scattered.
-       ================================================================ -->
-  <section class="spread spread--dark" style="min-height:auto;padding:5em 2.5em 6em;">
+  <main class="wrap">
+    <a href="work.html" class="back-link">&larr; BACK TO WORK</a>
 
-    <div style="max-width:1100px;margin:0 auto;">
-
-      <!-- BACK LINK -->
-      <a href="work.html" style="font-family:var(--font-mono);font-size:0.7rem;font-weight:700;border-bottom:2px solid rgba(240,235,230,0.3);padding-bottom:2px;display:inline-block;margin-bottom:3em;color:var(--text-light);transition:border-color 0.2s;" onmouseover="this.style.borderColor='var(--accent-orange)'" onmouseout="this.style.borderColor='rgba(240,235,230,0.3)'">&larr; BACK TO WORK</a>
-
-      <!-- HERO: TITLE COMPOSITION -->
-      <div style="text-align:center;margin-bottom:4em;position:relative;">
-
-        <div class="sticker" style="top:-1em;right:10%;transform:rotate(6deg);z-index:20;" data-sticker>
-          <span class="sticker__pill sticker__pill--orange">CASE STUDY</span>
-        </div>
-
-        <div class="label" style="color:var(--text-muted);margin-bottom:0.8em;letter-spacing:0.15em;">UAV SWARMS / STATE SYNCHRONIZATION</div>
-
-        <div class="headline headline--mega" data-split style="margin-bottom:0.15em;">
-          <span class="char-wrap"><span>AERO</span></span>
-        </div>
-        <div class="headline headline--mega" data-split style="margin-bottom:0.4em;">
-          <span class="char-wrap"><span>TWIN</span></span>
-        </div>
-
-        <div style="margin-top:0.8em;">
-          <span class="headline__italic" style="font-size:clamp(1.2rem,2.5vw,1.8rem);transform:rotate(-4deg);display:inline-block;">autonomous state-sync engine</span>
-        </div>
-
-        <div class="subhead" style="color:var(--text-muted);margin-top:1.2em;max-width:34em;margin-left:auto;margin-right:auto;">A complete state-synchronization engine built for autonomous UAV swarms. Sub-50ms execution. 99.9% sync accuracy.</div>
+    <!-- TITLE STRIP -->
+    <div class="title-strip">
+      <div>
+        <div class="title-eyebrow">UAV Swarms / State Synchronization</div>
+        <div class="title-main">AeroTwin<em>an autonomous state-sync engine</em></div>
       </div>
-
-      <!-- HERO IMAGE: BLUEPRINT STYLE -->
-      <div style="position:relative;margin-bottom:4em;">
-        <div class="blueprint-sheet" style="padding:2em;transform:rotate(-0.5deg);">
-          <div style="font-size:0.6rem;opacity:0.7;margin-bottom:0.5em;">ARCH // SYSTEM OVERVIEW</div>
-          <div style="font-size:1rem;color:#93C5FD;margin-bottom:0.8em;">AEROTWIN STATE SYNCHRONIZER</div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1em;font-size:0.55rem;line-height:1.8;">
-            <div>
-              <div style="color:#60A5FA;font-weight:700;">INPUT LAYER</div>
-              <div>GPS telemetry stream</div>
-              <div>IMU sensor fusion</div>
-              <div>Peer heartbeat protocol</div>
-            </div>
-            <div>
-              <div style="color:#60A5FA;font-weight:700;">CONSENSUS ENGINE</div>
-              <div>CRDT conflict resolution</div>
-              <div>Rust memory-safe state</div>
-              <div>Sub-50ms convergence</div>
-            </div>
-            <div>
-              <div style="color:#60A5FA;font-weight:700;">OUTPUT LAYER</div>
-              <div>Unified swarm topology</div>
-              <div>Collision avoidance mesh</div>
-              <div>Navigation command sync</div>
-            </div>
-          </div>
-          <div style="margin-top:1.2em;font-size:0.5rem;color:#60A5FA;border-top:1px dashed rgba(147,197,253,0.3);padding-top:0.6em;">
-            PROTOCOL: PEER-TO-PEER &middot; TRANSPORT: BLE + MESH &middot; STATE: CRDT &middot; LANG: RUST
-          </div>
-        </div>
-        <div class="masking-tape" style="top:-10px;left:20%;transform:rotate(-4deg);"></div>
-      </div>
-
-      <!-- QUICK FACTS -->
-      <div class="detail-facts">
-
-        <div class="paper-sheet" style="padding:1.2em;text-align:center;transform:rotate(-1deg);">
-          <div class="label" style="color:var(--text-muted);margin-bottom:0.4em;">STACK</div>
-          <div style="font-family:var(--font-display);font-size:1rem;">Rust + ROS2</div>
-        </div>
-
-        <div class="paper-sheet" style="padding:1.2em;text-align:center;transform:rotate(0.5deg);">
-          <div class="label" style="color:var(--text-muted);margin-bottom:0.4em;">TIMELINE</div>
-          <div style="font-family:var(--font-display);font-size:1rem;">4 Weeks</div>
-        </div>
-
-        <div class="paper-sheet" style="padding:1.2em;text-align:center;transform:rotate(-0.3deg);">
-          <div class="label" style="color:var(--text-muted);margin-bottom:0.4em;">TEAM</div>
-          <div style="font-family:var(--font-display);font-size:1rem;">3 Engineers</div>
-        </div>
-
-        <div class="paper-sheet" style="padding:1.2em;text-align:center;transform:rotate(0.8deg);">
-          <div class="label" style="color:var(--text-muted);margin-bottom:0.4em;">STATUS</div>
-          <div style="font-family:var(--font-display);font-size:1rem;color:var(--accent-orange);">Shipped</div>
-        </div>
-
-      </div>
-
-      <!-- THE STORY -->
-      <div style="margin-bottom:4em;">
-
-        <div style="margin-bottom:2em;">
-          <div class="headline" data-split style="font-size:clamp(1.8rem,5vw,3rem);margin-bottom:0.5em;">
-            <span class="char-wrap"><span>THE</span></span>
-          </div>
-          <div class="headline" data-split style="font-size:clamp(1.8rem,5vw,3rem);margin-bottom:0.5em;">
-            <span class="char-wrap"><span>PROBLEM</span></span>
-          </div>
-        </div>
-
-        <div class="detail-story">
-
-          <div class="paper-sheet" style="padding:2em;transform:rotate(-0.5deg);">
-            <div style="font-family:var(--font-display);font-size:0.8rem;text-transform:uppercase;margin-bottom:0.8em;color:var(--accent-orange);">What We Built</div>
-            <p class="subhead" style="color:var(--text-muted);font-size:0.9rem;">A fully synchronized edge agent model that handles thousands of concurrent queries without bottlenecking the parent process. Our final pipeline benchmarked at sub-50ms execution times across 50+ UAV nodes.</p>
-          </div>
-
-          <div class="paper-sheet" style="padding:2em;transform:rotate(0.3deg);">
-            <div style="font-family:var(--font-display);font-size:0.8rem;text-transform:uppercase;margin-bottom:0.8em;color:var(--accent-orange);">The Challenge</div>
-            <p class="subhead" style="color:var(--text-muted);font-size:0.9rem;">Wireless packet loss in field conditions causes state drift between swarm members. Each node must resume peer-to-peer synchronization immediately after reconnecting, without human intervention or full-state transfers.</p>
-          </div>
-
-        </div>
-
-        <div class="sticky-note sticky-note--orange" style="width:14em;font-size:0.85rem;transform:rotate(-3deg);margin:2em 0 0 auto;" data-sticker>
-          <div style="font-weight:700;">Key insight:</div>
-          CRDTs let nodes disagree temporarily and converge automatically. No central authority needed.
-        </div>
-
-      </div>
-
-      <!-- ARCHITECTURE DEEP DIVE -->
-      <div style="margin-bottom:4em;">
-
-        <div style="margin-bottom:2em;">
-          <div class="headline" data-split style="font-size:clamp(1.8rem,5vw,3rem);margin-bottom:0.5em;">
-            <span class="char-wrap"><span>HOW IT</span></span>
-          </div>
-          <div class="headline" data-split style="font-size:clamp(1.8rem,5vw,3rem);margin-bottom:0.5em;">
-            <span class="char-wrap"><span>WORKS</span></span>
-          </div>
-        </div>
-
-        <div class="detail-steps">
-
-          <div class="paper-sheet" style="padding:1.5em;transform:rotate(-1deg);">
-            <div style="font-family:var(--font-display);font-size:2rem;color:var(--accent-orange);margin-bottom:0.3em;">01</div>
-            <div style="font-family:var(--font-display);font-size:0.85rem;text-transform:uppercase;margin-bottom:0.6em;">Consensus Layer</div>
-            <p style="font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Each UAV node maintains a local CRDT state tree. When peers reconnect, they exchange only delta operations — not full state dumps. Conflict resolution is automatic via last-writer-wins with vector clocks.</p>
-          </div>
-
-          <div class="paper-sheet" style="padding:1.5em;transform:rotate(0.5deg);">
-            <div style="font-family:var(--font-display);font-size:2rem;color:var(--accent-orange);margin-bottom:0.3em;">02</div>
-            <div style="font-family:var(--font-display);font-size:0.85rem;text-transform:uppercase;margin-bottom:0.6em;">Transport Mesh</div>
-            <p style="font-size:0.8rem;color:var(--text-muted);line-height:1.5;">BLE for close-range swarm communication, fallback to WiFi mesh for extended range. Automatic protocol switching based on signal quality. Zero packet loss at the application layer.</p>
-          </div>
-
-          <div class="paper-sheet" style="padding:1.5em;transform:rotate(-0.3deg);">
-            <div style="font-family:var(--font-display);font-size:2rem;color:var(--accent-orange);margin-bottom:0.3em;">03</div>
-            <div style="font-family:var(--font-display);font-size:0.85rem;text-transform:uppercase;margin-bottom:0.6em;">Collision Avoidance</div>
-            <p style="font-size:0.8rem;color:var(--text-muted);line-height:1.5;">Unified navigation mesh computed from synchronized state. Each node knows every other node's position within 50ms. Predictive trajectory modeling prevents close-approach events.</p>
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- BENCHMARK RESULTS -->
-      <div style="margin-bottom:4em;">
-
-        <div class="sticky-note" style="width:16em;transform:rotate(-2deg);margin-bottom:2em;" data-sticker>
-          <div style="font-weight:700;">Field Test Results</div>
-          50 nodes, 8hr mission, adversarial conditions
-        </div>
-
-        <div class="detail-benchmarks">
-
-          <div class="blueprint-sheet" style="padding:1.2em;text-align:center;">
-            <div style="font-size:0.55rem;opacity:0.7;">SYNC ACCURACY</div>
-            <div style="font-family:var(--font-display);font-size:2rem;color:#93C5FD;margin:0.3em 0;">99.9%</div>
-            <div style="font-size:0.5rem;color:#60A5FA;">ACROSS 50+ NODES</div>
-          </div>
-
-          <div class="blueprint-sheet" style="padding:1.2em;text-align:center;">
-            <div style="font-size:0.55rem;opacity:0.7;">CONVERGENCE TIME</div>
-            <div style="font-family:var(--font-display);font-size:2rem;color:#93C5FD;margin:0.3em 0;">&lt;50ms</div>
-            <div style="font-size:0.5rem;color:#60A5FA;">AFTER RECONNECTION</div>
-          </div>
-
-          <div class="blueprint-sheet" style="padding:1.2em;text-align:center;">
-            <div style="font-size:0.55rem;opacity:0.7;">PACKET OVERHEAD</div>
-            <div style="font-family:var(--font-display);font-size:2rem;color:#93C5FD;margin:0.3em 0;">0.3%</div>
-            <div style="font-size:0.5rem;color:#60A5FA;">DELTA-ONLY PROTOCOL</div>
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- SCREENSHOT GALLERY -->
-      <div style="margin-bottom:4em;">
-
-        <div style="margin-bottom:1.5em;">
-          <span class="headline__italic" style="font-size:1.4rem;transform:rotate(-3deg);display:inline-block;">from the lab</span>
-        </div>
-
-        <div class="detail-screenshots">
-
-          <div style="flex:0 0 320px;height:200px;background:linear-gradient(135deg,#1A365D 0%,#2563EB 100%);border:2px solid rgba(240,235,230,0.2);border-radius:var(--border-radius);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5em;">
-            <div style="font-family:var(--font-mono);font-size:0.65rem;color:rgba(240,235,230,0.5);">DASHBOARD VIEW</div>
-            <div style="font-family:var(--font-display);font-size:1.2rem;color:#fff;">Swarm Topology</div>
-          </div>
-
-          <div style="flex:0 0 320px;height:200px;background:linear-gradient(135deg,#065F46 0%,#10B981 100%);border:2px solid rgba(240,235,230,0.2);border-radius:var(--border-radius);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5em;">
-            <div style="font-family:var(--font-mono);font-size:0.65rem;color:rgba(240,235,230,0.5);">NODE TOPOLOGY</div>
-            <div style="font-family:var(--font-display);font-size:1.2rem;color:#fff;">State Graph</div>
-          </div>
-
-          <div style="flex:0 0 320px;height:200px;background:linear-gradient(135deg,#92400E 0%,#F59E0B 100%);border:2px solid rgba(240,235,230,0.2);border-radius:var(--border-radius);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5em;">
-            <div style="font-family:var(--font-mono);font-size:0.65rem;color:rgba(240,235,230,0.5);">SYNC LATENCY</div>
-            <div style="font-family:var(--font-display);font-size:1.2rem;color:#fff;">Real-Time Feed</div>
-          </div>
-
-          <div style="flex:0 0 320px;height:200px;background:linear-gradient(135deg,#581C87 0%,#A855F7 100%);border:2px solid rgba(240,235,230,0.2);border-radius:var(--border-radius);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5em;">
-            <div style="font-family:var(--font-mono);font-size:0.65rem;color:rgba(240,235,230,0.5);">FIELD TEST</div>
-            <div style="font-family:var(--font-display);font-size:1.2rem;color:#fff;">Mission Control</div>
-          </div>
-
-        </div>
-
-      </div>
-
-      <!-- NEXT PROJECT -->
-      <a href="work.html" class="next-project" style="background:transparent;border:2px solid rgba(240,235,230,0.2);color:var(--text-light);box-shadow:none;transition:all 0.3s ease;" onmouseover="this.style.borderColor='var(--accent-orange)';this.style.boxShadow='0 0 30px rgba(255,107,53,0.1)'" onmouseout="this.style.borderColor='rgba(240,235,230,0.2)';this.style.boxShadow='none'">
-        <div>
-          <div class="label" style="color:var(--text-muted);">UP NEXT</div>
-          <div style="font-family:var(--font-display);font-size:1.4rem;margin-top:0.3em;">MuleNet Protocol</div>
-          <div style="font-family:var(--font-script);font-size:0.9rem;color:var(--text-muted);margin-top:0.3em;">Decentralized BLE messaging for off-grid devices</div>
-        </div>
-        <div style="font-size:1.8em;transition:transform 0.3s ease;">&rarr;</div>
-      </a>
-
+      <div class="title-badge">FIELD VERIFIED — 2026</div>
     </div>
 
-  </section>
+    <!-- STEAM-STYLE MEDIA HERO -->
+    <div class="media-hero">
+      <div class="media-main" id="mainMedia" style="background:linear-gradient(135deg,#1A365D,#2563EB);">
+        <div class="media-tag">MISSION CONTROL — LIVE FEED</div>
+        <div class="play-btn"><div class="circle">&#9658;</div></div>
+        <div class="media-counter">01 / 05</div>
+      </div>
+      <div class="thumb-row" id="thumbRow">
+        <div class="thumb active" data-bg="linear-gradient(135deg,#1A365D,#2563EB)" data-tag="MISSION CONTROL — LIVE FEED" data-idx="01" style="background:linear-gradient(135deg,#1A365D,#2563EB);"><span class="thumb-play">&#9658;</span></div>
+        <div class="thumb" data-bg="linear-gradient(135deg,#065F46,#10B981)" data-tag="STATE GRAPH — NODE TOPOLOGY" data-idx="02" style="background:linear-gradient(135deg,#065F46,#10B981);"></div>
+        <div class="thumb" data-bg="linear-gradient(135deg,#92400E,#F59E0B)" data-tag="SWARM TOPOLOGY — DASHBOARD" data-idx="03" style="background:linear-gradient(135deg,#92400E,#F59E0B);"><span class="thumb-play">&#9658;</span></div>
+        <div class="thumb" data-bg="linear-gradient(135deg,#581C87,#A855F7)" data-tag="FIELD TEST — DAY 1" data-idx="04" style="background:linear-gradient(135deg,#581C87,#A855F7);"></div>
+        <div class="thumb" data-bg="linear-gradient(135deg,#7C2D12,#EA580C)" data-tag="COLLISION MESH — SIMULATION" data-idx="05" style="background:linear-gradient(135deg,#7C2D12,#EA580C);"><span class="thumb-play">&#9658;</span></div>
+      </div>
+    </div>
 
-  <!-- ================================================================
-       PREMIUM FOOTER
-       ================================================================ -->
-  <footer class="premium-footer" id="js-footer">
-    <div class="footer-columns">
+    <!-- CONDENSED INFO BAR WITH REPO LINK & COLLABORATORS -->
+    <div class="info-bar">
+      <div class="info-item"><div class="info-label">Stack</div><div class="info-value">Rust + ROS2</div></div>
+      <div class="info-item"><div class="info-label">Timeline</div><div class="info-value">4 Weeks</div></div>
+      <div class="info-item"><div class="info-label">Team</div><div class="info-value">3 Engineers</div></div>
+      <div class="info-item"><div class="info-label">Status</div><div class="info-value orange">Shipped</div></div>
+      <div class="info-item">
+        <div class="info-label">Repository</div>
+        <div class="info-value orange">
+          <a href="https://github.com/agency-collective/aerotwin-engine" target="_blank" style="color:var(--orange);">github/aerotwin &rarr;</a>
+        </div>
+      </div>
       
-      <div class="footer-info">
-        <a href="index.html" class="footer-info__logo">agency.</a>
-        <p class="footer-info__desc">
-          An elite software and automation collective of student builders. 
-          We ship real systems under extreme deadlines.
-        </p>
+      <div class="info-item" style="flex: 1 1 100%; margin-top: 0.6em; padding-top: 0.8em; border-top: 1px dashed var(--line);">
+        <div class="info-label">Collaborators</div>
+        <div class="collaborators-list">
+          <span class="collaborator-tag"><strong style="color:var(--ink);">Gokul</strong> (Dev Lead &amp; Compilers)</span>
+          <span class="collaborator-tag"><strong style="color:var(--ink);">Aria</strong> (AI Architect)</span>
+          <span class="collaborator-tag"><strong style="color:var(--ink);">Kaelen</strong> (ROS2 &amp; Systems)</span>
+        </div>
       </div>
 
+      <div class="info-desc" style="margin-top: 0.4em;">
+        A complete state-synchronization engine built for autonomous UAV swarms. Sub-50ms execution. 99.9% sync accuracy across 50+ nodes in adversarial field conditions.
+      </div>
+    </div>
+
+    <!-- 01 THE PROBLEM -->
+    <section class="manifest">
+      <div class="manifest-head"><span class="manifest-idx">01</span><span class="manifest-title">The Problem</span></div>
+      <div class="m-row">
+        <div class="m-row-label">What We Built</div>
+        <div class="m-row-text">A fully synchronized edge agent model that handles thousands of concurrent queries without bottlenecking the parent process. Our final pipeline benchmarked at sub-50ms execution times across 50+ UAV nodes.</div>
+      </div>
+      <div class="m-row">
+        <div class="m-row-label">The Challenge</div>
+        <div class="m-row-text">Wireless packet loss in field conditions causes state drift between swarm members. Each node must resume peer-to-peer synchronization immediately after reconnecting, without human intervention or full-state transfers.</div>
+      </div>
+      <div class="insight-line"><strong>Key insight —</strong> CRDTs let nodes disagree temporarily and converge automatically. No central authority needed.</div>
+    </section>
+
+    <!-- 02 HOW IT WORKS -->
+    <section class="manifest">
+      <div class="manifest-head"><span class="manifest-idx">02</span><span class="manifest-title">How It Works</span></div>
+      <div class="steps">
+        <div class="step-row">
+          <div class="step-tag">01</div>
+          <div class="step-name">Consensus Layer</div>
+          <div class="step-desc">Each UAV node maintains a local CRDT state tree. When peers reconnect, they exchange only delta operations — not full state dumps. Conflict resolution is automatic via last-writer-wins with vector clocks.</div>
+        </div>
+        <div class="step-row">
+          <div class="step-tag">02</div>
+          <div class="step-name">Transport Mesh</div>
+          <div class="step-desc">BLE for close-range swarm communication, fallback to WiFi mesh for extended range. Automatic protocol switching based on signal quality. Zero packet loss at the application layer.</div>
+        </div>
+        <div class="step-row">
+          <div class="step-tag">03</div>
+          <div class="step-name">Collision Avoidance</div>
+          <div class="step-desc">Unified navigation mesh computed from synchronized state. Each node knows every other node's position within 50ms. Predictive trajectory modeling prevents close-approach events.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 FROM THE LAB (grid gallery) -->
+    <section class="manifest">
+      <div class="manifest-head"><span class="manifest-idx">03</span><span class="manifest-title">From The Lab</span></div>
+      <div class="gallery-grid">
+        <div class="g-item" style="background:linear-gradient(135deg,#1A365D,#2563EB);">
+          <div class="g-play">&#9658;</div>
+          <div class="g-caption">Mission Control — full run capture</div>
+        </div>
+        <div class="g-item" style="background:linear-gradient(135deg,#065F46,#10B981);">
+          <div class="g-caption">State Graph</div>
+        </div>
+        <div class="g-item" style="background:linear-gradient(135deg,#92400E,#F59E0B);">
+          <div class="g-play">&#9658;</div>
+          <div class="g-caption">Real-Time Feed</div>
+        </div>
+        <div class="g-item" style="background:linear-gradient(135deg,#581C87,#A855F7);">
+          <div class="g-caption">Swarm Topology</div>
+        </div>
+        <div class="g-item" style="background:linear-gradient(135deg,#7C2D12,#EA580C);">
+          <div class="g-play">&#9658;</div>
+          <div class="g-caption">Field Test — Day 1</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT PROJECT -->
+    <a href="work.html" class="next">
       <div>
-        <h4 class="footer-col-title">Navigate</h4>
+        <div class="next-label">Up Next</div>
+        <div class="next-title">MuleNet Protocol</div>
+        <div class="next-desc">Decentralized BLE messaging for off-grid devices</div>
+      </div>
+      <div class="next-arrow">&rarr;</div>
+    </a>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div>
+        <span class="footer-logo">agency.</span>
+        <p class="footer-desc">An elite software and automation collective of student builders. We ship real systems under extreme deadlines.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Navigate</div>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="work.html">Work</a></li>
@@ -308,40 +328,40 @@
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
-
       <div>
-        <h4 class="footer-col-title">Socials</h4>
+        <div class="footer-col-title">Socials</div>
         <ul class="footer-links">
-          <li><a href="https://github.com" target="_blank" rel="noopener">GitHub</a></li>
-          <li><a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://twitter.com" target="_blank" rel="noopener">Twitter</a></li>
-          <li><a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://github.com/agency-collective" target="_blank">GitHub</a></li>
+          <li><a href="#">LinkedIn</a></li>
+          <li><a href="#">Twitter</a></li>
+          <li><a href="#">Instagram</a></li>
         </ul>
       </div>
-
-      <div class="footer-contact">
-        <h4 class="footer-col-title">Start a Build</h4>
-        <p style="font-size: 0.85rem; opacity: 0.7; line-height: 1.4; margin-bottom: 0.5rem;">
-          Have a project in mind? We'll scope it out and build it.
-        </p>
-        <span onclick="location.href='mailto:hello@agency.dev'" class="footer-contact__email">hello@agency.dev</span>
+      <div>
+        <div class="footer-col-title">Start a Build</div>
+        <p class="footer-desc" style="margin-bottom:0.8em;">Have a project in mind? We'll scope it out and build it.</p>
+        <span class="footer-email">hello@agency.dev</span>
       </div>
-
     </div>
-
     <div class="footer-bottom">
       <span>&copy; 2026 Student Tech Agency. All rights reserved.</span>
-      <div class="footer-time">
-        <span>UTC/LOCAL:</span>
-        <span class="time-clock">00:00:00</span>
-      </div>
       <span>No decks. No suits. Just pure code.</span>
     </div>
   </footer>
 
-  <script src="https://unpkg.com/lenis@1.3.1/dist/lenis.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
-  <script src="js/editorial.js"></script>
+  <script>
+    const main = document.getElementById('mainMedia');
+    const thumbs = document.querySelectorAll('.thumb');
+    thumbs.forEach(t => {
+      t.addEventListener('click', () => {
+        thumbs.forEach(x => x.classList.remove('active'));
+        t.classList.add('active');
+        main.style.background = t.dataset.bg;
+        main.querySelector('.media-tag').textContent = t.dataset.tag;
+        main.querySelector('.media-counter').textContent = t.dataset.idx + ' / 05';
+      });
+    });
+  </script>
+
 </body>
 </html>

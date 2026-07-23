@@ -63,43 +63,156 @@ a { color: inherit; text-decoration: none; }
 img, svg { display: block; max-width: 100%; }
 
 /* ================================================================
-   CUSTOM CURSOR
+   VIEWFINDER RETICLE CUSTOM CURSOR
    ================================================================ */
-.cursor-dot {
+@media (pointer: fine) {
+  html, body, a, button, input, select, textarea, [role="button"], .cursor-pointer, .c-button {
+    cursor: none !important;
+  }
+}
+
+.viewfinder-reticle {
   position: fixed;
-  width: 8px;
-  height: 8px;
-  background: var(--accent-orange);
-  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 28px;
+  height: 28px;
   pointer-events: none;
   z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: width 0.2s, height 0.2s, background 0.2s;
-  mix-blend-mode: difference;
+  transform: translate3d(0, 0, 0) translate(-50%, -50%);
+  color: var(--accent-orange, #FF6B35);
+  transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              height 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              color 0.2s ease,
+              opacity 0.25s ease;
+  will-change: transform;
+  opacity: 0;
 }
 
-.cursor-ring {
-  position: fixed;
-  width: 40px;
-  height: 40px;
-  border: 1.5px solid var(--accent-orange);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s, border-color 0.3s;
-  opacity: 0.5;
+/* Corner Bracket L-Shapes */
+.viewfinder-corner {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  transition: all 0.2s ease;
 }
 
-.cursor-spotlight {
-  position: fixed;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 107, 53, 0.06) 0%, transparent 70%);
-  pointer-events: none;
+.viewfinder-corner.top-left {
+  top: 0;
+  left: 0;
+  border-top: 1.5px solid currentColor;
+  border-left: 1.5px solid currentColor;
+}
+
+.viewfinder-corner.top-right {
+  top: 0;
+  right: 0;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+}
+
+.viewfinder-corner.bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom: 1.5px solid currentColor;
+  border-left: 1.5px solid currentColor;
+}
+
+.viewfinder-corner.bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+}
+
+/* Indicator badge (REC / PLAY) */
+.viewfinder-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9997;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--font-mono, monospace);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #FF3B30;
+  opacity: 0;
+  scale: 0.7;
+  transition: opacity 0.2s ease, scale 0.2s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.viewfinder-indicator .rec-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #FF3B30;
+  animation: rec-blink 1s infinite;
+}
+
+@keyframes rec-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+
+/* Hover State 1: Links & Buttons -> Snap outward to 36px, Teal Stroke */
+.viewfinder-reticle.is-hover-link {
+  width: 36px;
+  height: 36px;
+  color: var(--teal, #2FA7A0);
+}
+
+.viewfinder-reticle.is-hover-link .viewfinder-corner {
+  width: 9px;
+  height: 9px;
+}
+
+/* Hover State 2: Media & Gallery Items -> Show REC Indicator */
+.viewfinder-reticle.is-hover-media {
+  width: 44px;
+  height: 44px;
+  color: var(--accent-orange, #FF6B35);
+}
+
+.viewfinder-reticle.is-hover-media .viewfinder-corner {
+  width: 10px;
+  height: 10px;
+}
+
+.viewfinder-reticle.is-hover-media .viewfinder-indicator {
+  opacity: 1;
+  scale: 1;
+}
+
+/* Click / Active State -> Shrink frame & Rotate corners 45deg */
+.viewfinder-reticle.is-clicking {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.viewfinder-reticle.is-clicking .viewfinder-corner {
+  width: 5px !important;
+  height: 5px !important;
+  border-width: 2px !important;
+  transform: rotate(45deg);
+}
+
+.viewfinder-reticle.is-clicking .viewfinder-indicator {
+  opacity: 0 !important;
+}
+
+/* Touch devices & Mobile fallback */
+@media (pointer: coarse), (max-width: 991px) {
+  .viewfinder-reticle, .cursor-dot, .cursor-ring {
+    display: none !important;
+  }
+  html, body, a, button, input, select, textarea, [role="button"] {
+    cursor: auto !important;
+  }
 }
 
 /* ================================================================

@@ -27,36 +27,98 @@
   gsap.ticker.lagSmoothing(0);
 
   /* ------------------------------------------------------------
-     2. CUSTOM CURSOR — using gsap.quickTo for zero-lag tracking
+     2. VIEWFINDER RETICLE CURSOR ENGINE (Lerp + rAF + Hover Detection)
      ------------------------------------------------------------ */
-  if (!prefersReduced && window.innerWidth > 991) {
-    const dot = document.querySelector('.cursor-dot');
-    const ring = document.querySelector('.cursor-ring');
-    const spotlight = document.querySelector('.cursor-spotlight');
+  function initViewfinderCursor() {
+    const isTouch = window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 991;
+    if (isTouch) return;
 
-    if (dot && ring) {
-      const xQuick = gsap.quickTo(dot, 'left', { type: 'x', ease: 'none', duration: 0.15 });
-      const yQuick = gsap.quickTo(dot, 'top', { type: 'y', ease: 'none', duration: 0.15 });
-      const rxQuick = gsap.quickTo(ring, 'left', { type: 'x', ease: 'power2.out', duration: 0.3 });
-      const ryQuick = gsap.quickTo(ring, 'top', { type: 'y', ease: 'power2.out', duration: 0.3 });
-
-      document.addEventListener('mousemove', (e) => {
-        xQuick(e.clientX);
-        yQuick(e.clientY);
-        rxQuick(e.clientX);
-        ryQuick(e.clientY);
-        if (spotlight) {
-          spotlight.style.left = e.clientX + 'px';
-          spotlight.style.top = e.clientY + 'px';
-        }
-      }, { passive: true });
+    let reticle = document.querySelector('.viewfinder-reticle');
+    if (!reticle) {
+      reticle = document.createElement('div');
+      reticle.className = 'viewfinder-reticle';
+      reticle.innerHTML = `
+        <div class="viewfinder-corner top-left"></div>
+        <div class="viewfinder-corner top-right"></div>
+        <div class="viewfinder-corner bottom-left"></div>
+        <div class="viewfinder-corner bottom-right"></div>
+        <div class="viewfinder-indicator"><span class="rec-dot"></span><span class="indicator-text">REC</span></div>
+      `;
+      document.body.appendChild(reticle);
     }
-  } else {
-    ['cursor-dot', 'cursor-ring', 'cursor-spotlight'].forEach(c => {
-      const el = document.querySelector('.' + c);
-      if (el) el.style.display = 'none';
+
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let cursorX = mouseX;
+    let cursorY = mouseY;
+    let isVisible = false;
+
+    // Mouse move tracking
+    document.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      if (!isVisible) {
+        isVisible = true;
+        reticle.style.opacity = '1';
+      }
+    }, { passive: true });
+
+    document.addEventListener('mouseleave', () => {
+      isVisible = false;
+      reticle.style.opacity = '0';
+    });
+
+    // Lerp loop with rAF
+    const lerpFactor = prefersReduced ? 1.0 : 0.22;
+    function animateCursor() {
+      if (isVisible) {
+        cursorX += (mouseX - cursorX) * lerpFactor;
+        cursorY += (mouseY - cursorY) * lerpFactor;
+        reticle.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+      }
+      requestAnimationFrame(animateCursor);
+    }
+    requestAnimationFrame(animateCursor);
+
+    // Hover state selectors
+    const linkSelector = 'a, button, .cta-pill, .header__cta, [role="button"], input, select, textarea, .cursor-pointer, .c-button, .hard-shadow';
+    const mediaSelector = '.media-main, .thumb, .g-item, .gallery-grid, img, video, .media-hero, [data-media]';
+
+    document.addEventListener('mouseover', (e) => {
+      const mediaTarget = e.target.closest(mediaSelector);
+      const linkTarget = e.target.closest(linkSelector);
+
+      if (mediaTarget) {
+        reticle.classList.add('is-hover-media');
+        reticle.classList.remove('is-hover-link');
+      } else if (linkTarget) {
+        reticle.classList.add('is-hover-link');
+        reticle.classList.remove('is-hover-media');
+      }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+      const mediaTarget = e.target.closest(mediaSelector);
+      const linkTarget = e.target.closest(linkSelector);
+
+      if (mediaTarget) {
+        reticle.classList.remove('is-hover-media');
+      }
+      if (linkTarget) {
+        reticle.classList.remove('is-hover-link');
+      }
+    });
+    // Click / Active state listeners
+    document.addEventListener('mousedown', () => {
+      reticle.classList.add('is-clicking');
+    });
+
+    document.addEventListener('mouseup', () => {
+      reticle.classList.remove('is-clicking');
     });
   }
+
+  initViewfinderCursor();
 
   /* ------------------------------------------------------------
      3. TEXT SPLITTING (Manual SplitText replacement)
