@@ -2693,22 +2693,26 @@ img, svg { display: block; max-width: 100%; }
    2. MOBILE RESPONSIVE UI STYLES (< 768px)
    ================================================================ */
 @media (max-width: 768px) {
-  /* Header & Navigation — Permanently Sticky Top Header */
+  /* Header & Navigation — Permanently Fixed Top Screen Glass Header */
   .site-header,
   .sticky-header {
-    position: sticky !important;
+    position: fixed !important;
     top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
     transform: translateY(0) !important;
     padding: 0.75rem 1rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
-    background: rgba(240, 235, 230, 0.96) !important;
+    background: rgba(240, 235, 230, 0.98) !important;
     backdrop-filter: blur(8px) !important;
     -webkit-backdrop-filter: blur(8px) !important;
-    z-index: 1000 !important;
-    border-bottom: 2px solid rgba(17, 17, 17, 0.08) !important;
+    z-index: 99999 !important;
+    border-bottom: 2px solid rgba(17, 17, 17, 0.1) !important;
   }
+
 
   .header__meta,
   .hide-mobile,
