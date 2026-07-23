@@ -1851,6 +1851,26 @@ img, svg { display: block; max-width: 100%; }
 }
 
 /* ================================================================
+   HERO & ACCENT WORD TYPOGRAPHY DESIGN SYSTEM
+   ================================================================ */
+.hero-accent-word {
+  font-family: var(--font-script), 'Caveat', cursive;
+  font-weight: 700;
+  color: var(--accent-orange, #FF6B35);
+  text-transform: lowercase;
+  display: inline-block;
+  letter-spacing: normal;
+}
+
+.hero-accent-word--rotate-2 {
+  transform: rotate(-2deg);
+}
+
+.hero-accent-word--rotate-3 {
+  transform: rotate(-3deg);
+}
+
+/* ================================================================
    STICKY GLASSMORPHIC NAVIGATION HEADER
    ================================================================ */
 .sticky-header {
@@ -1866,7 +1886,23 @@ img, svg { display: block; max-width: 100%; }
   backdrop-filter: blur(12px);
   background: rgba(240, 235, 230, 0.75);
   border-bottom: 2px solid rgba(17, 17, 17, 0.06);
-  transition: all 0.3s ease;
+  transform: translateY(-100%);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+}
+
+.sticky-header::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  pointer-events: auto;
+}
+
+.sticky-header:hover,
+.sticky-header.is-hovered {
+  transform: translateY(0);
 }
 
 .sticky-header.header-dark {
