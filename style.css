@@ -2676,3 +2676,136 @@ img, svg { display: block; max-width: 100%; }
   }
 }
 
+/* ================================================================
+   1. REMOVE HEADER HOVER EFFECTS
+   ================================================================ */
+.site-header a:hover,
+.sticky-header a:hover,
+.nav-links a:hover,
+.header__links a:hover,
+.header__logo:hover,
+.logo:hover,
+.header-right a:hover {
+  transform: none !important;
+  opacity: 1 !important;
+  color: inherit !important;
+  background: inherit !important;
+  border-color: inherit !important;
+}
+
+.sticky-header .c-button:hover .c-link__inner,
+.header__cta:hover .c-link__inner,
+.site-header .c-button:hover .c-link__inner {
+  transform: none !important;
+}
+
+/* ================================================================
+   2. MOBILE RESPONSIVE UI STYLES (< 768px)
+   ================================================================ */
+@media (max-width: 768px) {
+  /* Header & Navigation */
+  .site-header,
+  .sticky-header {
+    padding: 0.8rem 1rem !important;
+    flex-wrap: wrap !important;
+    gap: 0.8rem !important;
+    justify-content: space-between !important;
+  }
+
+  .nav-links,
+  .header__links {
+    display: flex !important;
+    gap: 0.8rem !important;
+    font-size: 0.65rem !important;
+    flex-wrap: wrap !important;
+  }
+
+  .header-right {
+    gap: 0.6rem !important;
+  }
+
+  .status-pill,
+  .header__status {
+    display: none !important;
+  }
+
+  .cta-pill,
+  .header__cta {
+    padding: 0.5rem 0.8rem !important;
+    font-size: 0.62rem !important;
+  }
+
+  /* Hero Section Typography & Elements */
+  main h1,
+  .title-main {
+    font-size: clamp(2rem, 7vw, 3rem) !important;
+    line-height: 1.05 !important;
+  }
+
+  .hero-accent-word {
+    font-size: clamp(2.2rem, 8vw, 3.2rem) !important;
+  }
+
+  /* Container Padding & Wrap */
+  .wrap,
+  main,
+  .spread {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  /* Grid Layouts */
+  .grid-cols-1,
+  .md\:grid-cols-2,
+  .lg\:grid-cols-3,
+  .stagger-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Folder & Work Cards */
+  .folder,
+  .work-card {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .marquee-track .work-card {
+    width: 280px !important;
+  }
+
+  /* Project Detail Media Stage & Info Bar */
+  .media-main {
+    aspect-ratio: 16/10 !important;
+  }
+
+  .info-bar {
+    gap: 1.2rem !important;
+    padding: 1rem 0 !important;
+  }
+
+  .info-item {
+    flex: 1 1 45% !important;
+  }
+
+  /* Footer Section */
+  .site-footer,
+  .premium-footer {
+    padding: 2.5rem 1rem 1.5rem !important;
+  }
+
+  .footer-grid,
+  .footer-columns {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    text-align: center !important;
+  }
+}
+
+
