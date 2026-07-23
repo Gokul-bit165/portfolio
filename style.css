@@ -2778,17 +2778,58 @@ img, svg { display: block; max-width: 100%; }
     gap: 1.5rem !important;
   }
 
-  /* Folder & Work Cards */
-  .folder,
-  .work-card {
+  /* Folder & Work Cards for Mobile */
+  .folder {
     width: 100% !important;
     min-width: 100% !important;
     max-width: 100% !important;
   }
 
+  .work-card,
   .marquee-track .work-card {
-    width: 280px !important;
+    width: 85vw !important;
+    max-width: 320px !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 1rem !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
   }
+
+  .work-card__image-wrap {
+    width: 100% !important;
+    height: 150px !important;
+    aspect-ratio: 16/9 !important;
+    margin-bottom: 0.75rem !important;
+    flex-shrink: 0 !important;
+  }
+
+  .work-card__title {
+    font-size: 1.3rem !important;
+    line-height: 1.1 !important;
+    margin-bottom: 0.35rem !important;
+  }
+
+  .work-card__desc {
+    font-size: 0.8rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0.75rem !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  .work-card__footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0.5rem !important;
+    margin-top: auto !important;
+  }
+
 
   /* Project Detail Media Stage & Info Bar */
   .media-main {
