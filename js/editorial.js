@@ -1119,6 +1119,7 @@
       mobileOverlay = document.createElement('div');
       mobileOverlay.className = 'mobile-nav-overlay';
       mobileOverlay.innerHTML = `
+        <button class="mobile-close-btn" aria-label="Close Menu">&times;</button>
         <div class="mobile-nav-content">
           <ul class="mobile-nav-links">
             <li><a href="index.html">01 // Home</a></li>
@@ -1134,6 +1135,15 @@
       document.body.appendChild(mobileOverlay);
     }
 
+    const closeBtn = mobileOverlay.querySelector('.mobile-close-btn');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        if (hamburgerBtn) hamburgerBtn.classList.remove('active');
+        mobileOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
     if (hamburgerBtn) {
       hamburgerBtn.addEventListener('click', () => {
         const isActive = hamburgerBtn.classList.toggle('active');
@@ -1143,12 +1153,13 @@
 
       mobileOverlay.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', () => {
-          hamburgerBtn.classList.remove('active');
+          if (hamburgerBtn) hamburgerBtn.classList.remove('active');
           mobileOverlay.classList.remove('active');
           document.body.style.overflow = '';
         });
       });
     }
+
   }
 
   /* ------------------------------------------------------------
