@@ -6,7 +6,17 @@
   <title>agency. — We Ship Software, Not Decks</title>
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script>
+    // Load Spline 3D Viewer on desktop screens only (> 768px) to protect mobile 60fps performance
+    if (window.innerWidth > 768 && !window.matchMedia('(pointer: coarse)').matches) {
+      const splineScript = document.createElement('script');
+      splineScript.type = 'module';
+      splineScript.src = 'https://unpkg.com/@splinetool/viewer@1.12.98/build/spline-viewer.js';
+      document.head.appendChild(splineScript);
+    }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700&amp;family=Hanken+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+
 
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@100..900&amp;family=Hanken+Grotesk:wght@100..900&amp;family=Syne:wght@100..900&amp;family=Caveat&amp;display=swap" rel="stylesheet"/>
