@@ -1100,7 +1100,59 @@
   }
 
   /* ------------------------------------------------------------
-     15. INIT
+     15. MOBILE HAMBURGER MENU CONTROLLER
+     ------------------------------------------------------------ */
+  function initMobileHamburgerMenu() {
+    let hamburgerBtn = document.querySelector('.mobile-hamburger-btn');
+    const headerRight = document.querySelector('.header-right') || document.querySelector('.header__nav') || document.querySelector('.site-header') || document.querySelector('.sticky-header');
+
+    if (!hamburgerBtn && headerRight) {
+      hamburgerBtn = document.createElement('button');
+      hamburgerBtn.className = 'mobile-hamburger-btn';
+      hamburgerBtn.setAttribute('aria-label', 'Toggle Menu');
+      hamburgerBtn.innerHTML = '<span></span><span></span><span></span>';
+      headerRight.appendChild(hamburgerBtn);
+    }
+
+    let mobileOverlay = document.querySelector('.mobile-nav-overlay');
+    if (!mobileOverlay) {
+      mobileOverlay = document.createElement('div');
+      mobileOverlay.className = 'mobile-nav-overlay';
+      mobileOverlay.innerHTML = `
+        <div class="mobile-nav-content">
+          <ul class="mobile-nav-links">
+            <li><a href="index.html">01 // Home</a></li>
+            <li><a href="work.html">02 // Works</a></li>
+            <li><a href="team.html">03 // Team</a></li>
+            <li><a href="contact.html">04 // Contact</a></li>
+          </ul>
+          <div style="margin-top: 2.5em; padding-top: 1.5em; border-top: 1px solid rgba(255,255,255,0.12);">
+            <a href="contact.html" class="mobile-cta-btn">Start Project &rarr;</a>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(mobileOverlay);
+    }
+
+    if (hamburgerBtn) {
+      hamburgerBtn.addEventListener('click', () => {
+        const isActive = hamburgerBtn.classList.toggle('active');
+        mobileOverlay.classList.toggle('active', isActive);
+        document.body.style.overflow = isActive ? 'hidden' : '';
+      });
+
+      mobileOverlay.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          hamburgerBtn.classList.remove('active');
+          mobileOverlay.classList.remove('active');
+          document.body.style.overflow = '';
+        });
+      });
+    }
+  }
+
+  /* ------------------------------------------------------------
+     16. INIT
      ------------------------------------------------------------ */
   function init() {
     initWelcome();
@@ -1122,7 +1174,9 @@
     initFooterClock();
     initHeaderThemeToggle();
     initAutoHeader();
+    initMobileHamburgerMenu();
     addOpacitySafetyNet();
+
 
     // Refresh ScrollTrigger after all inits and layout settles
     ScrollTrigger.refresh();
