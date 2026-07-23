@@ -2815,9 +2815,21 @@ img, svg { display: block; max-width: 100%; }
   }
 
   * {
-    /* Disable expensive blur filters on mobile GPUs to ensure 60-120fps scrolling */
+    /* Disable expensive mix-blend-mode and backdrop-filter on mobile GPUs */
+    mix-blend-mode: normal !important;
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
+    will-change: auto !important;
+  }
+
+  .nav {
+    mix-blend-mode: normal !important;
+  }
+
+  .marquee-track {
+    animation: none !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
   .work-card:hover,
@@ -2827,6 +2839,7 @@ img, svg { display: block; max-width: 100%; }
     box-shadow: none !important;
   }
 }
+
 
 
 /* ================================================================

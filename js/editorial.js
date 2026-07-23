@@ -1172,6 +1172,21 @@
      16. INIT
      ------------------------------------------------------------ */
   function init() {
+    initMobileHamburgerMenu();
+    initFooterClock();
+    initHeaderThemeToggle();
+    initAutoHeader();
+
+    if (isTouchDevice) {
+      // On mobile/touch: bypass 20+ heavy GSAP scroll listeners for instant 60fps performance
+      addOpacitySafetyNet();
+      document.querySelectorAll('.manifesto__subtitle, .manifesto__actions, .manifesto__robot, .invitation__robot, .timeline-dot, .gsap-timeline-card-left, .gsap-timeline-card-right').forEach(el => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+      });
+      return;
+    }
+
     initWelcome();
     prepareDrawPaths();
     initEyeBlink();
@@ -1188,12 +1203,7 @@
     initGenericHeadlines();
     initHeroParallax();
     initTerminalAnimation();
-    initFooterClock();
-    initHeaderThemeToggle();
-    initAutoHeader();
-    initMobileHamburgerMenu();
     addOpacitySafetyNet();
-
 
     // Refresh ScrollTrigger after all inits and layout settles
     ScrollTrigger.refresh();
@@ -1206,6 +1216,7 @@
       ScrollTrigger.refresh();
     });
   }
+
 
   // Wait for DOM
   if (document.readyState === 'loading') {
