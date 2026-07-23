@@ -2845,16 +2845,36 @@ img, svg { display: block; max-width: 100%; }
     flex: 1 1 45% !important;
   }
 
-  /* Footer Section */
+  /* Footer Section Mobile Responsiveness */
   .site-footer,
   .premium-footer {
-    padding: 2.5rem 1rem 1.5rem !important;
+    padding: 3rem 1.25rem 1.5rem !important;
+  }
+
+  .footer-large-title,
+  .footer-large-title span {
+    font-size: clamp(2rem, 8.5vw, 3.5rem) !important;
+    line-height: 0.95 !important;
+    word-break: break-word !important;
+  }
+
+  .footer-handwritten-note {
+    font-size: 1.4rem !important;
+  }
+
+  .footer-cta-btn,
+  .footer-cta-btn button {
+    width: 100% !important;
+    font-size: 0.95rem !important;
+    padding: 0.9rem 1.2rem !important;
+    box-shadow: 4px 4px 0px #FF5C00 !important;
+    text-align: center !important;
   }
 
   .footer-grid,
   .footer-columns {
     grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
+    gap: 1.8rem !important;
   }
 
   .footer-bottom {
@@ -2862,6 +2882,7 @@ img, svg { display: block; max-width: 100%; }
     gap: 0.5rem !important;
     text-align: center !important;
   }
+
 
   /* Hardware Performance Optimizations for Mobile */
   html, body {
