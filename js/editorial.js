@@ -7,24 +7,30 @@
   const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ------------------------------------------------------------
-     1. LENIS SMOOTH SCROLL — Single driver via GSAP ticker
+     1. LENIS SMOOTH SCROLL — Desktop Only (Disabled on Touch/Mobile for 60fps performance)
      ------------------------------------------------------------ */
   gsap.registerPlugin(ScrollTrigger);
 
-  const lenis = new Lenis({
-    duration: 1.2,
-    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-    smoothWheel: true,
-  });
+  const isTouchDevice = window.matchMedia('(pointer: coarse)').matches || window.innerWidth <= 768;
 
-  // Bridge Lenis → ScrollTrigger
-  lenis.on('scroll', ScrollTrigger.update);
+  let lenis = null;
+  if (!isTouchDevice && !prefersReduced) {
+    lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+    });
 
-  // Drive Lenis RAF through GSAP ticker (NO separate requestAnimationFrame)
-  gsap.ticker.add((time) => {
-    lenis.raf(time * 1000);
-  });
-  gsap.ticker.lagSmoothing(0);
+    // Bridge Lenis → ScrollTrigger
+    lenis.on('scroll', ScrollTrigger.update);
+
+    // Drive Lenis RAF through GSAP ticker
+    gsap.ticker.add((time) => {
+      if (lenis) lenis.raf(time * 1000);
+    });
+    gsap.ticker.lagSmoothing(0);
+  }
+
 
   /* ------------------------------------------------------------
      2. VIEWFINDER RETICLE CURSOR ENGINE (Lerp + rAF + Hover Detection)
