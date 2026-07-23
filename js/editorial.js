@@ -1174,8 +1174,6 @@
   function init() {
     initMobileHamburgerMenu();
     initFooterClock();
-    initHeaderThemeToggle();
-    initAutoHeader();
 
     if (isTouchDevice) {
       // On mobile/touch: bypass 20+ heavy GSAP scroll listeners for instant 60fps performance
@@ -1187,6 +1185,8 @@
       return;
     }
 
+    initHeaderThemeToggle();
+    initAutoHeader();
     initWelcome();
     prepareDrawPaths();
     initEyeBlink();
@@ -1207,6 +1207,7 @@
 
     // Refresh ScrollTrigger after all inits and layout settles
     ScrollTrigger.refresh();
+
 
     // Extra refresh after fonts/images load
     if (document.fonts && document.fonts.ready) {
