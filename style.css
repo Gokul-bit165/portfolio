@@ -1999,24 +1999,14 @@ img, svg { display: block; max-width: 100%; }
   backdrop-filter: blur(12px);
   background: rgba(240, 235, 230, 0.75);
   border-bottom: 2px solid rgba(17, 17, 17, 0.06);
-  transform: translateY(-100%);
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+  transform: translateY(0);
+  transition: background 0.3s ease;
 }
 
-.sticky-header::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 20px;
-  pointer-events: auto;
-}
-
-.sticky-header:hover,
 .sticky-header.is-hovered {
   transform: translateY(0);
 }
+
 
 .sticky-header.header-dark {
   background: rgba(17, 17, 17, 0.8);
@@ -2703,37 +2693,58 @@ img, svg { display: block; max-width: 100%; }
    2. MOBILE RESPONSIVE UI STYLES (< 768px)
    ================================================================ */
 @media (max-width: 768px) {
-  /* Header & Navigation */
+  /* Header & Navigation — Permanently Sticky Top Header */
   .site-header,
   .sticky-header {
-    padding: 0.8rem 1rem !important;
-    flex-wrap: wrap !important;
-    gap: 0.8rem !important;
-    justify-content: space-between !important;
-  }
-
-  .nav-links,
-  .header__links {
+    position: sticky !important;
+    top: 0 !important;
+    transform: translateY(0) !important;
+    padding: 0.75rem 1rem !important;
     display: flex !important;
-    gap: 0.8rem !important;
-    font-size: 0.65rem !important;
-    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: rgba(240, 235, 230, 0.96) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    z-index: 1000 !important;
+    border-bottom: 2px solid rgba(17, 17, 17, 0.08) !important;
   }
 
-  .header-right {
+  .header__meta,
+  .hide-mobile,
+  .status-pill,
+  .header__status,
+  .header__links,
+  .nav-links {
+    display: none !important;
+  }
+
+  .header__nav {
+    display: flex !important;
+    align-items: center !important;
     gap: 0.6rem !important;
   }
 
-  .status-pill,
-  .header__status {
-    display: none !important;
+  .header-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.6rem !important;
   }
 
   .cta-pill,
   .header__cta {
-    padding: 0.5rem 0.8rem !important;
-    font-size: 0.62rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    padding: 0.45rem 0.85rem !important;
+    font-size: 0.65rem !important;
+    white-space: nowrap !important;
   }
+
+  .mobile-hamburger-btn {
+    display: flex !important;
+    margin-left: 0.3rem !important;
+  }
+
 
   /* Hero Section Typography & Elements */
   main h1,

@@ -1070,22 +1070,9 @@
   function initAutoHeader() {
     const header = document.querySelector('.sticky-header');
     if (!header) return;
-
-    let timeout;
-    document.addEventListener('mousemove', (e) => {
-      if (e.clientY <= 80 || header.contains(e.target)) {
-        clearTimeout(timeout);
-        header.classList.add('is-hovered');
-      } else {
-        clearTimeout(timeout);
-        timeout = setTimeout(() => {
-          if (!header.matches(':hover')) {
-            header.classList.remove('is-hovered');
-          }
-        }, 250);
-      }
-    });
+    header.classList.add('is-hovered');
   }
+
 
   function initHeaderThemeToggle() {
     const header = document.querySelector('.sticky-header');
@@ -1174,6 +1161,8 @@
   function init() {
     initMobileHamburgerMenu();
     initFooterClock();
+    initHeaderThemeToggle();
+    initAutoHeader();
 
     if (isTouchDevice) {
       // On mobile/touch: bypass 20+ heavy GSAP scroll listeners for instant 60fps performance
@@ -1185,8 +1174,6 @@
       return;
     }
 
-    initHeaderThemeToggle();
-    initAutoHeader();
     initWelcome();
     prepareDrawPaths();
     initEyeBlink();
@@ -1207,7 +1194,6 @@
 
     // Refresh ScrollTrigger after all inits and layout settles
     ScrollTrigger.refresh();
-
 
     // Extra refresh after fonts/images load
     if (document.fonts && document.fonts.ready) {
