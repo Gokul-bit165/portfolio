@@ -454,9 +454,7 @@ function renderProjectInfoBar(proj) {
     <div class="info-item"><div class="info-label">Source</div><div class="info-value orange">${githubHtml}</div></div>
     <div class="info-item"><div class="info-label">Deployment</div><div class="info-value">${liveDemoHtml}</div></div>
     ${statsItemsHtml}
-    <div class="info-desc markdown-body" style="flex: 1 1 100%; margin-top: 1em; padding-top: 1em; border-top: 1px dashed var(--line);">
-      ${renderMarkdown(proj.description || '')}
-    </div>
+    ${proj.tagline ? `<div class="info-desc" style="flex: 1 1 100%; margin-top: 1em; padding-top: 1em; border-top: 1px dashed var(--line); font-style: italic; color: var(--ink-soft);">${escapeHtml(proj.tagline)}</div>` : ''}
   `;
 }
 
