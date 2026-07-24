@@ -368,13 +368,16 @@ export default function ProjectEdit() {
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-slate-300 mb-1">Detailed Case Study Overview</label>
+              <div className="flex items-center justify-between mb-1">
+                <label className="block text-xs font-medium text-slate-300">Detailed Case Study Overview</label>
+                <span className="text-[11px] text-brand-mint font-mono">Supports Markdown & Markdown Tables (#, ##, -, | Table |)</span>
+              </div>
               <textarea
-                rows={5}
+                rows={12}
                 value={form.description}
                 onChange={(e) => setForm({ ...form, description: e.target.value })}
-                placeholder="Explain the problem, architecture, engineering hurdles, and solution..."
-                className="w-full bg-[#0B0E14] border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-brand-500"
+                placeholder="Paste your README.md or Markdown case study text here (Headings #, Lists -, Tables | col | col |, Bold **text**)..."
+                className="w-full bg-[#0B0E14] border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white font-mono focus:outline-none focus:border-brand-500"
               />
             </div>
 

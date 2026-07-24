@@ -454,8 +454,8 @@ function renderProjectInfoBar(proj) {
     <div class="info-item"><div class="info-label">Source</div><div class="info-value orange">${githubHtml}</div></div>
     <div class="info-item"><div class="info-label">Deployment</div><div class="info-value">${liveDemoHtml}</div></div>
     ${statsItemsHtml}
-    <div class="info-desc" style="flex: 1 1 100%; margin-top: 1em; padding-top: 1em; border-top: 1px dashed var(--line);">
-      ${escapeHtml(proj.description || '')}
+    <div class="info-desc markdown-body" style="flex: 1 1 100%; margin-top: 1em; padding-top: 1em; border-top: 1px dashed var(--line);">
+      ${renderMarkdown(proj.description || '')}
     </div>
   `;
 }
@@ -471,7 +471,7 @@ function renderProjectManifest(proj) {
     <div class="manifest-head"><span class="manifest-idx">01</span><span class="manifest-title">System Overview</span></div>
     <div class="m-row">
       <div class="m-row-label">Case Study</div>
-      <div class="m-row-text">${escapeHtml(proj.description || proj.tagline || 'Production software system engineered under deadline pressure.')}</div>
+      <div class="m-row-text markdown-body">${renderMarkdown(proj.description || proj.tagline || 'Production software system engineered under deadline pressure.')}</div>
     </div>
     <div class="m-row">
       <div class="m-row-label">Technologies</div>
@@ -479,6 +479,33 @@ function renderProjectManifest(proj) {
     </div>
     <div class="insight-line"><strong>Key Spec —</strong> Built and verified by the agency software collective. Sub-second performance benchmarks in production environment.</div>
   `;
+}
+
+/**
+ * Markdown Renderer with fallback
+ */
+function renderMarkdown(text) {
+  if (!text) return '';
+  const str = String(text);
+  if (typeof window.marked !== 'undefined' && typeof window.marked.parse === 'function') {
+    try {
+      return window.marked.parse(str);
+    } catch (err) {
+      console.warn('[MarkdownParser] marked library error, fallback used:', err);
+    }
+  }
+
+  // Fallback simple markdown renderer
+  let html = escapeHtml(str)
+    .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+    .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+    .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/^\- (.*$)/gim, '<li>$1</li>')
+    .replace(/\n\n/g, '</p><p>')
+    .replace(/\n/g, '<br/>');
+  return `<p>${html}</p>`;
 }
 
 /**
