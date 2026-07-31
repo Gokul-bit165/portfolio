@@ -260,8 +260,8 @@ function renderProjectCards(container, projects) {
               <div style="font-size:0.55rem;color:var(--text-muted, #777);text-transform:uppercase;letter-spacing:0.05em;">${escapeHtml(proj.category || 'Software')}</div>
               <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;font-weight:800;">${escapeHtml(proj.title)}</div>
             </div>
-            <!-- Showcase Image (square aspect ratio) -->
-            <div style="margin:0.5em 0;aspect-ratio:1/1;width:100%;overflow:hidden;border:2px solid #1d1b1b;border-radius:2px;box-shadow:inset 0 2px 4px rgba(0,0,0,0.08);background:#f5f5f5;flex-shrink:0;">
+            <!-- Showcase Image (square aspect ratio, capped size) -->
+            <div style="margin:0.5em auto;aspect-ratio:1/1;width:100%;max-height:180px;overflow:hidden;border:2px solid #1d1b1b;border-radius:2px;box-shadow:inset 0 2px 4px rgba(0,0,0,0.08);background:#f5f5f5;flex-shrink:0;">
               <img style="width:100%;height:100%;object-fit:cover;display:block;" src="${coverImgSrc}" alt="${escapeHtml(proj.title)}" onError="this.onerror=null;this.src='${DEFAULT_FALLBACK_IMAGE}';"/>
             </div>
             <div>
