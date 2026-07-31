@@ -230,9 +230,13 @@ function renderProjectCards(container, projects) {
   container.innerHTML = projects.map((proj, idx) => {
     const projectKey = (proj.slug && String(proj.slug).trim() !== '') ? String(proj.slug).trim() : proj.id;
     const detailUrl = `project-detail.html?slug=${encodeURIComponent(projectKey)}`;
-    const tagsHtml = (proj.stack_tags || [])
-      .map(tag => `<span class="folder__tag" style="font-family:var(--font-mono, monospace);font-size:0.68rem;padding:0.25em 0.6em;background:rgba(0,0,0,0.06);border-radius:3px;margin-right:0.3em;margin-bottom:0.3em;display:inline-block;">${escapeHtml(tag)}</span>`)
-      .join('');
+    const allTags = proj.stack_tags || [];
+    const visibleTags = allTags.slice(0, 6);
+    const extraCount = allTags.length - visibleTags.length;
+    const tagsHtml = visibleTags
+      .map(tag => `<span class="folder__tag" style="font-family:var(--font-mono, monospace);font-size:0.68rem;padding:0.25em 0.6em;background:rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.1);border-radius:3px;margin-right:0.3em;margin-bottom:0.3em;display:inline-block;white-space:nowrap;">${escapeHtml(tag)}</span>`)
+      .join('')
+      + (extraCount > 0 ? `<span style="font-family:var(--font-mono,monospace);font-size:0.68rem;padding:0.25em 0.6em;background:rgba(255,92,0,0.1);border:1px solid rgba(255,92,0,0.3);color:#FF5C00;border-radius:3px;margin-right:0.3em;margin-bottom:0.3em;display:inline-block;font-weight:700;">+${extraCount}</span>` : '');
 
     const coverImgSrc = proj.cover_image
       ? resolveMediaUrl(proj.cover_image)
@@ -256,12 +260,12 @@ function renderProjectCards(container, projects) {
               <div style="font-size:0.55rem;color:var(--text-muted, #777);text-transform:uppercase;letter-spacing:0.05em;">${escapeHtml(proj.category || 'Software')}</div>
               <div style="font-size:1.3rem;line-height:1.1;margin-top:0.3em;font-weight:800;">${escapeHtml(proj.title)}</div>
             </div>
-            <!-- Showcase Image -->
-            <div class="my-sm h-32 overflow-hidden border-2 border-primary rounded-sm shadow-inner bg-white">
-              <img class="w-full h-full object-cover" src="${coverImgSrc}" alt="${escapeHtml(proj.title)}" onError="this.onerror=null;this.src='${DEFAULT_FALLBACK_IMAGE}';"/>
+            <!-- Showcase Image (square aspect ratio) -->
+            <div style="margin:0.5em 0;aspect-ratio:1/1;width:100%;overflow:hidden;border:2px solid #1d1b1b;border-radius:2px;box-shadow:inset 0 2px 4px rgba(0,0,0,0.08);background:#f5f5f5;flex-shrink:0;">
+              <img style="width:100%;height:100%;object-fit:cover;display:block;" src="${coverImgSrc}" alt="${escapeHtml(proj.title)}" onError="this.onerror=null;this.src='${DEFAULT_FALLBACK_IMAGE}';"/>
             </div>
             <div>
-              <div style="font-family:var(--font-script, sans-serif);font-size:0.85rem;opacity:0.8;margin-bottom:0.5em;line-height:1.2;">${escapeHtml(proj.tagline || proj.description || '')}</div>
+              <div style="font-family:var(--font-script,sans-serif);font-size:0.8rem;opacity:0.8;margin-bottom:0.5em;line-height:1.4;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">${escapeHtml(proj.tagline || proj.description || '')}</div>
               <div class="folder__tags flex flex-wrap">
                 ${tagsHtml}
               </div>
